@@ -1,0 +1,93 @@
+
+> xeroxmate-customer@0.1.0 dev
+> next dev
+
+▲ Next.js 16.4.1 (Turbopack)
+- Local:         http://localhost:3000
+- Network:       http://10.98.78.252:3000
+✓ Ready in 1361ms
+✓ Running next.config.ts took 64ms
+- Cache Components enabled
+- Partial Prefetching enabled
+- Experiments (use with caution):
+  ✓ agentFeedback
+
+○ Compiling /sign-in ...
+ GET /sign-in 200 in 552ms (next.js: 319ms, application-code: 233ms)
+ GET /sign-in 200 in 93ms (next.js: 5ms, application-code: 88ms)
+ GET /sign-in 200 in 121ms (next.js: 9ms, application-code: 112ms)
+✓ Compiled in 95ms
+✓ Compiled in 101ms
+✓ Compiled in 187ms
+ GET /sign-in 200 in 56ms (next.js: 11ms, application-code: 45ms)
+✓ Compiled in 66ms
+ GET /sign-in 200 in 59ms (next.js: 15ms, application-code: 44ms)
+✓ Compiled in 49ms
+ GET /sign-in 200 in 57ms (next.js: 4ms, application-code: 53ms)
+✓ Compiled in 43ms
+ GET /sign-in 200 in 43ms (next.js: 3ms, application-code: 39ms)
+✓ Compiled in 35ms
+ GET /sign-in 200 in 44ms (next.js: 4ms, application-code: 40ms)
+✓ Compiled in 34ms
+ GET /sign-in 200 in 46ms (next.js: 5ms, application-code: 41ms)
+✓ Compiled in 47ms
+ GET /sign-in 200 in 49ms (next.js: 4ms, application-code: 45ms)
+✓ Compiled in 35ms
+ GET /sign-in 200 in 49ms (next.js: 4ms, application-code: 45ms)
+✓ Compiled in 33ms
+ GET /sign-in 200 in 38ms (next.js: 3ms, application-code: 35ms)
+✓ Compiled in 35ms
+ GET /sign-in 200 in 65ms (next.js: 4ms, application-code: 61ms)
+✓ Compiled in 47ms
+ GET /sign-in 200 in 48ms (next.js: 3ms, application-code: 45ms)
+✓ Compiled in 35ms
+ GET /sign-in 200 in 52ms (next.js: 4ms, application-code: 48ms)
+✓ Compiled in 47ms
+ GET /sign-in 200 in 37ms (next.js: 3ms, application-code: 34ms)
+✓ Compiled in 35ms
+ GET /sign-in 200 in 41ms (next.js: 4ms, application-code: 38ms)
+✓ Compiled in 47ms
+ GET /sign-in 200 in 47ms (next.js: 4ms, application-code: 43ms)
+✓ Compiled in 27ms
+ GET /sign-in 200 in 46ms (next.js: 3ms, application-code: 43ms)
+✓ Compiled in 49ms
+ GET /sign-in 200 in 46ms (next.js: 4ms, application-code: 42ms)
+ GET /order 200 in 174ms (next.js: 16ms, application-code: 158ms)
+✓ Compiled in 50ms
+✓ Compiled in 40ms
+✓ Compiled in 55ms
+✓ Compiled in 65ms
+✓ Compiled in 92ms
+✓ Compiled in 221ms
+✓ Compiled in 119ms
+✓ Compiled in 82ms
+✓ Compiled in 52ms
+✓ Compiled in 65ms
+✓ Compiled in 59ms
+✓ Compiled in 85ms
+✓ Compiled in 36ms
+✓ Compiled in 54ms
+✓ Compiled in 49ms
+✓ Compiled in 50ms
+ GET /order 200 in 241ms (next.js: 8ms, application-code: 233ms)
+✓ Compiled in 56ms
+✓ Compiled in 86ms
+ GET /order/store 200 in 195ms (next.js: 73ms, application-code: 122ms)
+[browser] Detected `scroll-behavior: smooth` on the `<html>` element. To disable smooth scrolling during route transitions, add `data-scroll-behavior="smooth"` to your <html> element. Learn more: https://nextjs.org/docs/messages/missing-data-scroll-behavior
+ GET /order/payment 200 in 66ms (next.js: 20ms, application-code: 45ms)
+ GET /order/payment 200 in 173ms (next.js: 5ms, application-code: 168ms)
+✓ Compiled in 37ms
+ GET / 200 in 53ms (next.js: 15ms, application-code: 38ms)
+[browser] Detected `scroll-behavior: smooth` on the `<html>` element. To disable smooth scrolling during route transitions, add `data-scroll-behavior="smooth"` to your <html> element. Learn more: https://nextjs.org/docs/messages/missing-data-scroll-behavior
+ GET /new-order 404 in 557ms (next.js: 513ms, application-code: 44ms)
+ GET /new-order 404 in 93ms (next.js: 27ms, application-code: 66ms)
+ GET / 200 in 107ms (next.js: 3ms, application-code: 104ms)
+✓ Compiled in 50ms
+ GET /order 200 in 59ms (next.js: 8ms, application-code: 52ms)
+[browser] Detected `scroll-behavior: smooth` on the `<html>` element. To disable smooth scrolling during route transitions, add `data-scroll-behavior="smooth"` to your <html> element. Learn more: https://nextjs.org/docs/messages/missing-data-scroll-behavior
+✓ Compiled in 120ms
+ GET /order/store 200 in 54ms (next.js: 7ms, application-code: 47ms)
+ GET /order/payment 200 in 46ms (next.js: 7ms, application-code: 39ms)
+✓ Compiled in 134ms
+✓ Compiled in 81ms
+ GET /order/payment 200 in 168ms (next.js: 4ms, application-code: 163ms)

@@ -14,7 +14,7 @@ export default function SignIn() {
 
   return (
     <main className="flex min-h-screen items-center justify-center bg-[#FAF8FF] p-4">
-      <Card padding="lg" className="w-full max-w-lg border-t-4 border-linear">
+      <Card padding="lg" className="w-full max-w-lg border-linear">
         <h1 className="text-2xl font-heading font-bold text-primary">
           Customer Sign In
         </h1>
