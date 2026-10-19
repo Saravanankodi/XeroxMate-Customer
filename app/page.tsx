@@ -1,69 +1,153 @@
-import Image from "next/image";
+"use client";
+import { Header } from "@/components/layout/Header";
+import { Card, Label } from "@/components/ui";
+import DocumentUpload from "@/components/ui/DocumentUpload";
+import { Filter, Power, Shield } from "lucide-react";
 
+const LABLES_LIST = [
+  {
+    icon:<Shield className="w-5 h-5"/>,
+    text:"Auto-purge file privacy"
+  },
+  {
+    icon:<Power className="w-5 h-5"/>,
+    text:"Skip all shop queues"
+  },
+  {
+    icon:<Shield className="w-5 h-5"/>,
+    text:"Instant price compare"
+  },
+]
+
+const CAEDS_STEPS = [
+  {
+    id: 1,
+    tittle:"Upload & Configure",
+    disc:"Upload assignments, blueprints, or brochures.Configure color options, 75–100 GSM paper weight, spiral binding, and duplex settings seamlessly.",
+    icon: <Filter className="w-3 h-3"/>,
+    spanText:"Real-time instant live preview"
+  },
+  {
+    id: 2,
+    tittle:"Compare Shops & Prices",
+    disc:"Scan rated xerox hubs around your campus or neighborhood. Compare per-page rates, estimated completion queues, and opt for self-pickup or hostel delivery.",
+    icon: <Filter className="w-3 h-3"/>,
+    spanText:"Geo-located hub selection"
+  },
+  {
+    id: 3,
+    tittle:"Zero-Queue Pickup",
+    disc:"Receive a live OTP / QR-code ping when your bundle is stapled and ready. Flash your pass, collect your order instantly, and walk away happy.",
+    icon: <Filter className="w-3 h-3"/>,
+    spanText:"Quick QR pick-up release"
+  },
+]
 export default function Home() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert h-5 w-[100px]"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the{" "}
-            <code className="rounded bg-black/[.06] px-1.5 py-0.5 font-mono text-[0.9em] dark:bg-white/[.08]">
-              page.tsx
-            </code>{" "}
-            file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
+    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans p-5">
+      <Header/>
+      <section className="w-full flex items-center justify-center gap-4 p-5">
+        <main className="flex-1 space-y-5">
+            <Label dot dotColor='bg-success'>
+                Tamil Nadu's #1 Digital Printing Network
+            </Label>
+            <h2 className="font-heading text-[64px] leading-18 font-extrabold">
+                Your Smart Printing
+                <span className="block text-primary">
+                    Partner & Network.
+                </span>
+            </h2>
+            <p className="text-lg text-secondary max-w-2xl  ">
+                Say goodbye to print shop queues and USB pendrives. Upload digitally, customize paper weights & bindings, compare nearby print hubs, and pickup with zero wait time or get doorstep delivery.
+            </p>
+
+            <aside className="w-full mt-3 flex items-center gap-4 ">
+              {
+                LABLES_LIST.map((lable,index)=>(
+                  <div className="flex gap-2 items-center justify-center" key={index}>
+                    <span className="w-3 h-3 rounded-full">
+                      {lable.icon}
+                    </span>
+                    <p className="text-base font-medium ">
+                      {lable.text}
+                    </p>
+                  </div>
+                ))
+              }
+            </aside>
+        </main>
+        <div className="min-w-2/5">
+              <DocumentUpload
+                multiple
+                onFilesSelected={(files) => {
+                  console.log("Selected files:", files);
+                }}
+              />
+        </div>
+      </section>
+      <aside className="w-full grid grid-cols-4 border-y border-black px-2 py-3 gap-3">
+        <div className="w-full px-2 py-1">
+          <h2 className="text-[32px] font-extrabold font-heading text-center ">
+            50+
+          </h2>
+          <p className="text-sm text-center">
+            VERIFIED PRINT HUBS
           </p>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert h-[14px] w-4"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={14}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+        <div className="w-full px-2 py-1 border-l border-black">
+          <h2 className="text-[32px] font-extrabold font-heading text-center ">
+            2.4M+
+          </h2>
+          <p className="text-sm text-center">
+            PAGES PRINTED
+          </p>
         </div>
-      </main>
+        <div className="w-full px-2 py-1 border-l border-black">
+          <h2 className="text-[32px] font-extrabold font-heading text-center ">
+            &#60; 5 Min
+          </h2>
+          <p className="text-sm text-center">
+            ZERO-WAIT EXPRESS PICKUP
+          </p>
+        </div>
+        <div className="w-full px-2 py-1 border-l border-black">
+          <h2 className="text-[32px] font-extrabold font-heading text-center ">
+            100%
+          </h2>
+          <p className="text-sm text-center">
+            REPRINT GUARANTEE
+          </p>
+        </div>
+      </aside>
+      <section className="w-full p-5">
+        <p className="text-base font-bold text-primary text-center">
+          EFFORTLESS WORKFLOW
+        </p>
+        <h3 className="text-[34px] text-center font-extrabold">
+          Printing made modern in 3 easy steps
+        </h3>
+        <main className="w-full  grid grid-cols-3 items-center justify-center gap-5 mt-5">
+          {
+            CAEDS_STEPS.map((card)=>(
+              <Card className="h-full flex flex-col gap-2" key={card.id}>
+                <span className="h-10 w-10  text-xl font-footer font-bold flex items-center justify-center rounded-xl mb-3 bg-white border">
+                  0{card.id}
+                </span>
+                <h2 className="text-xl font-bold pb-3">
+                  {card.tittle}
+                </h2>
+                <p className="text-base pb-4 flex-1">
+                  {card.disc}
+                </p>
+                <span className="flex items-center py-2 gap-2 border-t border-black">
+                  {card.icon}
+                  {card.spanText}
+                </span>
+              </Card>
+            ))
+          }
+        </main>
+      </section>
     </div>
   );
 }
