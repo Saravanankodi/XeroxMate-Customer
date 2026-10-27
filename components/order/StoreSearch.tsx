@@ -1,7 +1,7 @@
 
 "use client";
 
-import { Search, SlidersHorizontal, X } from "lucide-react";
+import { Search, X } from "lucide-react";
 
 type StoreSearchProps = {
   value: string;
@@ -34,18 +34,6 @@ export default function StoreSearch({
           <X size={14} />
         </button>
       )}
-
-      <button
-        type="button"
-        aria-label="Search filters"
-        title="Filters coming soon"
-        onClick={() =>
-          window.alert("Shop filters can be connected in a later step.")
-        }
-        className="shrink-0 rounded p-1 text-slate-500 hover:bg-slate-100"
-      >
-        <SlidersHorizontal size={15} />
-      </button>
     </div>
   );
 }

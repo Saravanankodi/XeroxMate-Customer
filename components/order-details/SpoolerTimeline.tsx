@@ -16,7 +16,7 @@ interface SpoolerTimelineProps {
 
 export default function SpoolerTimeline({
   currentStage,
-  updatedAt = "13/10/2026 12:05 PM",
+  updatedAt = "Just now",
   queuePosition = 2,
 }: SpoolerTimelineProps) {
   const activeIndex = Math.max(
@@ -36,15 +36,17 @@ export default function SpoolerTimeline({
           </p>
         </div>
 
-        <span className="rounded-md bg-slate-100 px-2 py-1 text-xs text-slate-600">
-          Queue Position: #{queuePosition} in Line
-        </span>
+        {queuePosition > 0 && (
+          <span className="rounded-md bg-slate-100 px-2 py-1 text-xs text-slate-600">
+            Queue Position: #{queuePosition} in Line
+          </span>
+        )}
       </div>
 
-      <div className="relative mt-8 grid grid-cols-6 gap-1">
-        <div className="absolute left-[8%] right-[8%] top-3 h-0.5 bg-slate-200" />
+      <div className="relative mt-8 flex flex-col gap-4 sm:grid sm:grid-cols-6 sm:gap-1">
+        <div className="absolute left-[8%] right-[8%] top-3 hidden h-0.5 bg-slate-200 sm:block" />
         <div
-          className="absolute left-[8%] top-3 h-0.5 bg-blue-600 transition-all"
+          className="absolute left-[8%] top-3 hidden h-0.5 bg-blue-600 transition-all sm:block"
           style={{
             width: `${(activeIndex / (stages.length - 1)) * 84}%`,
           }}
@@ -57,10 +59,10 @@ export default function SpoolerTimeline({
           return (
             <div
               key={stage}
-              className="relative z-10 flex min-w-0 flex-col items-center text-center"
+              className="relative z-10 flex min-w-0 items-center gap-3 text-left sm:flex-col sm:gap-0 sm:text-center"
             >
               <div
-                className={`flex h-7 w-7 items-center justify-center rounded-full border text-xs font-semibold ${
+                className={`flex h-7 w-7 shrink-0 items-center justify-center rounded-full border text-xs font-semibold ${
                   active
                     ? "border-blue-600 bg-blue-600 text-white ring-4 ring-blue-50"
                     : completed
@@ -71,11 +73,11 @@ export default function SpoolerTimeline({
                 {completed ? "✓" : index + 1}
               </div>
 
-              <span className="mt-3 text-[10px] font-semibold leading-4 text-slate-700 sm:text-xs">
+              <span className="text-xs font-semibold leading-4 text-slate-700">
                 {stage}
               </span>
 
-              <span className="mt-1 text-[10px] text-slate-400">
+              <span className="ml-auto text-xs text-slate-400 sm:ml-0 sm:mt-1">
                 {active
                   ? updatedAt
                   : completed

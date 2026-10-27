@@ -39,10 +39,10 @@ export default function PersonalDetails() {
           <UserRound size={19} />
         </span>
         <div>
-          <h2 className="font-serif text-base font-bold text-slate-900">
+          <h2 className="font-heading text-base font-bold text-slate-900">
             Personal Details
           </h2>
-          <p className="mt-0.5 text-[10px] text-slate-500">
+          <p className="mt-0.5 text-xs text-slate-500">
             Used for print pickup OTPs and delivery notifications.
           </p>
         </div>
@@ -50,7 +50,7 @@ export default function PersonalDetails() {
 
       <form onSubmit={saveDetails} className="mt-4 space-y-3">
         <div>
-          <label htmlFor="profile-name" className="text-[10px] font-bold uppercase tracking-wide text-slate-600">
+          <label htmlFor="profile-name" className="text-xs font-bold uppercase tracking-wide text-slate-600">
             Full Name
           </label>
           <input
@@ -63,11 +63,11 @@ export default function PersonalDetails() {
         </div>
 
         <div>
-          <label htmlFor="profile-phone" className="text-[10px] font-bold uppercase tracking-wide text-slate-600">
+          <label htmlFor="profile-phone" className="text-xs font-bold uppercase tracking-wide text-slate-600">
             Phone Number
           </label>
           <div className="mt-1.5 flex overflow-hidden rounded-xl border border-slate-200 focus-within:border-blue-500">
-            <span className="flex items-center border-r border-slate-200 bg-slate-50 px-2 text-[10px] text-slate-600">
+            <span className="flex items-center border-r border-slate-200 bg-slate-50 px-2 text-xs text-slate-600">
               🇮🇳 +91
             </span>
             <input
@@ -79,17 +79,17 @@ export default function PersonalDetails() {
               className="min-w-0 flex-1 px-3 py-2.5 text-xs outline-none"
             />
           </div>
-          <p className="mt-1 text-[10px] text-slate-400">
+          <p className="mt-1 text-xs text-slate-400">
             WhatsApp and SMS alerts will be sent here.
           </p>
         </div>
 
         <div>
           <div className="flex items-center justify-between gap-2">
-            <label htmlFor="profile-email" className="text-[10px] font-bold uppercase tracking-wide text-slate-600">
+            <label htmlFor="profile-email" className="text-xs font-bold uppercase tracking-wide text-slate-600">
               Email Address
             </label>
-            <span className="flex items-center gap-1 rounded-full bg-emerald-50 px-2 py-1 text-[9px] font-semibold text-emerald-700">
+            <span className="flex items-center gap-1 rounded-full bg-emerald-50 px-2 py-1 text-[11px] font-semibold text-emerald-700">
               <CheckCircle2 size={11} /> Verified
             </span>
           </div>
@@ -104,14 +104,14 @@ export default function PersonalDetails() {
         </div>
 
         <div>
-          <label htmlFor="profile-alt-phone" className="text-[10px] font-bold uppercase tracking-wide text-slate-600">
+          <label htmlFor="profile-alt-phone" className="text-xs font-bold uppercase tracking-wide text-slate-600">
             Alternate Phone Number{" "}
             <span className="font-normal normal-case text-slate-400">
               (optional backup)
             </span>
           </label>
           <div className="mt-1.5 flex overflow-hidden rounded-xl border border-slate-200 focus-within:border-blue-500">
-            <span className="flex items-center border-r border-slate-200 bg-slate-50 px-2 text-[10px] text-slate-600">
+            <span className="flex items-center border-r border-slate-200 bg-slate-50 px-2 text-xs text-slate-600">
               🇮🇳 +91
             </span>
             <input

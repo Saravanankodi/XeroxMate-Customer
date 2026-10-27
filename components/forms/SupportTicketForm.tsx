@@ -93,17 +93,6 @@ export default function SupportTicketForm() {
     }
 
     // Connect this handler to your backend API to persist tickets.
-    const ticketData = {
-      subject,
-      order,
-      category,
-      priority,
-      description,
-      attachments: files.map((file) => file.name),
-    };
-
-    console.log("Support ticket submission:", ticketData);
-
     setStatus(
       "Your form is validated. Connect the ticket API to create your support ticket."
     );
@@ -117,7 +106,7 @@ export default function SupportTicketForm() {
         </span>
 
         <div>
-          <h2 className="font-serif text-xl font-bold text-blue-950">
+          <h2 className="font-heading text-xl font-bold text-blue-950">
             Raise a Support Ticket
           </h2>
           <p className="mt-1 text-xs text-slate-500">
@@ -132,7 +121,7 @@ export default function SupportTicketForm() {
             <label htmlFor="ticket-subject" className="text-xs font-bold text-slate-800">
               Subject <span className="text-red-500">*</span>
             </label>
-            <span className="text-[10px] text-slate-500">Be concise</span>
+            <span className="text-xs text-slate-500">Be concise</span>
           </div>
 
           <input
@@ -146,7 +135,7 @@ export default function SupportTicketForm() {
           />
 
           <div className="mt-3 flex flex-wrap items-center gap-2">
-            <span className="text-[10px] text-slate-500">Quick Fill:</span>
+            <span className="text-xs text-slate-500">Quick Fill:</span>
             {quickFill.map((item) => (
               <button
                 key={item.label}
@@ -156,7 +145,7 @@ export default function SupportTicketForm() {
                   setCategory(item.category);
                   setStatus("");
                 }}
-                className="rounded-md bg-slate-100 px-2.5 py-1.5 text-[10px] font-semibold text-slate-600 transition hover:bg-blue-100 hover:text-blue-900"
+                className="rounded-md bg-slate-100 px-2.5 py-1.5 text-xs font-semibold text-slate-600 transition hover:bg-blue-100 hover:text-blue-900"
               >
                 {item.label}
               </button>
@@ -222,7 +211,7 @@ export default function SupportTicketForm() {
                 <span className="block text-xs font-bold text-slate-800">
                   Standard Resolution
                 </span>
-                <span className="mt-1 block text-[10px] leading-4 text-slate-500">
+                <span className="mt-1 block text-xs leading-4 text-slate-500">
                   Normal priority (response within 1–2 hours)
                 </span>
               </span>
@@ -244,11 +233,11 @@ export default function SupportTicketForm() {
               <span>
                 <span className="flex flex-wrap items-center gap-1.5 text-xs font-bold text-slate-800">
                   Urgent Submission
-                  <span className="rounded bg-red-600 px-1.5 py-0.5 text-[9px] text-white">
+                  <span className="rounded bg-red-600 px-1.5 py-0.5 text-[11px] text-white">
                     Priority
                   </span>
                 </span>
-                <span className="mt-1 block text-[10px] leading-4 text-slate-500">
+                <span className="mt-1 block text-xs leading-4 text-slate-500">
                   Exam / Viva / Seminar submission in less than 2 hrs
                 </span>
               </span>
@@ -261,7 +250,7 @@ export default function SupportTicketForm() {
             <label htmlFor="ticket-description" className="text-xs font-bold text-slate-800">
               Description <span className="text-red-500">*</span>
             </label>
-            <span className="text-[10px] text-slate-500">Min. 20 chars</span>
+            <span className="text-xs text-slate-500">Min. 20 chars</span>
           </div>
 
           <textarea
@@ -281,7 +270,7 @@ export default function SupportTicketForm() {
             <label className="text-xs font-bold text-slate-800">
               Attach Photos / Proof <span className="font-normal text-slate-500">(Optional)</span>
             </label>
-            <span className="text-[10px] text-slate-500">Max 10 MB per file (PDF, JPG, PNG)</span>
+            <span className="text-xs text-slate-500">Max 10 MB per file (PDF, JPG, PNG)</span>
           </div>
 
           <button
@@ -300,7 +289,7 @@ export default function SupportTicketForm() {
             <span className="text-xs font-semibold text-slate-800">
               Click or drag files here to attach proof
             </span>
-            <span className="mt-1 text-[10px] text-slate-500">
+            <span className="mt-1 text-xs text-slate-500">
               Helps our shop floor manager process reprints immediately without calling you.
             </span>
           </button>
@@ -339,7 +328,7 @@ export default function SupportTicketForm() {
         )}
 
         <div className="flex flex-col justify-between gap-4 border-t border-slate-100 pt-4 sm:flex-row sm:items-center">
-          <p className="flex items-start gap-2 text-[10px] leading-4 text-slate-500">
+          <p className="flex items-start gap-2 text-xs leading-4 text-slate-500">
             <CheckCircle2 size={15} className="mt-0.5 shrink-0 text-blue-700" />
             Ticket updates will be sent to your registered email &amp; SMS.
           </p>

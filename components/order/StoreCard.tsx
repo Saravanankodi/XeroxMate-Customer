@@ -23,21 +23,33 @@ export default function StoreCard({
   selected,
   onSelect,
 }: StoreCardProps) {
+  function selectShop() {
+    if (shop.open) onSelect(shop);
+  }
+
   return (
-    <button
-      type="button"
-      onClick={() => onSelect(shop)}
+    <div
+      role="button"
+      tabIndex={shop.open ? 0 : -1}
+      onClick={selectShop}
+      onKeyDown={(event) => {
+        if (event.key === "Enter" || event.key === " ") {
+          event.preventDefault();
+          selectShop();
+        }
+      }}
       aria-pressed={selected}
-      className={`w-full overflow-hidden rounded-xl border text-left transition ${
+      aria-disabled={!shop.open}
+      className={`w-full overflow-hidden rounded-xl border text-left transition focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-blue-200 ${
         selected
           ? "border-blue-600 bg-indigo-50/60 ring-1 ring-blue-200"
           : "border-slate-100 bg-white hover:border-blue-200 hover:shadow-sm"
-      } ${!shop.open ? "opacity-75" : ""}`}
+      } ${shop.open ? "cursor-pointer" : "cursor-not-allowed opacity-75"}`}
     >
       <div className="p-4">
         <div className="mb-2 flex flex-wrap items-center gap-2">
           <span
-            className={`inline-flex items-center gap-1 rounded-full px-2 py-1 text-[9px] font-semibold ${
+            className={`inline-flex items-center gap-1 rounded-full px-2 py-1 text-[11px] font-semibold ${
               shop.open
                 ? "bg-teal-100 text-teal-800"
                 : "bg-rose-100 text-rose-700"
@@ -47,11 +59,11 @@ export default function StoreCard({
             {shop.open ? "Open Now" : "Closed Currently"}
           </span>
 
-          <span className="text-[10px] text-slate-500">
-            {shop.open ? shop.openingHours : shop.openingHours}
+          <span className="text-xs text-slate-500">
+            {shop.openingHours}
           </span>
 
-          <span className="ml-auto flex items-center gap-1 rounded-full bg-white px-2 py-1 text-[10px] text-slate-600">
+          <span className="ml-auto flex items-center gap-1 rounded-full bg-white px-2 py-1 text-xs text-slate-600">
             <span className="text-amber-500">★</span>
             <b>{shop.rating.toFixed(1)}</b>
             <span>({shop.reviews} reviews)</span>
@@ -64,7 +76,7 @@ export default function StoreCard({
               {shop.name}
             </h2>
 
-            <p className="mt-1.5 flex items-start gap-1.5 text-[10px] leading-4 text-slate-500">
+            <p className="mt-1.5 flex items-start gap-1.5 text-xs leading-4 text-slate-500">
               <MapPin
                 size={13}
                 className="mt-0.5 shrink-0 text-blue-700"
@@ -90,7 +102,7 @@ export default function StoreCard({
           )}
 
           <div>
-            <p className="text-[10px] text-slate-500">
+            <p className="text-xs text-slate-500">
               {shop.fulfillment.includes("delivery")
                 ? "Pickup / Delivery"
                 : "Fulfilment"}
@@ -104,7 +116,7 @@ export default function StoreCard({
         </div>
 
         <div className="text-right">
-          <p className="text-[9px] font-medium text-slate-500">
+          <p className="text-[11px] font-medium text-slate-500">
             ESTIMATED TOTAL
           </p>
           <p className="text-sm font-extrabold text-blue-950">
@@ -114,11 +126,11 @@ export default function StoreCard({
       </div>
 
       {!shop.open && (
-        <div className="flex items-center gap-1 px-4 py-2 text-[10px] text-slate-500">
+        <div className="flex items-center gap-1 px-4 py-2 text-xs text-slate-500">
           <Clock3 size={12} />
-          You can select this shop, but fulfilment must be confirmed.
+          Currently closed — choose an open shop to continue.
         </div>
       )}
-    </button>
+    </div>
   );
 }

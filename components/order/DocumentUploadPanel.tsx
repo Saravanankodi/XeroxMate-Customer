@@ -21,8 +21,6 @@ const ACCEPTED_EXTENSIONS = [
   ".jpeg",
 ];
 
-const MAX_FILE_SIZE = 20 * 1024 * 1024;
-
 type DocumentUploadPanelProps = {
   onFileChange?: (file: File | null) => void;
   maxSizeMB?: number;

@@ -31,7 +31,7 @@ export default function DocumentInspection({
 
       <div className="mt-4 flex flex-wrap items-center justify-between gap-3 rounded-xl border border-slate-100 bg-slate-50/70 p-3">
         <div className="flex min-w-0 items-center gap-3">
-          <div className="flex h-10 w-10 shrink-0 flex-col items-center justify-center rounded-lg bg-rose-100 text-[10px] font-bold text-rose-700">
+          <div className="flex h-10 w-10 shrink-0 flex-col items-center justify-center rounded-lg bg-rose-100 text-xs font-bold text-rose-700">
             PDF
           </div>
 

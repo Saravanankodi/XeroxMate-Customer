@@ -13,7 +13,7 @@ export default function PickupTokenCard({
   return (
     <section className="rounded-xl bg-linear-to-br from-slate-950 to-blue-950 p-5 text-white shadow-sm">
       <div className="flex items-center justify-between gap-2">
-        <span className="rounded bg-blue-900/80 px-2 py-1 text-[10px] font-semibold uppercase tracking-wider text-blue-200">
+        <span className="rounded bg-blue-900/80 px-2 py-1 text-xs font-semibold uppercase tracking-wider text-blue-200">
           Express Counter Pass
         </span>
 
@@ -33,7 +33,7 @@ export default function PickupTokenCard({
         </div>
 
         <div className="shrink-0 text-right">
-          <p className="text-[10px] text-slate-300">
+          <p className="text-xs text-slate-300">
             4-Digit Security OTP
           </p>
           <p className="mt-1 font-mono text-xl font-bold tracking-[0.35em] text-amber-300">
@@ -46,7 +46,7 @@ export default function PickupTokenCard({
         <p className="text-xs text-slate-300">
           Order: {orderId}
         </p>
-        <p className="mt-1 text-[10px] text-slate-400">
+        <p className="mt-1 text-xs text-slate-400">
           Keep this code private and share it only at the authorized pickup counter.
         </p>
       </div>

@@ -1,7 +1,7 @@
 
 "use client";
 
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Button } from "../ui";
 
 interface OrderStatusCardProps {
@@ -21,7 +21,91 @@ export default function OrderStatusCard({
   balance,
   onCancel,
 }: OrderStatusCardProps) {
+  const dialogRef = useRef<HTMLDivElement>(null);
   const [showConfirm, setShowConfirm] = useState(false);
+
+  const normalizedStatus = status.toLowerCase();
+  const canCancel =
+    normalizedStatus.includes("awaiting") ||
+    normalizedStatus.includes("processing");
+
+  const statusInfo = normalizedStatus.includes("cancel")
+    ? {
+        title: "Order cancelled",
+        body: "This order was cancelled and will not be printed. No pickup is required.",
+      }
+    : normalizedStatus.includes("completed")
+      ? {
+          title: "Order completed",
+          body: "These prints have been collected. Thanks for printing with XeroxMate.",
+        }
+      : normalizedStatus.includes("ready")
+        ? {
+            title: "Ready for pickup",
+            body: "Your prints are ready. Show your pickup token and OTP at the shop counter.",
+          }
+        : normalizedStatus.includes("processing")
+          ? {
+              title: "Your order is being printed",
+              body: "The print shop has accepted your order and is processing it now.",
+            }
+          : {
+              title: "Waiting for the print shop to accept your order",
+              body: "Your payload has been verified and synced with the shopkeeper's desktop terminal queue. Acceptance typically takes 2-3 minutes during business hours.",
+            };
+
+  const statusTone = normalizedStatus.includes("cancel")
+    ? "bg-rose-50 text-rose-700"
+    : normalizedStatus.includes("completed") ||
+        normalizedStatus.includes("ready")
+      ? "bg-emerald-50 text-emerald-700"
+      : "bg-amber-50 text-amber-700";
+
+  useEffect(() => {
+    if (!showConfirm) return;
+
+    const previouslyFocused = document.activeElement as HTMLElement | null;
+    const previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    const initialFocus = dialogRef.current?.querySelector<HTMLElement>(
+      'button:not([disabled])',
+    );
+    (initialFocus ?? dialogRef.current)?.focus();
+
+    function handleKeyDown(event: KeyboardEvent) {
+      if (event.key === "Escape") {
+        setShowConfirm(false);
+        return;
+      }
+
+      if (event.key !== "Tab") return;
+
+      const focusable = dialogRef.current?.querySelectorAll<HTMLElement>(
+        'button:not([disabled]), [href], input:not([disabled]), [tabindex]:not([tabindex="-1"])',
+      );
+
+      if (!focusable?.length) return;
+
+      const first = focusable[0];
+      const last = focusable[focusable.length - 1];
+
+      if (event.shiftKey && document.activeElement === first) {
+        event.preventDefault();
+        last.focus();
+      } else if (!event.shiftKey && document.activeElement === last) {
+        event.preventDefault();
+        first.focus();
+      }
+    }
+
+    window.addEventListener("keydown", handleKeyDown);
+
+    return () => {
+      document.body.style.overflow = previousOverflow;
+      window.removeEventListener("keydown", handleKeyDown);
+      previouslyFocused?.focus();
+    };
+  }, [showConfirm]);
 
   return (
     <section className="rounded-xl border border-slate-200 bg-white p-5 shadow-sm">
@@ -31,25 +115,37 @@ export default function OrderStatusCard({
             Order <span className="text-blue-700">#{orderId}</span>
           </h2>
 
-          <span className="rounded-full bg-amber-50 px-3 py-1 text-xs font-medium text-amber-700">
-            ● {status}
-          </span>
-
-          <span className="rounded-full bg-rose-50 px-3 py-1 text-xs text-rose-700">
-            ● {paymentStatus} · ₹{balance.toFixed(2)} at Counter
-          </span>
-        </div>
-
-        <div className="flex gap-2">
-          <Button
-            type="button"
-            onClick={() => setShowConfirm(true)}
-            variant="danger"
-            size="sm"
+          <span
+            className={`rounded-full px-3 py-1 text-xs font-medium ${statusTone}`}
           >
-            Cancel Order
-          </Button>
+            {status}
+          </span>
+
+          <span
+            className={`rounded-full px-3 py-1 text-xs ${
+              balance > 0
+                ? "bg-rose-50 text-rose-700"
+                : "bg-emerald-50 text-emerald-700"
+            }`}
+          >
+              {balance > 0
+                ? `${paymentStatus} · ₹${balance.toFixed(2)} at Counter`
+                : paymentStatus}
+          </span>
         </div>
+
+        {canCancel && (
+          <div className="flex gap-2">
+            <Button
+              type="button"
+              onClick={() => setShowConfirm(true)}
+              variant="danger"
+              size="sm"
+            >
+              Cancel Order
+            </Button>
+          </div>
+        )}
       </div>
 
       <p className="mt-3 text-xs text-slate-500">
@@ -57,14 +153,8 @@ export default function OrderStatusCard({
       </p>
 
       <div className="mt-4 rounded-lg border border-blue-100 bg-blue-50/70 p-3 text-sm text-slate-600">
-        <p className="font-semibold text-blue-900">
-          Waiting for the print shop to accept your order
-        </p>
-        <p className="mt-1">
-          Your payload has been verified and synced with the shopkeeper&apos;s
-          desktop terminal queue. Acceptance typically takes 2–3 minutes
-          during business hours.
-        </p>
+        <p className="font-semibold text-blue-900">{statusInfo.title}</p>
+        <p className="mt-1">{statusInfo.body}</p>
       </div>
 
       {showConfirm && (
@@ -73,8 +163,15 @@ export default function OrderStatusCard({
           role="dialog"
           aria-modal="true"
           aria-labelledby="cancel-order-title"
+          onMouseDown={(event) => {
+            if (event.target === event.currentTarget) setShowConfirm(false);
+          }}
         >
-          <div className="w-full max-w-sm rounded-xl bg-white p-5 shadow-xl">
+          <div
+            ref={dialogRef}
+            tabIndex={-1}
+            className="w-full max-w-sm rounded-xl bg-white p-5 shadow-xl outline-none"
+          >
             <h3 id="cancel-order-title" className="text-lg font-bold">
               Cancel this order?
             </h3>

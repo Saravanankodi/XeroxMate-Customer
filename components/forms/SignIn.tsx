@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useState } from "react";
 import {
   Button,
@@ -69,6 +70,16 @@ export default function SignIn() {
             Continue with Google
           </Button>
         </form>
+
+        <p className="mt-5 text-center text-sm text-muted">
+          New to XeroxMate?{" "}
+          <Link
+            href="/sign-up"
+            className="font-semibold text-primary hover:underline"
+          >
+            Create an account
+          </Link>
+        </p>
       </Card>
     </main>
   );

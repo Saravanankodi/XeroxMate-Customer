@@ -24,7 +24,7 @@ const benefits = [
 
 export default function SupportBenefits() {
   return (
-    <section className="grid gap-5 rounded-2xl bg-gradient-to-r from-blue-900 via-blue-700 to-blue-950 p-5 text-white shadow-sm md:grid-cols-3 md:p-6">
+    <section className="grid gap-5 rounded-2xl bg-linear-to-r from-blue-900 via-blue-700 to-blue-950 p-5 text-white shadow-sm md:grid-cols-3 md:p-6">
       {benefits.map(({ icon: Icon, title, description }) => (
         <div key={title} className="flex items-center gap-3">
           <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-white/10 text-cyan-200 ring-1 ring-white/10">

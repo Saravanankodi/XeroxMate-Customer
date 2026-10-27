@@ -1,5 +1,5 @@
 
-import type { PrintSpecification as PrintSpecificationType } from "../../types/order-details.ts";
+import type { PrintSpecification as PrintSpecificationType } from "@/types/order-details";
 
 interface Props {
   specification: PrintSpecificationType;
@@ -40,12 +40,12 @@ export default function PrintSpecification({ specification }: Props) {
         {rows.map((row, index) => (
           <div
             key={row.label}
-            className={`flex items-center justify-between gap-4 px-3 py-2.5 text-sm ${
+            className={`flex items-start justify-between gap-4 px-3 py-2.5 text-sm ${
               index % 2 === 0 ? "bg-indigo-50/70" : "bg-white"
             }`}
           >
-            <span className="text-slate-600">{row.label}</span>
-            <span className="text-right font-semibold text-slate-800">
+            <span className="shrink-0 text-slate-600">{row.label}</span>
+            <span className="min-w-0 break-words text-right font-semibold text-slate-800">
               {row.value}
             </span>
           </div>

@@ -21,12 +21,12 @@ export default function TicketHistory() {
   return (
     <section className="rounded-2xl border border-white bg-white p-4 shadow-sm sm:p-5">
       <div className="mb-4 flex flex-wrap items-center justify-between gap-2">
-        <h2 className="flex items-center gap-2 font-serif text-base font-bold text-blue-950">
+        <h2 className="flex items-center gap-2 font-heading text-base font-bold text-blue-950">
           <History size={17} className="text-blue-700" />
           Your Ticket History (Last 30 Days)
         </h2>
 
-        <span className="text-[10px] text-slate-500">
+        <span className="text-xs text-slate-500">
           1 resolved • 0 open
         </span>
       </div>
@@ -47,12 +47,12 @@ export default function TicketHistory() {
                   {ticket.id} - {ticket.title}
                 </span>
 
-                <span className="rounded-full bg-teal-100 px-2 py-0.5 text-[9px] font-bold text-teal-800">
+                <span className="rounded-full bg-teal-100 px-2 py-0.5 text-[11px] font-bold text-teal-800">
                   {ticket.status}
                 </span>
               </div>
 
-              <p className="mt-1 text-[10px] leading-4 text-slate-500">
+              <p className="mt-1 text-xs leading-4 text-slate-500">
                 {ticket.order} • {ticket.detail}
               </p>
 
@@ -77,7 +77,7 @@ export default function TicketHistory() {
                 current === ticket.id ? null : ticket.id
               )
             }
-            className="self-start rounded-lg border border-slate-200 bg-white px-3 py-2 text-[10px] font-semibold text-blue-800 hover:bg-blue-50 sm:self-center"
+            className="self-start rounded-lg border border-slate-200 bg-white px-3 py-2 text-xs font-semibold text-blue-800 hover:bg-blue-50 sm:self-center"
           >
             {selectedTicket === ticket.id ? "Hide Log" : "View Log"}
           </button>

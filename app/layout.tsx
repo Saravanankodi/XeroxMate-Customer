@@ -2,9 +2,12 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "XeroxMate | Customer Sign In",
+  title: {
+    default: "XeroxMate | Smart Campus Printing",
+    template: "%s | XeroxMate",
+  },
   description:
-    "Sign in to XeroxMate to manage print orders, uploads, and billing.",
+    "Upload documents, compare nearby print shops and collect your prints without the queue.",
 };
 
 export default function RootLayout({

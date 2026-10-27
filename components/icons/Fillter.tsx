@@ -1,0 +1,16 @@
+import * as React from "react";
+import type { SVGProps } from "react";
+const SvgFillter = (props: SVGProps<SVGSVGElement>) => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 16 16"
+    fill="none"
+    {...props}
+  >
+    <path
+      fill="currentcolor"
+      d="M6 13.5V9h1.5v1.5h6V12h-6v1.5zM0 12v-1.5h4.5V12zm3-3V7.5H0V6h3V4.5h1.5V9zm3-1.5V6h7.5v1.5zm3-3V0h1.5v1.5h3V3h-3v1.5zM0 3V1.5h7.5V3z"
+    />
+  </svg>
+);
+export default SvgFillter;

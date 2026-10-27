@@ -1,7 +1,7 @@
 
 "use client";
 
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { Check, Plus, RotateCcw } from "lucide-react";
 import { SavedAddress } from "../profile";
 
@@ -31,27 +31,22 @@ export default function AddAddressForm({
   onSave,
   onCancelEdit,
 }: Props) {
-  const [form, setForm] = useState(emptyForm);
+  const [form, setForm] = useState(() =>
+    editingAddress
+      ? {
+          label: editingAddress.label,
+          name: editingAddress.name,
+          phone: editingAddress.phone,
+          building: editingAddress.building,
+          street: editingAddress.street,
+          area: editingAddress.area,
+          city: editingAddress.city,
+          pin: editingAddress.pin,
+          isDefault: editingAddress.isDefault,
+        }
+      : emptyForm,
+  );
   const [message, setMessage] = useState("");
-
-  useEffect(() => {
-    if (editingAddress) {
-      setForm({
-        label: editingAddress.label,
-        name: editingAddress.name,
-        phone: editingAddress.phone,
-        building: editingAddress.building,
-        street: editingAddress.street,
-        area: editingAddress.area,
-        city: editingAddress.city,
-        pin: editingAddress.pin,
-        isDefault: editingAddress.isDefault,
-      });
-    } else {
-      setForm(emptyForm);
-    }
-    setMessage("");
-  }, [editingAddress]);
 
   function update(field: keyof typeof form, value: string | boolean) {
     setForm((current) => ({ ...current, [field]: value }));
@@ -106,10 +101,10 @@ export default function AddAddressForm({
         </span>
 
         <div>
-          <h2 className="font-serif text-base font-bold text-slate-900">
+          <h2 className="font-heading text-base font-bold text-slate-900">
             {editingAddress ? "Edit Address" : "Add a New Address"}
           </h2>
-          <p className="mt-0.5 text-[10px] text-slate-500">
+          <p className="mt-0.5 text-xs text-slate-500">
             Provide complete details to ensure accurate desk and room delivery.
           </p>
         </div>
@@ -117,7 +112,7 @@ export default function AddAddressForm({
 
       <form onSubmit={submit} className="mt-4 space-y-4">
         <fieldset>
-          <legend className="text-[10px] font-bold uppercase tracking-wide text-slate-600">
+          <legend className="text-xs font-bold uppercase tracking-wide text-slate-600">
             Address Label *
           </legend>
 
@@ -127,7 +122,7 @@ export default function AddAddressForm({
                 key={item.value}
                 type="button"
                 onClick={() => update("label", item.value)}
-                className={`flex items-center gap-1.5 rounded-lg border px-2.5 py-2 text-[10px] font-semibold transition ${
+                className={`flex items-center gap-1.5 rounded-lg border px-2.5 py-2 text-xs font-semibold transition ${
                   form.label === item.value
                     ? "border-blue-900 bg-blue-900 text-white"
                     : "border-slate-200 bg-white text-slate-600 hover:bg-slate-50"
@@ -142,7 +137,7 @@ export default function AddAddressForm({
 
         <div className="grid gap-3 sm:grid-cols-2">
           <div>
-            <label htmlFor="address-name" className="text-[10px] font-bold uppercase tracking-wide text-slate-600">
+            <label htmlFor="address-name" className="text-xs font-bold uppercase tracking-wide text-slate-600">
               Receiver Full Name *
             </label>
             <input
@@ -156,7 +151,7 @@ export default function AddAddressForm({
           </div>
 
           <div>
-            <label htmlFor="address-phone" className="text-[10px] font-bold uppercase tracking-wide text-slate-600">
+            <label htmlFor="address-phone" className="text-xs font-bold uppercase tracking-wide text-slate-600">
               Contact Phone Number *
             </label>
             <input
@@ -172,7 +167,7 @@ export default function AddAddressForm({
         </div>
 
         <div>
-          <label htmlFor="address-building" className="text-[10px] font-bold uppercase tracking-wide text-slate-600">
+          <label htmlFor="address-building" className="text-xs font-bold uppercase tracking-wide text-slate-600">
             House / Flat / Building / Department Name *
           </label>
           <input
@@ -186,7 +181,7 @@ export default function AddAddressForm({
         </div>
 
         <div>
-          <label htmlFor="address-street" className="text-[10px] font-bold uppercase tracking-wide text-slate-600">
+          <label htmlFor="address-street" className="text-xs font-bold uppercase tracking-wide text-slate-600">
             Street / Landmark / Campus Gate *
           </label>
           <input
@@ -200,7 +195,7 @@ export default function AddAddressForm({
         </div>
 
         <div>
-          <label htmlFor="address-area" className="text-[10px] font-bold uppercase tracking-wide text-slate-600">
+          <label htmlFor="address-area" className="text-xs font-bold uppercase tracking-wide text-slate-600">
             Area / Locality *
           </label>
           <input
@@ -215,7 +210,7 @@ export default function AddAddressForm({
 
         <div className="grid gap-3 sm:grid-cols-2">
           <div>
-            <label htmlFor="address-city" className="text-[10px] font-bold uppercase tracking-wide text-slate-600">
+            <label htmlFor="address-city" className="text-xs font-bold uppercase tracking-wide text-slate-600">
               City *
             </label>
             <input
@@ -228,7 +223,7 @@ export default function AddAddressForm({
           </div>
 
           <div>
-            <label htmlFor="address-pin" className="text-[10px] font-bold uppercase tracking-wide text-slate-600">
+            <label htmlFor="address-pin" className="text-xs font-bold uppercase tracking-wide text-slate-600">
               PIN / Postal Code *
             </label>
             <input
@@ -246,7 +241,7 @@ export default function AddAddressForm({
           </div>
         </div>
 
-        <label className="flex cursor-pointer items-start gap-2 text-[10px] leading-4 text-slate-600">
+        <label className="flex cursor-pointer items-start gap-2 text-xs leading-4 text-slate-600">
           <input
             type="checkbox"
             checked={form.isDefault}

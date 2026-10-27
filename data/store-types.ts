@@ -1,6 +1,9 @@
 
 export type FulfillmentMode = "pickup" | "delivery";
 
+export const DELIVERY_FEE = 50;
+export const WRAPPER_FEE = 5;
+
 export type PrintShop = {
   id: string;
   name: string;
@@ -33,7 +36,7 @@ export const sampleShops: PrintShop[] = [
   {
     id: "sri-balaji",
     name: "Sri Balaji Xerox & Digital Offset",
-    address: "61D, Main Street, Ariyalur, Tamil Nadu 76386",
+    address: "61D, Main Street, Ariyalur, Tamil Nadu 621704",
     locality: "Main Street",
     distance: "1.4 km",
     rating: 4.8,

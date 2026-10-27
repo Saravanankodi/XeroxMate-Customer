@@ -42,7 +42,7 @@ const methods: {
   {
     id: "CashOnDelivery",
     title: "Delivery Pay",
-    description: "Cash On Delivey",
+    description: "Cash on delivery",
     icon: Store,
   },
 ];
@@ -129,7 +129,7 @@ export default function PaymentMethod({
       {value === "CashOnDelivery" && (
         <div className="mt-4 rounded-lg bg-emerald-50 p-3 text-xs leading-5 text-emerald-800">
           You can pay at the selected print shop when collecting your
-          order, subject to the shop's payment policy.
+          order, subject to the shop&apos;s payment policy.
         </div>
       )}
     </section>

@@ -1,5 +1,4 @@
 
-import Link from "next/link";
 import { ChevronRight, Mail, MessageCircle, Phone } from "lucide-react";
 
 export default function ContactSupport() {
@@ -11,12 +10,12 @@ export default function ContactSupport() {
             <MessageCircle size={18} />
           </span>
 
-          <h2 className="font-serif text-lg font-bold text-blue-950">
+          <h2 className="font-heading text-lg font-bold text-blue-950">
             Contact us directly
           </h2>
         </div>
 
-        <span className="rounded-full bg-teal-100 px-2.5 py-1 text-[10px] font-bold text-teal-800">
+        <span className="rounded-full bg-teal-100 px-2.5 py-1 text-xs font-bold text-teal-800">
           Active
         </span>
       </div>
@@ -31,7 +30,7 @@ export default function ContactSupport() {
           </span>
 
           <span className="min-w-0 flex-1">
-            <span className="block text-[10px] text-slate-500">
+            <span className="block text-xs text-slate-500">
               Phone Support
             </span>
             <span className="mt-0.5 block text-xs font-bold text-slate-800">
@@ -51,7 +50,7 @@ export default function ContactSupport() {
           </span>
 
           <span className="min-w-0 flex-1">
-            <span className="block text-[10px] text-slate-500">
+            <span className="block text-xs text-slate-500">
               Official Help Desk
             </span>
             <span className="mt-0.5 block break-all text-xs font-bold text-slate-800">

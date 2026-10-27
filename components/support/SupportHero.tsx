@@ -5,11 +5,11 @@ export default function SupportHero() {
   return (
     <section className="flex flex-col justify-between gap-5 sm:flex-row sm:items-center">
       <div>
-        <span className="inline-flex rounded-full bg-blue-100 px-3 py-1 text-[10px] font-bold uppercase tracking-wide text-blue-900">
+        <span className="inline-flex rounded-full bg-blue-100 px-3 py-1 text-xs font-bold uppercase tracking-wide text-blue-900">
           24/7 Support Desk
         </span>
 
-        <h1 className="mt-2 font-serif text-3xl font-bold tracking-tight text-blue-950 sm:text-4xl">
+        <h1 className="mt-2 font-heading text-3xl font-bold tracking-tight text-blue-950 sm:text-4xl">
           Help &amp; Customer Support
         </h1>
 
@@ -28,7 +28,7 @@ export default function SupportHero() {
         </span>
 
         <span>
-          <span className="block text-[10px] text-slate-600">
+          <span className="block text-xs text-slate-600">
             Instant Emergency Helpline
           </span>
           <span className="mt-0.5 block text-sm font-bold text-blue-950">

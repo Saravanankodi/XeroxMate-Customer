@@ -55,12 +55,12 @@ export default function FAQSection() {
           <span className="flex h-9 w-9 items-center justify-center rounded-xl bg-indigo-100 text-blue-900">
             <FileCheck size={18} />
           </span>
-          <h2 className="font-serif text-lg font-bold text-blue-950">
+          <h2 className="font-heading text-lg font-bold text-blue-950">
             Frequently asked
           </h2>
         </div>
 
-        <span className="text-[10px] font-medium text-slate-500">
+        <span className="text-xs font-medium text-slate-500">
           {faqs.length} answers
         </span>
       </div>

@@ -25,7 +25,7 @@ export default function StatusTabs({
 }: StatusTabsProps) {
   return (
     <div
-      role="tablist"
+      role="group"
       aria-label="Filter orders by status"
       className="flex w-fit max-w-full gap-1 overflow-x-auto rounded-lg bg-[#F2F3FF] p-1"
     >
@@ -36,8 +36,7 @@ export default function StatusTabs({
           <button
             key={tab.id}
             type="button"
-            role="tab"
-            aria-selected={selected}
+            aria-pressed={selected}
             onClick={() => onChange(tab.id)}
             className={`inline-flex shrink-0 items-center gap-2 rounded-md px-3 py-1.5 text-xs transition ${
               selected
@@ -48,7 +47,7 @@ export default function StatusTabs({
             {tab.label}
 
             <span
-              className={`rounded-full px-1.5 py-0.5 text-[10px] font-semibold ${
+              className={`rounded-full px-1.5 py-0.5 text-xs font-semibold ${
                 selected
                   ? "bg-[#0072E4] text-white"
                   : "bg-[#E2E7FF] text-[#444651]"

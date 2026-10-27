@@ -31,7 +31,7 @@ export default function OrderStepper({
           >
             <div
               aria-current={active ? "step" : undefined}
-              className={`flex items-center gap-1 rounded-full px-2 py-1 text-[9px] sm:px-3 sm:text-sm font-bold ${
+              className={`flex items-center gap-1 rounded-full px-2 py-1 text-[11px] sm:px-3 sm:text-sm font-bold ${
                 completed
                   ? "bg-emerald-100 text-emerald-700"
                   : active

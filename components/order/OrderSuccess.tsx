@@ -76,7 +76,7 @@ export default function OrderSuccess({
         </div>
 
         <div className="min-w-0">
-          <p className="text-[10px] font-medium text-slate-500">
+          <p className="text-xs font-medium text-slate-500">
             Order ID: {orderId}
           </p>
 
@@ -96,7 +96,7 @@ export default function OrderSuccess({
       <section className="rounded-xl border border-slate-100 bg-white p-5 shadow-sm sm:p-6">
         <div className="flex items-center justify-between gap-3 border-b border-slate-100 pb-4">
           <div>
-            <p className="text-[10px] font-semibold uppercase tracking-wide text-slate-500">
+            <p className="text-xs font-semibold uppercase tracking-wide text-slate-500">
               Receipt Breakdown
             </p>
             <h2 className="text-base font-bold text-blue-950">
@@ -105,7 +105,7 @@ export default function OrderSuccess({
           </div>
 
           <div className="text-right">
-            <p className="text-[10px] text-slate-500">
+            <p className="text-xs text-slate-500">
               Order Placed
             </p>
             <p className="text-xs font-semibold text-slate-800">
@@ -125,7 +125,7 @@ export default function OrderSuccess({
           </div>
 
           <div className="min-w-0 flex-1">
-            <p className="wrap-break-words text-xs font-bold text-blue-950">
+            <p className="break-words text-xs font-bold text-blue-950">
               {fileName}
             </p>
 
@@ -134,7 +134,7 @@ export default function OrderSuccess({
                 (item) => (
                   <span
                     key={item}
-                    className="rounded bg-white px-2 py-0.5 text-[10px] font-medium text-slate-600"
+                    className="rounded bg-white px-2 py-0.5 text-xs font-medium text-slate-600"
                   >
                     {item}
                   </span>
@@ -142,7 +142,7 @@ export default function OrderSuccess({
               )}
             </div>
 
-            <p className="mt-2 flex items-center gap-1.5 text-[10px] text-slate-500">
+            <p className="mt-2 flex items-center gap-1.5 text-xs text-slate-500">
               <Printer size={12} />
               {printType.includes("Duplex")
                 ? "Double-sided printing"
@@ -200,7 +200,7 @@ export default function OrderSuccess({
             <h3 className="text-sm font-extrabold text-blue-950">
               Total Payable
             </h3>
-            <p className="mt-1 text-[10px] text-slate-500">
+            <p className="mt-1 text-xs text-slate-500">
               Includes applicable charges
             </p>
           </div>
@@ -214,7 +214,7 @@ export default function OrderSuccess({
         <div className="rounded-xl bg-indigo-50 p-3">
           <div className="flex items-start justify-between gap-3">
             <div>
-              <p className="text-[10px] text-slate-500">
+              <p className="text-xs text-slate-500">
                 Paid Online
               </p>
               <p className="mt-1 text-xs font-semibold text-blue-950">
@@ -234,7 +234,7 @@ export default function OrderSuccess({
             </div>
           </div>
 
-          <div className="mt-3 flex items-start gap-2 text-[10px] leading-4 text-slate-500">
+          <div className="mt-3 flex items-start gap-2 text-xs leading-4 text-slate-500">
             <Wallet size={13} className="mt-0.5 shrink-0" />
             <p>
               {paymentLabel}
