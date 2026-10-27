@@ -48,9 +48,9 @@ export function Header() {
               className={[
                 "rounded-full px-3 py-2 text-base font-medium",
                 "transition-colors",
-                active
-                  ? "bg-slate-700 text-white"
-                  : "text-slate-700 hover:bg-slate-200/70",
+                  active
+                    ? "bg-slate-700 !text-white"
+                    : "text-slate-700 hover:bg-slate-200/70",
               ].join(" ")}
             >
               {item.label}
