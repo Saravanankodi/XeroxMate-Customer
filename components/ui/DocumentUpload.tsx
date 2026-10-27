@@ -34,7 +34,7 @@ export default function DocumentUpload({
   );
 
   return (
-    <section className="w-full rounded-2xl border border-white/70 bg-background p-5 text-white shadow-[0_24px_65px_rgba(0,0,0,0.65)] sm:p-8 md:rounded-3xl md:p-6">
+    <section className="w-full max-w-140 rounded-2xl border border-white/70 bg-background p-3 text-white shadow-[0_24px_65px_rgba(255,255,255,0.65)] sm:p-5 md:rounded-3xl">
       <input
         ref={inputRef}
         type="file"
@@ -72,7 +72,7 @@ export default function DocumentUpload({
           setIsDragging(false);
           handleFiles(event.dataTransfer.files);
         }}
-        className={`flex min-h-90 cursor-pointer flex-col items-center justify-center rounded-2xl border-[3px] border-dashed px-4 py-6 text-center transition-colors duration-200 sm:min-h-100 sm:px-8 md:rounded-3xl ${
+        className={`flex min-h-80 cursor-pointer flex-col items-center justify-center rounded-2xl border-[3px] border-dashed px-4 py-6 text-center transition-colors duration-200 sm:min-h-90 sm:px-8 md:rounded-3xl ${
           isDragging
             ? "border-sky-300 bg-sky-400/10"
             : "border-sky-800 hover:border-sky-500"
@@ -111,7 +111,7 @@ export default function DocumentUpload({
           Drag &amp; drop files here or browse from your device.
         </p>
 
-        <div className="mt-8 rounded-full bg-[#111a2e] px-5 py-3 text-xs font-semibold uppercase tracking-wide text-white sm:px-7 sm:text-sm">
+        <div className="mt-4 rounded-full bg-[#111a2e] px-5 py-3 text-xs font-semibold uppercase tracking-wide text-white sm:px-7 sm:text-sm">
           PDF, Word, PowerPoint, Excel, text and image files
         </div>
 

@@ -61,7 +61,7 @@ export default function PaymentMethod({
         Choose how you would like to pay for your print order.
       </p>
 
-      <div className="mt-5 grid grid-cols-2 gap-3">
+      <div className="mt-5 grid grid-cols-1 gap-3 sm:grid-cols-2">
         {methods.map((method) => {
           const Icon = method.icon;
           const selected = value === method.id;

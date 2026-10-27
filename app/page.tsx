@@ -44,14 +44,14 @@ const CAEDS_STEPS = [
 ]
 export default function Home() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans p-5">
+    <div className="w-full flex flex-col flex-1 items-center gap-5 justify-center bg-zinc-50 font-sans">
       <Header/>
-      <section className="w-full flex items-center justify-center gap-4 p-5">
-        <main className="flex-1 space-y-5">
+      <section className="w-full flex flex-col items-center justify-center gap-8 p-5 lg:flex-row lg:gap-6">
+        <main className="w-full sm:flex-1 flex flex-col gap-5">
             <Label dot dotColor='bg-success'>
                 Tamil Nadu's #1 Digital Printing Network
             </Label>
-            <h2 className="font-heading text-[64px] leading-18 font-extrabold">
+            <h2 className="font-heading text-4xl leading-tight font-extrabold sm:text-5xl lg:text-[64px] lg:leading-18">
                 Your Smart Printing
                 <span className="block text-primary">
                     Partner & Network.
@@ -61,11 +61,11 @@ export default function Home() {
                 Say goodbye to print shop queues and USB pendrives. Upload digitally, customize paper weights & bindings, compare nearby print hubs, and pickup with zero wait time or get doorstep delivery.
             </p>
 
-            <aside className="w-full mt-3 flex items-center gap-4 ">
+            <aside className="w-full mt-3 flex flex-col items-start gap-3 sm:flex-row sm:flex-wrap sm:items-center sm:gap-4">
               {
                 LABLES_LIST.map((lable,index)=>(
                   <div className="flex gap-2 items-center justify-center" key={index}>
-                    <span className="w-3 h-3 rounded-full">
+                    <span className="flex h-5 w-5 shrink-0 items-center justify-center">
                       {lable.icon}
                     </span>
                     <p className="text-base font-medium ">
@@ -76,7 +76,7 @@ export default function Home() {
               }
             </aside>
         </main>
-        <div className="min-w-2/5">
+        <div className="w-full sm:max-w-2/5">
               <DocumentUpload
                 multiple
                 onFilesSelected={(files) => {
@@ -85,7 +85,7 @@ export default function Home() {
               />
         </div>
       </section>
-      <aside className="w-full grid grid-cols-4 border-y border-black px-2 py-3 gap-3">
+      <aside className="w-full grid grid-cols-2 border-y border-slate-200 px-2 py-3 gap-3 sm:grid-cols-4">
         <div className="w-full px-2 py-1">
           <h2 className="text-[32px] font-extrabold font-heading text-center ">
             50+
@@ -94,7 +94,7 @@ export default function Home() {
             VERIFIED PRINT HUBS
           </p>
         </div>
-        <div className="w-full px-2 py-1 border-l border-black">
+        <div className="w-full px-2 py-1 sm:border-l sm:border-slate-200">
           <h2 className="text-[32px] font-extrabold font-heading text-center ">
             2.4M+
           </h2>
@@ -102,7 +102,7 @@ export default function Home() {
             PAGES PRINTED
           </p>
         </div>
-        <div className="w-full px-2 py-1 border-l border-black">
+        <div className="w-full px-2 py-1 sm:border-l sm:border-slate-200">
           <h2 className="text-[32px] font-extrabold font-heading text-center ">
             &#60; 5 Min
           </h2>
@@ -110,7 +110,7 @@ export default function Home() {
             ZERO-WAIT EXPRESS PICKUP
           </p>
         </div>
-        <div className="w-full px-2 py-1 border-l border-black">
+        <div className="w-full px-2 py-1 sm:border-l sm:border-slate-200">
           <h2 className="text-[32px] font-extrabold font-heading text-center ">
             100%
           </h2>
@@ -126,7 +126,7 @@ export default function Home() {
         <h3 className="text-[34px] text-center font-extrabold">
           Printing made modern in 3 easy steps
         </h3>
-        <main className="w-full  grid grid-cols-3 items-center justify-center gap-5 mt-5">
+        <main className="w-full grid grid-cols-1 items-stretch justify-center gap-5 mt-5 sm:grid-cols-2 lg:grid-cols-3">
           {
             CAEDS_STEPS.map((card)=>(
               <Card className="h-full flex flex-col gap-2" key={card.id}>
@@ -139,7 +139,7 @@ export default function Home() {
                 <p className="text-base pb-4 flex-1">
                   {card.disc}
                 </p>
-                <span className="flex items-center py-2 gap-2 border-t border-black">
+                <span className="flex items-center py-2 gap-2 border-t border-slate-200">
                   {card.icon}
                   {card.spanText}
                 </span>

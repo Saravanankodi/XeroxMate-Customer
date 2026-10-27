@@ -23,12 +23,12 @@ const services = [
 const page = () => {
   return (
     <>
-    <section className="w-full h-auto max-h-screen flex items-center justify-center gap-4 p-5">
-        <main className="flex-1 space-y-5">
+    <section className="flex w-full flex-col items-center justify-center gap-8 p-5 lg:flex-row lg:gap-4 lg:py-10">
+        <div className="w-full max-w-2xl space-y-5 lg:flex-1">
             <Label dot dotColor='bg-success'>
                 Tamil Nadu's #1 Digital Printing Network
             </Label>
-            <h2 className="font-heading text-[64px] leading-18 font-extrabold">
+            <h2 className="font-heading text-4xl leading-tight font-extrabold sm:text-5xl lg:text-[64px] lg:leading-18">
                 Scan. Upload. Print.
                 <span className="block text-primary">
                     Zero Queue Counter Pickup.
@@ -37,7 +37,7 @@ const page = () => {
             <p className="text-lg text-secondary max-w-2xl  ">
                 Upload engineering theses, lecture notes, lab manuals, or documents in seconds. Compare nearby Chennai & Tamil Nadu print shops, lock in lowest student rates, and pick up ready copies without waiting.
             </p>
-            <aside className="w-full grid grid-cols-3 items-center justify-center gap-5 mt-5">
+            <aside className="w-full grid grid-cols-1 items-stretch gap-4 mt-5 sm:grid-cols-2 lg:grid-cols-3">
                 {services.map(({ title, description, icon }) => (
                     <ServiceCard
                         key={title}
@@ -47,7 +47,7 @@ const page = () => {
                     />
                 ))}
             </aside>
-        </main>
+        </div>
         <SignIn/>
     </section>
     </>

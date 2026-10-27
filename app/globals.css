@@ -53,12 +53,6 @@
   --font-heading: "Hanuman", serif;
   --font-footer: "Plus Jakarta Sans", sans-serif;
 
-  /* Radius */
-  --radius-sm: 8px;
-  --radius-md: 12px;
-  --radius-lg: 17px;
-  --radius-xl: 26px;
-
   /* Layout */
   --page-max-width: 1332px;
 }
@@ -113,20 +107,22 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-button,
-input,
-textarea,
-select {
-  font: inherit;
-}
+@layer base {
+  button,
+  input,
+  textarea,
+  select {
+    font: inherit;
+  }
 
-button {
-  cursor: pointer;
-}
+  button {
+    cursor: pointer;
+  }
 
-button:disabled {
-  cursor: not-allowed;
-  opacity: 0.6;
+  button:disabled {
+    cursor: not-allowed;
+    opacity: 0.6;
+  }
 }
 
 input,
@@ -277,10 +273,6 @@ input:focus-visible {
 @media (max-width: 768px) {
   body {
     font-size: 14px;
-  }
-
-  :root {
-    --radius-xl: 20px;
   }
 }
 

@@ -13,7 +13,7 @@ export default function SignIn() {
   const [password, setPassword] = useState("");
 
   return (
-    <main className="flex min-h-screen items-center justify-center bg-[#FAF8FF] p-4">
+    <main className="flex w-full items-center justify-center p-4">
       <Card padding="lg" className="w-full max-w-lg border-linear">
         <h1 className="text-2xl font-heading font-bold text-primary">
           Customer Sign In
