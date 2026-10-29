@@ -32,7 +32,7 @@ export default function SupportBenefits() {
           </div>
 
           <div>
-            <h2 className="text-sm font-bold">{title}</h2>
+            <p className="text-sm font-bold text-white">{title}</p>
             <p className="mt-1 text-xs leading-4 text-blue-100/80">
               {description}
             </p>

@@ -26,7 +26,7 @@ export default function TicketHistory() {
           Your Ticket History (Last 30 Days)
         </h2>
 
-        <span className="text-xs text-slate-500">
+        <span className="text-xs font-semibold text-slate-500">
           1 resolved • 0 open
         </span>
       </div>
@@ -43,11 +43,11 @@ export default function TicketHistory() {
 
             <div className="min-w-0">
               <div className="flex flex-wrap items-center gap-2">
-                <span className="text-xs font-bold text-slate-800">
+                <span className="text-sm font-bold text-slate-800">
                   {ticket.id} - {ticket.title}
                 </span>
 
-                <span className="rounded-full bg-teal-100 px-2 py-0.5 text-[11px] font-bold text-teal-800">
+                <span className="rounded-full bg-teal-100 px-2 py-0.5 text-xs font-semibold text-teal-800">
                   {ticket.status}
                 </span>
               </div>
@@ -77,7 +77,7 @@ export default function TicketHistory() {
                 current === ticket.id ? null : ticket.id
               )
             }
-            className="self-start rounded-lg border border-slate-200 bg-white px-3 py-2 text-xs font-semibold text-blue-800 hover:bg-blue-50 sm:self-center"
+            className="self-start rounded-lg border border-slate-200 bg-white px-3 py-2 text-xs font-bold text-blue-800 hover:bg-blue-50 sm:self-center"
           >
             {selectedTicket === ticket.id ? "Hide Log" : "View Log"}
           </button>

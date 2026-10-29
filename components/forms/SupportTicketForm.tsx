@@ -106,10 +106,10 @@ export default function SupportTicketForm() {
         </span>
 
         <div>
-          <h2 className="font-heading text-xl font-bold text-blue-950">
+          <h2 className="font-heading text-[22px] font-bold text-blue-950">
             Raise a Support Ticket
           </h2>
-          <p className="mt-1 text-xs text-slate-500">
+          <p className="mt-1 text-sm text-slate-500">
             We usually reply within a few hours (or minutes during exam windows).
           </p>
         </div>
@@ -118,10 +118,10 @@ export default function SupportTicketForm() {
       <form onSubmit={submitTicket} className="mt-5 space-y-5">
         <div>
           <div className="mb-2 flex justify-between gap-2">
-            <label htmlFor="ticket-subject" className="text-xs font-bold text-slate-800">
+            <label htmlFor="ticket-subject" className="text-sm font-bold text-slate-800">
               Subject <span className="text-red-500">*</span>
             </label>
-            <span className="text-xs text-slate-500">Be concise</span>
+            <span className="text-xs font-semibold text-slate-500">Be concise</span>
           </div>
 
           <input
@@ -135,7 +135,7 @@ export default function SupportTicketForm() {
           />
 
           <div className="mt-3 flex flex-wrap items-center gap-2">
-            <span className="text-xs text-slate-500">Quick Fill:</span>
+            <span className="text-xs font-semibold text-slate-500">Quick Fill:</span>
             {quickFill.map((item) => (
               <button
                 key={item.label}
@@ -155,14 +155,14 @@ export default function SupportTicketForm() {
 
         <div className="grid gap-4 sm:grid-cols-2">
           <div>
-            <label htmlFor="related-order" className="mb-2 block text-xs font-bold text-slate-800">
+            <label htmlFor="related-order" className="mb-2 block text-sm font-bold text-slate-800">
               Related Order
             </label>
             <select
               id="related-order"
               value={order}
               onChange={(e) => setOrder(e.target.value)}
-              className="w-full rounded-xl border border-slate-200 bg-white px-3 py-3 text-xs text-slate-700 outline-none focus:border-blue-500"
+              className="w-full rounded-xl border border-slate-200 bg-white px-3 py-3 text-sm text-slate-700 outline-none focus:border-blue-500"
             >
               <option value="OMX-3547">OMX-3547 • Tamil Printers (₹1.50) - Current</option>
               <option value="OMX-3210">OMX-3210 • Cauvery Copy Point</option>
@@ -171,7 +171,7 @@ export default function SupportTicketForm() {
           </div>
 
           <div>
-            <label htmlFor="ticket-category" className="mb-2 block text-xs font-bold text-slate-800">
+            <label htmlFor="ticket-category" className="mb-2 block text-sm font-bold text-slate-800">
               Category <span className="text-red-500">*</span>
             </label>
             <select
@@ -179,7 +179,7 @@ export default function SupportTicketForm() {
               required
               value={category}
               onChange={(e) => setCategory(e.target.value)}
-              className="w-full rounded-xl border border-slate-200 bg-white px-3 py-3 text-xs text-slate-700 outline-none focus:border-blue-500"
+              className="w-full rounded-xl border border-slate-200 bg-white px-3 py-3 text-sm text-slate-700 outline-none focus:border-blue-500"
             >
               {categories.map((item) => (
                 <option key={item} value={item}>{item}</option>
@@ -189,7 +189,7 @@ export default function SupportTicketForm() {
         </div>
 
         <fieldset>
-          <legend className="mb-3 text-xs font-bold text-slate-800">
+          <legend className="mb-3 text-sm font-bold text-slate-800">
             Priority Urgency
           </legend>
 
@@ -233,7 +233,7 @@ export default function SupportTicketForm() {
               <span>
                 <span className="flex flex-wrap items-center gap-1.5 text-xs font-bold text-slate-800">
                   Urgent Submission
-                  <span className="rounded bg-red-600 px-1.5 py-0.5 text-[11px] text-white">
+                  <span className="rounded bg-red-600 px-1.5 py-0.5 text-[10px] font-bold text-white">
                     Priority
                   </span>
                 </span>
@@ -247,10 +247,10 @@ export default function SupportTicketForm() {
 
         <div>
           <div className="mb-2 flex justify-between gap-2">
-            <label htmlFor="ticket-description" className="text-xs font-bold text-slate-800">
+            <label htmlFor="ticket-description" className="text-sm font-bold text-slate-800">
               Description <span className="text-red-500">*</span>
             </label>
-            <span className="text-xs text-slate-500">Min. 20 chars</span>
+            <span className="text-xs font-semibold text-slate-500">Min. 20 chars</span>
           </div>
 
           <textarea
@@ -267,10 +267,10 @@ export default function SupportTicketForm() {
 
         <div>
           <div className="mb-2 flex flex-wrap justify-between gap-2">
-            <label className="text-xs font-bold text-slate-800">
+            <label className="text-sm font-bold text-slate-800">
               Attach Photos / Proof <span className="font-normal text-slate-500">(Optional)</span>
             </label>
-            <span className="text-xs text-slate-500">Max 10 MB per file (PDF, JPG, PNG)</span>
+            <span className="text-xs font-semibold text-slate-500">Max 10 MB per file (PDF, JPG, PNG)</span>
           </div>
 
           <button
@@ -286,7 +286,7 @@ export default function SupportTicketForm() {
             <span className="mb-2 flex h-10 w-10 items-center justify-center rounded-full bg-blue-100 text-blue-900">
               <CloudUpload size={22} />
             </span>
-            <span className="text-xs font-semibold text-slate-800">
+            <span className="text-sm font-semibold text-slate-800">
               Click or drag files here to attach proof
             </span>
             <span className="mt-1 text-xs text-slate-500">
@@ -337,14 +337,14 @@ export default function SupportTicketForm() {
             <button
               type="button"
               onClick={clearForm}
-              className="rounded-xl bg-indigo-50 px-4 py-2.5 text-xs font-semibold text-slate-700 transition hover:bg-indigo-100"
+              className="rounded-xl bg-indigo-50 px-4 py-2.5 text-sm font-semibold text-slate-700 transition hover:bg-indigo-100"
             >
               Clear
             </button>
 
             <button
               type="submit"
-              className="flex items-center justify-center gap-2 rounded-xl bg-blue-700 px-5 py-2.5 text-xs font-bold text-white shadow-sm transition hover:bg-blue-800 focus:ring-2 focus:ring-blue-300"
+              className="flex items-center justify-center gap-2 rounded-xl bg-blue-700 px-5 py-2.5 text-sm font-bold text-white shadow-sm transition hover:bg-blue-800 focus:ring-2 focus:ring-blue-300"
             >
               <Send size={14} />
               Submit Ticket

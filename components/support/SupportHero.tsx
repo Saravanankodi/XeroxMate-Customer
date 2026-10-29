@@ -5,15 +5,15 @@ export default function SupportHero() {
   return (
     <section className="flex flex-col justify-between gap-5 sm:flex-row sm:items-center">
       <div>
-        <span className="inline-flex rounded-full bg-blue-100 px-3 py-1 text-xs font-bold uppercase tracking-wide text-blue-900">
+        <span className="inline-flex rounded-full bg-blue-100 px-3 py-1 text-[11px] font-bold uppercase tracking-[0.55px] text-blue-900">
           24/7 Support Desk
         </span>
 
-        <h1 className="mt-2 font-heading text-3xl font-bold tracking-tight text-blue-950 sm:text-4xl">
+        <h1 className="mt-2 font-heading text-4xl font-bold tracking-tight text-blue-950">
           Help &amp; Customer Support
         </h1>
 
-        <p className="mt-2 max-w-xl text-sm leading-6 text-slate-600">
+        <p className="mt-2 max-w-xl text-base leading-6 text-slate-600">
           Have questions about your print job, pickup PIN, billing, or print
           quality? We are here to help students and faculty across campus hubs.
         </p>
@@ -28,10 +28,10 @@ export default function SupportHero() {
         </span>
 
         <span>
-          <span className="block text-xs text-slate-600">
+          <span className="block text-xs font-semibold text-slate-600">
             Instant Emergency Helpline
           </span>
-          <span className="mt-0.5 block text-sm font-bold text-blue-950">
+          <span className="mt-0.5 block text-base font-bold text-blue-950">
             +91 9092579460
           </span>
         </span>

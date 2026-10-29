@@ -4,7 +4,7 @@ import Link from "next/link";
 export default function Footer() {
   return (
     <footer className="mt-auto hidden bg-[#080c17] text-slate-400 md:block">
-      <div className="mx-auto flex min-h-19 max-w-360 flex-col justify-between gap-4 px-5 py-5 sm:flex-row sm:items-center lg:px-8">
+      <div className="mx-auto flex min-h-19 max-w-screen flex-col justify-between gap-4 px-5 py-5 sm:flex-row sm:items-center lg:px-8">
         <div className="text-[11px]">
           <span className="font-extrabold text-white">
             XEROX<span className="text-sky-400">MATE</span>

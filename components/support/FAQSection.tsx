@@ -60,7 +60,7 @@ export default function FAQSection() {
           </h2>
         </div>
 
-        <span className="text-xs font-medium text-slate-500">
+        <span className="text-[11px] font-semibold text-slate-500">
           {faqs.length} answers
         </span>
       </div>
@@ -82,7 +82,7 @@ export default function FAQSection() {
               >
                 <Icon size={15} className="shrink-0 text-blue-700" />
 
-                <span className="flex-1 text-xs font-bold text-slate-800">
+                <span className="flex-1 text-sm font-bold text-slate-800">
                   {faq.question}
                 </span>
 
@@ -97,7 +97,7 @@ export default function FAQSection() {
               {isOpen && (
                 <div
                   id={answerId}
-                  className="px-3 pb-4 pl-9 text-xs leading-[1.65] text-slate-600"
+                  className="px-3 pb-4 pl-9 text-sm leading-5 text-slate-600"
                 >
                   {faq.answer}
                 </div>

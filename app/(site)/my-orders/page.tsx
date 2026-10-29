@@ -132,7 +132,7 @@ export default function MyOrdersPage() {
 
   return (
     <div className="flex flex-1 flex-col bg-[#FAF8FF]">
-      <main className="mx-auto w-full max-w-360 flex-1 space-y-4 px-4 py-6 sm:px-6 lg:px-8">
+      <main className="mx-auto w-full max-w-screen flex-1 space-y-4 px-4 py-6 sm:px-6 lg:px-8">
         <PageHeading onRefresh={refreshOrders} />
 
         <OrderToolbar

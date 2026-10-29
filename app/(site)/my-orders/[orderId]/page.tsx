@@ -164,7 +164,7 @@ function OrderDetailsContent() {
 
   return (
     <div className="flex flex-1 flex-col bg-[#f8f8fd] text-slate-800">
-      <main className="mx-auto w-full max-w-360 flex-1 space-y-5 px-4 py-6 sm:px-6 lg:px-8">
+      <main className="mx-auto w-full max-w-screen flex-1 space-y-5 px-4 py-6 sm:px-6 lg:px-8">
         <section className="flex flex-col justify-between gap-4 sm:flex-row sm:items-end">
           <div>
             <Link

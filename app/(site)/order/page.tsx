@@ -135,7 +135,7 @@ export default function SpecificationsPage() {
 
   return (
     <div className="flex flex-1 flex-col bg-[#f8f8fd] text-slate-800">
-      <main className="mx-auto w-full max-w-360 flex-1 px-4 py-5 sm:px-6 lg:px-8">
+      <main className="mx-auto w-full max-w-screen flex-1 px-4 py-5 sm:px-6 lg:px-8">
         {/* Page title and progress */}
         <section className="mb-6 flex flex-col justify-between gap-4 border-b border-slate-200 bg-white px-5 py-4 md:flex-row md:items-center">
           <div>
@@ -163,11 +163,11 @@ export default function SpecificationsPage() {
 
             {/* Loaded in session */}
             <div>
-              <p className="mb-2 text-sm font-semibold uppercase tracking-wide text-slate-400">
+              <p className="text-sm font-semibold uppercase tracking-wide text-slate-400">
                 Loaded in Session
               </p>
 
-              <div className="flex items-center gap-3 rounded-xl border border-slate-200 bg-white p-3 shadow-sm">
+              <div className="flex items-center gap-3 rounded-xl border border-slate-200 bg-white p-3 shadow-sm mt-3">
                 <div className="shrink-0 rounded-lg bg-rose-50 p-2.5 text-rose-500">
                   <FileText size={18} />
                 </div>
@@ -212,15 +212,21 @@ export default function SpecificationsPage() {
           {/* RIGHT: Print configuration */}
           <section className="rounded-xl border border-slate-200 bg-white p-4 shadow-sm sm:p-5">
             {/* Selected document header */}
-            <div className="mb-5 flex items-center justify-between gap-3 border-b border-slate-100 pb-4">
+            <div className="mb-5 flex items-center justify-between gap-3 border-b border-slate-100">
               <div className="min-w-0">
                 <p className="truncate text-sm font-medium text-slate-700">
                   Applied to: {loadedFileName || "Select a document"}
                 </p>
 
-                <p className="mt-1 text-xs text-slate-400">
-                  Print specifications · Configure your preferences
-                </p>
+                <span className="mt-1 text-xs flex items-center gap-2 text-slate-400">
+                  2 pages 
+                  <div className="w-1.5 h-1.5 rounded-full bg-[#CBD5E1] "/> 
+                  0.2 MB 
+                  <div className="w-1.5 h-1.5 rounded-full bg-[#CBD5E1] "/>
+                  <span className="w-fit h-auto text-primary text-xs bg-[#E0F2FEB2] px-2 py-1 rounded-sm ">
+                    Auto-detected
+                  </span>
+                </span>
               </div>
 
               <span className="shrink-0 rounded bg-sky-50 px-2 py-1 text-[11px] font-semibold text-sky-700">

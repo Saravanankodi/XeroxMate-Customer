@@ -42,8 +42,8 @@ export default function StoreCard({
       aria-disabled={!shop.open}
       className={`w-full overflow-hidden rounded-xl border text-left transition focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-blue-200 ${
         selected
-          ? "border-blue-600 bg-indigo-50/60 ring-1 ring-blue-200"
-          : "border-slate-100 bg-white hover:border-blue-200 hover:shadow-sm"
+          ? "border-primary ring-1 ring-blue-200"
+          : "border-secondary bg-white hover:border-blue-200 hover:shadow-sm"
       } ${shop.open ? "cursor-pointer" : "cursor-not-allowed opacity-75"}`}
     >
       <div className="p-4">
@@ -93,7 +93,7 @@ export default function StoreCard({
         </div>
       </div>
 
-      <div className="flex items-center justify-between gap-3 bg-indigo-50/70 px-4 py-3">
+      <div className="flex items-center justify-between gap-3 bg-[#F2F3FF] px-4 py-3">
         <div className="flex items-center gap-2">
           {shop.fulfillment.includes("delivery") ? (
             <Truck size={14} className="text-slate-500" />

@@ -82,15 +82,15 @@ export default function StoreSelectionPage() {
 
   return (
     <div className="flex flex-1 flex-col bg-[#f8f8fd] text-slate-800">
-      <main className="mx-auto w-full max-w-360 flex-1 px-4 py-5 sm:px-6 lg:px-8">
+      <main className="mx-auto w-full max-w-screen flex-1 px-4 py-5 sm:px-6 lg:px-8">
         {/* Heading */}
-        <section className="mb-4 flex flex-col justify-between gap-4 border-b border-slate-200 bg-white px-5 py-4 md:flex-row md:items-center">
+        <section className="mb-4 flex flex-col justify-between gap-3 border-b border-slate-200 bg-white px-4 py-3 md:flex-row md:items-center">
           <div>
-            <h1 className="text-lg font-bold tracking-tight">
+            <h1 className="text-2xl font-bold tracking-tight">
               Select Nearby Print Shop
             </h1>
 
-            <p className="mt-1 max-w-2xl text-[11px] leading-4 text-slate-500">
+            <p className="mt-1 max-w-2xl text-sm leading-4 text-slate-500">
               Showing verified XeroxMate stations equipped with duplex
               laser hardware. Estimated subtotal is calculated using
               sample vendor pricing.

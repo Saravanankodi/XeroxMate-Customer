@@ -146,13 +146,13 @@ export default function SavedAddresses({
             >
               <div className="flex flex-wrap items-center justify-between gap-2">
                 <div className="flex flex-wrap items-center gap-1.5">
-                  <span className="flex items-center gap-1 rounded-md bg-slate-100 px-2 py-1 text-xs font-bold uppercase text-slate-700">
+                  <span className="flex items-center gap-1 rounded-md bg-slate-100 px-2 py-1 text-[11px] font-bold uppercase tracking-[0.275px] text-slate-700">
                     <Icon size={11} />
                     {address.label}
                   </span>
 
                   {address.isDefault && (
-                    <span className="flex items-center gap-1 rounded-full bg-blue-100 px-2 py-1 text-xs font-semibold text-blue-800">
+                    <span className="flex items-center gap-1 rounded-full bg-blue-100 px-2 py-1 text-xs font-bold text-blue-800">
                       <Check size={10} />
                       Default Address
                     </span>

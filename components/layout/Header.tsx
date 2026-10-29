@@ -20,7 +20,7 @@ export function Header() {
     href === "/" ? pathname === "/" : pathname.startsWith(href);
 
   return (
-    <header className="relative z-10 mx-auto flex w-full max-w-360 items-center justify-between gap-4 px-5 py-4 lg:px-8">
+    <header className="relative z-10 mx-auto flex w-full max-w-screen items-center justify-between gap-4 px-5 py-4 lg:px-8 bg-white">
       <Link
         href="/"
         className="shrink-0"
@@ -49,7 +49,7 @@ export function Header() {
                 "rounded-full px-3 py-2 text-base font-medium",
                 "transition-colors",
                   active
-                    ? "bg-slate-700 !text-white"
+                    ? "bg-slate-700 text-white!"
                     : "text-slate-700 hover:bg-slate-200/70",
               ].join(" ")}
             >

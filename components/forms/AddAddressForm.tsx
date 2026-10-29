@@ -81,7 +81,7 @@ export default function AddAddressForm({
   }
 
   const inputClass =
-    "mt-1.5 w-full rounded-xl border border-slate-200 bg-white px-3 py-2.5 text-xs text-slate-800 outline-none placeholder:text-slate-400 focus:border-blue-500 focus:ring-2 focus:ring-blue-100";
+    "mt-1.5 w-full rounded-xl border border-slate-200 bg-white px-3 py-2.5 text-sm font-semibold text-slate-800 outline-none placeholder:text-slate-400 focus:border-blue-500 focus:ring-2 focus:ring-blue-100";
 
   const labels = [
     { value: "Home", icon: "⌂" },
@@ -104,7 +104,7 @@ export default function AddAddressForm({
           <h2 className="font-heading text-base font-bold text-slate-900">
             {editingAddress ? "Edit Address" : "Add a New Address"}
           </h2>
-          <p className="mt-0.5 text-xs text-slate-500">
+          <p className="mt-0.5 text-[13px] leading-4 text-slate-500">
             Provide complete details to ensure accurate desk and room delivery.
           </p>
         </div>
@@ -112,7 +112,7 @@ export default function AddAddressForm({
 
       <form onSubmit={submit} className="mt-4 space-y-4">
         <fieldset>
-          <legend className="text-xs font-bold uppercase tracking-wide text-slate-600">
+          <legend className="text-xs font-bold uppercase tracking-[0.6px] text-slate-600">
             Address Label *
           </legend>
 
@@ -122,7 +122,7 @@ export default function AddAddressForm({
                 key={item.value}
                 type="button"
                 onClick={() => update("label", item.value)}
-                className={`flex items-center gap-1.5 rounded-lg border px-2.5 py-2 text-xs font-semibold transition ${
+                className={`flex items-center gap-1.5 rounded-lg border px-2.5 py-2 text-xs font-bold transition ${
                   form.label === item.value
                     ? "border-blue-900 bg-blue-900 text-white"
                     : "border-slate-200 bg-white text-slate-600 hover:bg-slate-50"
@@ -137,7 +137,7 @@ export default function AddAddressForm({
 
         <div className="grid gap-3 sm:grid-cols-2">
           <div>
-            <label htmlFor="address-name" className="text-xs font-bold uppercase tracking-wide text-slate-600">
+            <label htmlFor="address-name" className="text-xs font-bold uppercase tracking-[0.6px] text-slate-600">
               Receiver Full Name *
             </label>
             <input
@@ -151,7 +151,7 @@ export default function AddAddressForm({
           </div>
 
           <div>
-            <label htmlFor="address-phone" className="text-xs font-bold uppercase tracking-wide text-slate-600">
+            <label htmlFor="address-phone" className="text-xs font-bold uppercase tracking-[0.6px] text-slate-600">
               Contact Phone Number *
             </label>
             <input
@@ -167,7 +167,7 @@ export default function AddAddressForm({
         </div>
 
         <div>
-          <label htmlFor="address-building" className="text-xs font-bold uppercase tracking-wide text-slate-600">
+          <label htmlFor="address-building" className="text-xs font-bold uppercase tracking-[0.6px] text-slate-600">
             House / Flat / Building / Department Name *
           </label>
           <input
@@ -181,7 +181,7 @@ export default function AddAddressForm({
         </div>
 
         <div>
-          <label htmlFor="address-street" className="text-xs font-bold uppercase tracking-wide text-slate-600">
+          <label htmlFor="address-street" className="text-xs font-bold uppercase tracking-[0.6px] text-slate-600">
             Street / Landmark / Campus Gate *
           </label>
           <input
@@ -195,7 +195,7 @@ export default function AddAddressForm({
         </div>
 
         <div>
-          <label htmlFor="address-area" className="text-xs font-bold uppercase tracking-wide text-slate-600">
+          <label htmlFor="address-area" className="text-xs font-bold uppercase tracking-[0.6px] text-slate-600">
             Area / Locality *
           </label>
           <input
@@ -210,7 +210,7 @@ export default function AddAddressForm({
 
         <div className="grid gap-3 sm:grid-cols-2">
           <div>
-            <label htmlFor="address-city" className="text-xs font-bold uppercase tracking-wide text-slate-600">
+            <label htmlFor="address-city" className="text-xs font-bold uppercase tracking-[0.6px] text-slate-600">
               City *
             </label>
             <input
@@ -223,7 +223,7 @@ export default function AddAddressForm({
           </div>
 
           <div>
-            <label htmlFor="address-pin" className="text-xs font-bold uppercase tracking-wide text-slate-600">
+            <label htmlFor="address-pin" className="text-xs font-bold uppercase tracking-[0.6px] text-slate-600">
               PIN / Postal Code *
             </label>
             <input
@@ -241,7 +241,7 @@ export default function AddAddressForm({
           </div>
         </div>
 
-        <label className="flex cursor-pointer items-start gap-2 text-xs leading-4 text-slate-600">
+        <label className="flex cursor-pointer items-start gap-2 text-xs font-semibold leading-4 text-slate-600">
           <input
             type="checkbox"
             checked={form.isDefault}
@@ -260,7 +260,7 @@ export default function AddAddressForm({
         <div className="flex flex-wrap gap-2">
           <button
             type="submit"
-            className="flex items-center gap-2 rounded-xl bg-blue-900 px-4 py-2.5 text-xs font-bold text-white transition hover:bg-blue-800"
+            className="flex items-center gap-2 rounded-xl bg-blue-900 px-4 py-2.5 text-sm font-bold text-white transition hover:bg-blue-800"
           >
             <Check size={14} />
             {editingAddress ? "Update Address" : "Save Address"}
@@ -273,7 +273,7 @@ export default function AddAddressForm({
               setMessage("");
               onCancelEdit();
             }}
-            className="flex items-center gap-2 rounded-xl border border-slate-200 bg-white px-4 py-2.5 text-xs font-semibold text-slate-600 hover:bg-slate-50"
+            className="flex items-center gap-2 rounded-xl border border-slate-200 bg-white px-4 py-2.5 text-sm font-semibold text-slate-600 hover:bg-slate-50"
           >
             <RotateCcw size={12} />
             {editingAddress ? "Cancel" : "Clear"}

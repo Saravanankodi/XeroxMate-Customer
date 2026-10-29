@@ -3,20 +3,22 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
-import { ArrowLeft, LockKeyhole } from "lucide-react";
-
+import { ArrowLeft } from "lucide-react";
 
 import OrderStepper from "@/components/layout/OrderStepper";
-
 import PaymentMethod, {
   type PaymentType,
 } from "@/components/order/PaymentMethod";
-
 import PaymentSummary from "@/components/order/PaymentSummary";
 import OrderSuccess from "@/components/order/OrderSuccess";
 import ShopOperatorNotes from "@/components/order/ShopOperatorNotes";
+import PrintShopCard from "@/components/order/PrintShopCard";
+
 import { useOrderDraft } from "@/lib/order-draft";
 import { addPlacedOrder } from "@/lib/placed-orders";
+
+const CAMPUS_SUBSIDY = 0.04;
+const PLATFORM_FEE = 0;
 
 function getPaymentLabel(paymentType: PaymentType) {
   switch (paymentType) {
@@ -35,27 +37,45 @@ export default function PaymentPage() {
   const router = useRouter();
   const { draft, updateDraft, resetDraft } = useOrderDraft();
 
-  const [paymentType, setPaymentType] = useState<PaymentType>("payFull");
+  const [paymentType, setPaymentType] =
+    useState<PaymentType>("payFull");
   const [submitted, setSubmitted] = useState(false);
   const [orderId, setOrderId] = useState("XM-DEMO-1024");
 
   const shopName = draft.shopName ?? "Tamil Printers";
   const shopAddress =
     draft.shopAddress ??
-    "Bismi Nagar, Baburajapuram, Kumbakonam, Tamil Nadu";
+    "No.4 Bismi Nagar, Baburajapuram, Kumbakonam, Tamil Nadu 612302";
+
   const fileName = draft.fileName ?? "Document.pdf";
-  const pageCount = draft.pageCount;
+  const pageCount = draft.pageCount ?? 1;
   const printingCost = draft.printingCost || 1.5;
-  const deliveryFee = draft.deliveryFee;
-  const wrapperFee = draft.wrapperFee;
+  const deliveryFee = draft.deliveryFee ?? 0;
+  const wrapperFee = draft.wrapperFee ?? 0;
   const operatorNotes = draft.operatorNotes ?? "";
-  const total = printingCost + deliveryFee + wrapperFee;
-  const paidOnline = paymentType === "payAdvance" ? total / 2 : 0;
+
+  // Keep the calculation consistent with PaymentSummary.
+  const subtotal =
+    printingCost + deliveryFee + wrapperFee + PLATFORM_FEE;
+
+  const subsidy = Math.min(CAMPUS_SUBSIDY, subtotal);
+  const total = Math.max(0, subtotal - subsidy);
+
+  const paidOnline =
+    paymentType === "payAdvance" ? total / 2 : 0;
+
+  const fulfillmentMode =
+    draft.fulfillment === "delivery"
+      ? "Home Delivery"
+      : "Pickup At Shop";
 
   function placeOrder() {
     if (submitted) return;
 
-    const nextOrderId = `XM-${Date.now().toString().slice(-6)}`;
+    const nextOrderId = `XM-${Date.now()
+      .toString()
+      .slice(-6)}`;
+
     const shopInitials = shopName
       .split(" ")
       .filter(Boolean)
@@ -71,12 +91,14 @@ export default function PaymentPage() {
       shopName,
       shopInitials,
       shopAddress,
-      rating: 4.8,
+      rating: 5.0,
       location: shopAddress,
       total,
       balanceDue: Math.max(0, total - paidOnline),
       paymentMethod: getPaymentLabel(paymentType),
-      pickupPin: String(Math.floor(1000 + Math.random() * 9000)),
+      pickupPin: String(
+        Math.floor(1000 + Math.random() * 9000)
+      ),
       pickupToken: `${nextOrderId}-TN-KUM`,
       documentName: fileName,
       documentPages: pageCount,
@@ -96,13 +118,13 @@ export default function PaymentPage() {
 
   return (
     <div className="flex flex-1 flex-col bg-[#f8f8fd] text-slate-800">
-      <main className="mx-auto w-full max-w-360 flex-1 px-4 py-5 sm:px-6 lg:px-8">
+      <main className="mx-auto w-full max-w-7xl flex-1 px-4 py-5 sm:px-6 lg:px-8">
         {!submitted && (
           <>
-            <section className="mb-5 flex flex-col justify-between gap-4 border-b border-slate-200 bg-white px-5 py-4 md:flex-row md:items-center">
+            <section className="mb-5 flex flex-col justify-between gap-4 rounded-xl border-b border-slate-200 bg-white px-5 py-4 md:flex-row md:items-center">
               <div>
                 <h1 className="text-lg font-bold">
-                  Payment & Order Confirmation
+                  Payment &amp; Order Confirmation
                 </h1>
                 <p className="mt-1 text-[11px] text-slate-500">
                   Review your print order and choose a payment method.
@@ -118,26 +140,28 @@ export default function PaymentPage() {
                   value={paymentType}
                   onChange={setPaymentType}
                 />
+
                 <ShopOperatorNotes
                   value={operatorNotes}
-                  onChange={(value) => updateDraft({ operatorNotes: value })}
+                  onChange={(value) =>
+                    updateDraft({ operatorNotes: value })
+                  }
                 />
-                <div className="flex items-start gap-2 rounded-xl border border-emerald-100 bg-emerald-50 p-4">
-                  <LockKeyhole
-                    size={16}
-                    className="mt-0.5 shrink-0 text-emerald-700"
-                  />
-                  <p className="text-xs leading-5 text-emerald-900">
-                    Secure checkout: real online payments will require a
-                    verified payment gateway. No payment is collected by
-                    this demo page.
-                  </p>
-                </div>
+
+                <PrintShopCard
+                  name={shopName}
+                  rating={5.0}
+                  reviewCount={142}
+                  partnerLabel="Anna Univ Partner Node"
+                  phoneNumber="+919876543210"
+                  address={shopAddress}
+                  openingHours="9:00 AM – 11:00 PM"
+                />
 
                 <button
                   type="button"
                   onClick={() => router.push("/order/store")}
-                  className="inline-flex h-10 items-center gap-2 rounded-lg border border-slate-200 bg-white px-4 text-xs font-semibold text-slate-600 hover:bg-slate-50"
+                  className="inline-flex h-10 items-center gap-2 rounded-lg border border-slate-200 bg-white px-4 text-xs font-semibold text-slate-600 transition hover:bg-slate-50"
                 >
                   <ArrowLeft size={14} />
                   Back to Store Selection
@@ -153,11 +177,25 @@ export default function PaymentPage() {
                   printingCost={printingCost}
                   deliveryFee={deliveryFee}
                   wrapperFee={wrapperFee}
+                  copyCount={1}
+                  printMode="B/W Duplex"
+                  fulfillmentMode={fulfillmentMode}
+                  deliveryAddress={
+                    draft.fulfillment === "delivery"
+                      ? shopAddress
+                      : "—"
+                  }
+                  paymentScheme={getPaymentLabel(paymentType)}
+                  operatorInstructions={operatorNotes || "—"}
+                  subsidy={subsidy}
+                  platformFee={PLATFORM_FEE}
                 />
+
                 <button
                   type="button"
                   onClick={placeOrder}
-                  className="flex h-12 w-full items-center justify-center rounded-xl bg-linear-to-r from-blue-900 to-blue-600 px-4 text-sm font-bold text-white shadow-sm transition hover:brightness-110"
+                  disabled={submitted}
+                  className="flex h-12 w-full items-center justify-center rounded-xl bg-linear-to-r from-blue-900 to-blue-600 px-4 text-sm font-bold text-white shadow-sm transition hover:brightness-110 disabled:cursor-not-allowed disabled:opacity-60"
                 >
                   {paymentType === "payAtShop"
                     ? "Place Order · Pay at Shop"
@@ -167,6 +205,11 @@ export default function PaymentPage() {
                         ? "Continue with 50% Advance"
                         : "Continue to Secure Payment"}
                 </button>
+
+                <p className="text-center text-xs leading-5 text-slate-500">
+                  Demo checkout only. No online payment is processed
+                  by this page.
+                </p>
               </div>
             </div>
           </>
@@ -175,23 +218,23 @@ export default function PaymentPage() {
         {submitted && (
           <div className="py-8">
             <OrderSuccess
-                orderId={orderId}
-                shopName={shopName}
-                paymentLabel={getPaymentLabel(paymentType)}
-                fileName={fileName}
-                pageCount={pageCount}
-                printingCost={printingCost}
-                deliveryFee={deliveryFee}
-                wrapperFee={wrapperFee}
-                paidOnline={paidOnline}
-                onViewOrders={() => {
-                  resetDraft();
-                  router.push("/my-orders");
-                }}
-                onBackHome={() => {
-                  resetDraft();
-                  router.push("/");
-                }}
+              orderId={orderId}
+              shopName={shopName}
+              paymentLabel={getPaymentLabel(paymentType)}
+              fileName={fileName}
+              pageCount={pageCount}
+              printingCost={printingCost}
+              deliveryFee={deliveryFee}
+              wrapperFee={wrapperFee}
+              paidOnline={paidOnline}
+              onViewOrders={() => {
+                resetDraft();
+                router.push("/my-orders");
+              }}
+              onBackHome={() => {
+                resetDraft();
+                router.push("/");
+              }}
             />
           </div>
         )}

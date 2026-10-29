@@ -60,9 +60,9 @@ export default function PayoutMethod() {
             />
 
             <span className="min-w-0 flex-1">
-              <span className="flex flex-wrap items-center gap-2 text-xs font-bold text-slate-800">
+              <span className="flex flex-wrap items-center gap-2 text-sm font-bold text-slate-800">
                 Instant UPI Transfer
-                <span className="rounded bg-blue-100 px-1.5 py-0.5 text-xs font-bold text-blue-900">
+                <span className="rounded bg-blue-100 px-1.5 py-0.5 text-[10px] font-bold uppercase text-blue-900">
                   DEFAULT
                 </span>
               </span>
@@ -76,7 +76,7 @@ export default function PayoutMethod() {
 
           {method === "upi" && (
             <div className="mt-3 border-t border-slate-200 pt-3">
-              <label htmlFor="payout-upi" className="text-xs font-bold uppercase text-slate-600">
+              <label htmlFor="payout-upi" className="text-[11px] font-bold uppercase tracking-[0.55px] text-slate-600">
                 Registered VPA / UPI ID
               </label>
 
@@ -88,11 +88,11 @@ export default function PayoutMethod() {
                     setUpiId(e.target.value);
                     setMessage("");
                   }}
-                  className="min-w-0 flex-1 py-3 text-sm outline-none"
+                  className="min-w-0 flex-1 py-3 text-xs font-semibold outline-none"
                   placeholder="name@bank"
                 />
-                <span className="flex items-center gap-1 text-xs font-semibold text-emerald-700">
-                  <Check size={11} /> UPI
+                <span className="flex items-center gap-1 text-xs font-medium text-emerald-700">
+                  <Check size={11} /> Live
                 </span>
               </div>
             </div>
@@ -115,9 +115,9 @@ export default function PayoutMethod() {
             className="accent-blue-900"
           />
           <span className="min-w-0 flex-1">
-            <span className="flex flex-wrap items-center gap-2 text-xs font-bold text-slate-800">
+            <span className="flex flex-wrap items-center gap-2 text-sm font-bold text-slate-800">
               Campus Wallet
-              <span className="rounded bg-emerald-100 px-1.5 py-0.5 text-[11px] font-bold text-emerald-800">
+              <span className="rounded bg-emerald-100 px-1.5 py-0.5 text-xs font-bold text-emerald-800">
                 +5% Bonus
               </span>
             </span>
@@ -137,7 +137,7 @@ export default function PayoutMethod() {
         <button
           type="button"
           onClick={saveMethod}
-          className="flex min-h-11 w-full items-center justify-center gap-2 rounded-xl border border-slate-300 bg-white px-4 py-2.5 text-sm font-bold text-slate-700 transition hover:bg-slate-50"
+          className="flex min-h-11 w-full items-center justify-center gap-2 rounded-xl border border-slate-300 bg-white px-4 py-2.5 text-base font-bold text-slate-700 transition hover:bg-slate-50"
         >
           <Check size={13} className="text-blue-700" />
           Save Payout Method

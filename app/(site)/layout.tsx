@@ -7,7 +7,7 @@ import { Header } from "@/components/layout/Header";
 
 function HeaderFallback() {
   return (
-    <header className="mx-auto flex w-full max-w-360 items-center px-5 py-4 lg:px-8">
+    <header className="mx-auto flex w-full max-w-screen items-center px-5 py-4 lg:px-8">
       <Image
         src="/images/xeroxmate-logo.png"
         alt="XeroxMate"

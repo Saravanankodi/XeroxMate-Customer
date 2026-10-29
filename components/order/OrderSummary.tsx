@@ -87,7 +87,7 @@ export default function OrderSummary({
 
       <div className="my-4 space-y-3 text-xs">
         <div className="flex items-center justify-between gap-3">
-          <span className="text-slate-500">
+          <span className="text-secoundry">
             Laser Print Cost ({pageCount} pages A× {quantity}{" "}
             {quantity === 1 ? "set" : "sets"})
           </span>
@@ -95,7 +95,7 @@ export default function OrderSummary({
         </div>
 
         <div className="flex items-center justify-between gap-3">
-          <span className="text-slate-500">
+          <span className="text-secondary">
             Campus Student Subsidy
           </span>
           <b className="text-emerald-700">
@@ -104,17 +104,19 @@ export default function OrderSummary({
         </div>
 
         <div className="flex items-center justify-between gap-3">
-          <span className="text-slate-500">GST (included)</span>
+          <span className="text-secondary">GST (included)</span>
           <b>₹{tax.toFixed(2)}</b>
         </div>
       </div>
 
-      <div className="rounded-xl bg-indigo-50 p-3.5">
-        <p className="text-xs font-bold">Final Payable</p>
-        <p className="mt-1 text-[11px] text-slate-500">
-          Instant UPI / Pay at Counter
-        </p>
-        <p className="mt-1 text-2xl font-extrabold tracking-tight text-blue-950">
+      <div className="rounded-xl flex items-center justify-center bg-indigo-50 p-3.5">
+        <div className="w-full flex-1">
+          <p className="text-base font-bold">Final Payable</p>
+          <p className="mt-1 text-xs font-bold text-secondary">
+            Instant UPI / Pay at Counter
+          </p>
+        </div>
+        <p className="mt-1 text-[30px] font-extrabold tracking-tight text-primary">
           ₹{total.toFixed(2)}
         </p>
       </div>
@@ -133,18 +135,18 @@ export default function OrderSummary({
       <button
         type="button"
         onClick={onContinue}
-        className="mt-4 flex h-10 w-full items-center justify-center gap-2 rounded-lg bg-linear-to-r from-blue-900 to-blue-600 px-3 text-xs font-semibold text-white shadow-sm transition hover:brightness-110"
+        className="mt-4 flex h-10 w-full text-base items-center justify-center gap-2 rounded-lg bg-linear-to-r from-blue-900 to-blue-600 px-3 font-semibold text-white shadow-sm transition hover:brightness-110"
       >
         Confirm Shop & Proceed
-        <ArrowRight size={14} />
+        <ArrowRight size={24} />
       </button>
 
       <button
         type="button"
         onClick={onBack}
-        className="mt-2 flex h-9 w-full items-center justify-center gap-1 rounded-lg bg-indigo-50 px-3 text-xs font-semibold text-slate-600 transition hover:bg-indigo-100"
+        className="mt-2 flex h-9 w-full items-center justify-center gap-1 rounded-lg bg-indigo-50 px-3 text-base font-semibold text-slate-600 transition hover:bg-indigo-100"
       >
-        <ArrowLeft size={13} />
+        <ArrowLeft size={24} />
         Back to Specifications
       </button>
     </aside>

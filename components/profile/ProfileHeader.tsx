@@ -10,11 +10,11 @@ export default function ProfileHeader({ addressCount }: ProfileHeaderProps) {
     <section className="border-b border-slate-200/70 pb-5">
       <div className="flex flex-wrap items-center justify-between gap-4">
         <div>
-          <h1 className="font-heading text-2xl font-bold tracking-tight text-slate-900 sm:text-3xl">
+          <h1 className="font-heading text-3xl font-extrabold tracking-tight text-slate-900">
             Profile &amp; Account Settings
           </h1>
 
-          <p className="mt-2 max-w-2xl text-xs leading-5 text-slate-500 sm:text-sm">
+          <p className="mt-1 max-w-2xl text-base leading-5 text-slate-500">
             Manage your personal contact details, campus pickup verification,
             delivery addresses, and instant refund payout channels.
           </p>

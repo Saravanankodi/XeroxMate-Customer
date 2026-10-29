@@ -30,10 +30,10 @@ export default function ContactSupport() {
           </span>
 
           <span className="min-w-0 flex-1">
-            <span className="block text-xs text-slate-500">
+            <span className="block text-xs font-semibold text-slate-500">
               Phone Support
             </span>
-            <span className="mt-0.5 block text-xs font-bold text-slate-800">
+            <span className="mt-0.5 block text-base font-bold text-slate-800">
               +91 9092579460
             </span>
           </span>
@@ -50,10 +50,10 @@ export default function ContactSupport() {
           </span>
 
           <span className="min-w-0 flex-1">
-            <span className="block text-xs text-slate-500">
+            <span className="block text-xs font-semibold text-slate-500">
               Official Help Desk
             </span>
-            <span className="mt-0.5 block break-all text-xs font-bold text-slate-800">
+            <span className="mt-0.5 block break-all text-sm font-bold text-slate-800">
               desflyer.tech@gmail.com
             </span>
           </span>
