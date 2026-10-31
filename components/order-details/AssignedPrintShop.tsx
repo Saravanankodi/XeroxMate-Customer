@@ -91,7 +91,7 @@ export default function AssignedPrintShop({
             href={directionsUrl || `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(address)}`}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex h-[34px] items-center justify-center gap-1.5 rounded-lg border border-[#E2E8F0] bg-[#F8FAFC] px-3 py-2 text-sm leading-4 font-semibold text-[#334155] transition hover:bg-slate-100"
+            className="inline-flex h-8.5 items-center justify-center gap-1.5 rounded-lg border border-[#E2E8F0] bg-[#F8FAFC] px-3 py-2 text-sm leading-4 font-semibold text-[#334155] transition hover:bg-slate-100"
           >
             <Navigation size={14} className="text-[#64748B]" />
             Directions
@@ -100,7 +100,7 @@ export default function AssignedPrintShop({
           <button
             type="button"
             onClick={onCallOperator}
-            className="inline-flex h-[34px] items-center justify-center gap-1.5 rounded-lg border border-[#BFDBFE] bg-[#EFF6FF] px-3 py-2 text-sm leading-4 font-semibold text-[#1D4ED8] transition hover:bg-blue-100"
+            className="inline-flex h-8.5 items-center justify-center gap-1.5 rounded-lg border border-[#BFDBFE] bg-[#EFF6FF] px-3 py-2 text-sm leading-4 font-semibold text-[#1D4ED8] transition hover:bg-blue-100"
           >
             <PhoneCall size={14} className="text-[#1D4ED8]" />
             Call Operator

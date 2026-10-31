@@ -47,7 +47,7 @@ function SelectField({
 }: SelectFieldProps) {
   return (
     <label className="block min-w-0">
-      <span className="mb-1.5 block text-sm font-bold uppercase tracking-wide text-slate-500">
+      <span className="mb-1.5 block text-xs sm:text-sm font-bold uppercase tracking-wide text-slate-500">
         {label}
       </span>
 
@@ -55,7 +55,7 @@ function SelectField({
         <select
           value={value}
           onChange={(event) => onChange(event.target.value)}
-          className="h-11 w-full appearance-none rounded-md border border-slate-300 bg-white px-3 pr-9 text-sm text-slate-700 outline-none transition focus:border-blue-500 focus:ring-2 focus:ring-blue-100"
+          className="h-8 sm:h-11 w-full appearance-none rounded-md border border-slate-300 bg-white px-2 sm:px-3 pr-5 sm:pr-9 text-xs sm:text-sm text-slate-700 outline-none transition focus:border-blue-500 focus:ring-2 focus:ring-blue-100"
         >
           {options.map((option) => (
             <option key={option} value={option}>
@@ -137,7 +137,7 @@ export default function SpecificationsPage() {
     <div className="flex flex-1 flex-col bg-[#f8f8fd] text-slate-800">
       <main className="mx-auto w-full max-w-screen flex-1 px-4 py-5 sm:px-6 lg:px-8">
         {/* Page title and progress */}
-        <section className="mb-6 flex flex-col justify-between gap-4 border-b border-slate-200 bg-white px-5 py-3 md:flex-row md:items-center">
+        <section className="mb-6 hidden sm:flex flex-col justify-between gap-4 border-b border-slate-200 bg-white px-5 py-3 md:flex-row md:items-center">
           <div>
             <h1 className="text-2xl font-bold tracking-tight">
               Configure Document Customization
@@ -214,16 +214,16 @@ export default function SpecificationsPage() {
             {/* Selected document header */}
             <div className="mb-5 flex items-center justify-between gap-3 border-b border-slate-100">
               <div className="min-w-0">
-                <p className="truncate text-sm font-medium text-slate-700">
+                <p className="truncate text-xs sm:text-sm font-medium text-slate-700">
                   Applied to: {loadedFileName || "Select a document"}
                 </p>
 
-                <span className="mt-1 text-xs flex items-center gap-2 text-slate-400">
+                <span className="mt-1 text-[9px] sm:text-xs flex items-center gap-2 text-slate-400">
                   2 pages 
                   <div className="w-1.5 h-1.5 rounded-full bg-[#CBD5E1] "/> 
                   0.2 MB 
                   <div className="w-1.5 h-1.5 rounded-full bg-[#CBD5E1] "/>
-                  <span className="w-fit h-auto text-primary text-xs bg-[#E0F2FEB2] px-2 py-1 rounded-sm ">
+                  <span className="w-fit h-auto text-primary text-[9px] sm:text-xs bg-[#E0F2FEB2] px-2 py-1 rounded-sm ">
                     Auto-detected
                   </span>
                 </span>
@@ -234,7 +234,7 @@ export default function SpecificationsPage() {
               </span>
             </div>
 
-            <div className="grid grid-cols-1 gap-x-4 gap-y-4 sm:grid-cols-2">
+            <div className="grid grid-cols-2 gap-x-4 gap-y-4 sm:grid-cols-2">
               {/* Paper type */}
               <SelectField
                 label="Paper Type"
@@ -250,11 +250,11 @@ export default function SpecificationsPage() {
 
               {/* Quantity */}
               <div>
-                <span className="mb-1.5 block text-sm font-bold uppercase tracking-wide text-slate-500">
+                <span className="mb-1.5 block text-xs sm:text-sm font-bold uppercase tracking-wide text-slate-500">
                   Quantity (Sets)
                 </span>
 
-                <div className="flex h-11 items-center overflow-hidden rounded-md border border-slate-300">
+                <div className="flex h-8 sm:h-11 items-center overflow-hidden rounded-md border border-slate-300">
                   <button
                     type="button"
                     aria-label="Decrease quantity"
@@ -341,7 +341,7 @@ export default function SpecificationsPage() {
 
               {/* Finishing */}
               <SelectField
-                label="Lamination & Finishing"
+                label="Lamination"
                 value={settings.finishing}
                 onChange={(value) => updateSetting("finishing", value)}
                 options={[
@@ -366,7 +366,7 @@ export default function SpecificationsPage() {
 
               {/* Page range */}
               <label className="block min-w-0">
-                <span className="mb-1.5 block text-sm font-bold uppercase tracking-wide text-slate-500">
+                <span className="mb-1.5 block text-xs sm:text-sm font-bold uppercase tracking-wide text-slate-500">
                   Page Range
                 </span>
 
@@ -376,14 +376,14 @@ export default function SpecificationsPage() {
                     updateSetting("pageRange", event.target.value)
                   }
                   placeholder="All or e.g. 1-5, 8"
-                  className="h-11 w-full rounded-md border border-slate-300 bg-white px-3 text-sm outline-none transition focus:border-blue-500 focus:ring-2 focus:ring-blue-100"
+                  className="h-8 sm:h-11 w-full rounded-md border border-slate-300 bg-white px-3 text-xs sm:text-sm outline-none transition focus:border-blue-500 focus:ring-2 focus:ring-blue-100"
                 />
               </label>
 
               {/* Operator instructions */}
               <label className="block min-w-0">
-                <span className="mb-1.5 block text-sm font-bold uppercase tracking-wide text-slate-500">
-                  Instructions (Optional)
+                <span className="mb-1.5 block text-xs sm:text-sm font-bold uppercase tracking-wide text-slate-500">
+                  Instructions
                 </span>
 
                 <input
@@ -393,7 +393,7 @@ export default function SpecificationsPage() {
                   }
                   placeholder="e.g. staple at top-left"
                   maxLength={300}
-                  className="h-11 w-full rounded-md border border-slate-300 bg-white px-3 text-sm outline-none transition focus:border-blue-500 focus:ring-2 focus:ring-blue-100"
+                  className="h-8 sm:h-11 w-full rounded-md border border-slate-300 bg-white px-3 text-xs sm:text-sm outline-none transition focus:border-blue-500 focus:ring-2 focus:ring-blue-100"
                 />
               </label>
             </div>

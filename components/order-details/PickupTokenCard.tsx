@@ -13,7 +13,7 @@ export default function PickupTokenCard({
     <section className="relative isolate overflow-hidden rounded-xl bg-linear-to-br from-[#0F172A] to-[#172554] p-6 shadow-[0px_4px_6px_-1px_rgba(0,0,0,0.1),0px_2px_4px_-2px_rgba(0,0,0,0.1)]">
       <div className="relative z-10 flex items-start justify-between gap-2 border-b border-[#334155]/60 pb-2">
         <div className="flex flex-col gap-1">
-          <span className="w-fit rounded border border-[#60A5FA]/30 bg-[#3B82F6]/20 px-2 py-0.5 text-[10px] leading-[15px] font-bold tracking-[1px] text-[#93C5FD] uppercase">
+          <span className="w-fit rounded border border-[#60A5FA]/30 bg-[#3B82F6]/20 px-2 py-0.5 text-[10px] leading-3.75 font-bold tracking-[1px] text-[#93C5FD] uppercase">
             {active ? "Express Counter Pass" : "Counter Pass Inactive"}
           </span>
 

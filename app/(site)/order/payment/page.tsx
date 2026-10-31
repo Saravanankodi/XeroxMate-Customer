@@ -118,7 +118,7 @@ export default function PaymentPage() {
 
   return (
     <div className="flex flex-1 flex-col bg-[#FAF8FF] text-[#131B2E]">
-      <main className="mx-auto w-full max-w-[1280px] flex-1 px-4 py-5 sm:px-6 lg:px-8">
+      <main className="mx-auto w-full max-w-screen flex-1 px-4 py-5 sm:px-6 lg:px-8">
         {!submitted && (
           <>
             <section className="mb-5 flex flex-col justify-between gap-4 rounded-xl border-b border-[rgba(226,232,240,0.8)] bg-white px-5 py-4 shadow-[0px_1px_2px_rgba(0,0,0,0.05)] md:flex-row md:items-center">

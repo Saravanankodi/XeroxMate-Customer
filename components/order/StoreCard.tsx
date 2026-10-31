@@ -47,7 +47,7 @@ export default function StoreCard({
       } ${shop.open ? "cursor-pointer" : "cursor-not-allowed opacity-75"}`}
     >
       <div className="p-4">
-        <div className="mb-2 flex flex-wrap items-center gap-2">
+        <div className="mb-2 hidden sm:flex flex-wrap items-center gap-2">
           <span
             className={`inline-flex items-center gap-1 rounded-full px-2 py-1 text-[11px] font-semibold ${
               shop.open

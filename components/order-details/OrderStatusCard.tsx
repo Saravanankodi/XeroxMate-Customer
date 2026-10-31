@@ -158,7 +158,7 @@ export default function OrderStatusCard({
             <button
               type="button"
               onClick={() => setShowConfirm(true)}
-              className="inline-flex h-[34px] items-center gap-1.5 rounded-lg border border-[#FECACA] bg-[#FEF2F2] px-3.5 py-2 text-xs leading-4 font-semibold text-[#DC2626] transition hover:bg-red-100"
+              className="inline-flex h-8.5 items-center gap-1.5 rounded-lg border border-[#FECACA] bg-[#FEF2F2] px-3.5 py-2 text-xs leading-4 font-semibold text-[#DC2626] transition hover:bg-red-100"
             >
               <X size={16} />
               Cancel Order
