@@ -92,7 +92,7 @@ export default function Home() {
         </div>
       </section>
 
-      <aside className="mx-auto grid w-full max-w-screen grid-cols-2 gap-3 border-y border-slate-200 px-5 py-3 sm:grid-cols-4">
+      <aside className="mx-auto hidden md:grid w-full max-w-screen grid-cols-2 gap-3 border-y border-slate-200 px-5 py-3 sm:grid-cols-4">
         <div className="w-full px-2 py-1">
           <h2 className="text-center font-heading text-[32px] font-extrabold">
             50+
@@ -119,7 +119,7 @@ export default function Home() {
         </div>
       </aside>
 
-      <section className="mx-auto w-full max-w-screen px-5 py-6 lg:px-8">
+      <section className="mx-auto hidden md:block w-full max-w-screen px-5 py-6 lg:px-8">
         <p className="text-center text-base font-bold text-primary">
           EFFORTLESS WORKFLOW
         </p>

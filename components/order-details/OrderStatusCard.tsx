@@ -2,7 +2,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { Button } from "../ui";
+import { Info, X } from "lucide-react";
 
 interface OrderStatusCardProps {
   orderId: string;
@@ -51,15 +51,15 @@ export default function OrderStatusCard({
             }
           : {
               title: "Waiting for the print shop to accept your order",
-              body: "Your payload has been verified and synced with the shopkeeper's desktop terminal queue. Acceptance typically takes 2-3 minutes during business hours.",
+              body: "Your payload has been verified and synced with the shopkeeper's desktop terminal queue. The operator typically accepts jobs within 2-3 minutes during business hours.",
             };
 
   const statusTone = normalizedStatus.includes("cancel")
-    ? "bg-rose-50 text-rose-700"
+    ? "border-rose-200 bg-rose-50 text-rose-700"
     : normalizedStatus.includes("completed") ||
         normalizedStatus.includes("ready")
-      ? "bg-emerald-50 text-emerald-700"
-      : "bg-amber-50 text-amber-700";
+      ? "border-emerald-200 bg-emerald-50 text-emerald-700"
+      : "border-[#FDE68A] bg-[#FFFBEB] text-[#92400E]";
 
   useEffect(() => {
     if (!showConfirm) return;
@@ -108,53 +108,73 @@ export default function OrderStatusCard({
   }, [showConfirm]);
 
   return (
-    <section className="rounded-xl border border-slate-200 bg-white p-5 shadow-sm">
-      <div className="flex flex-wrap items-center justify-between gap-3">
-        <div className="flex flex-wrap items-center gap-2">
-          <h2 className="text-xl font-bold text-slate-900">
-            Order <span className="text-blue-700">#{orderId}</span>
-          </h2>
+    <section className="flex flex-col gap-5 rounded-xl border border-[#E2E7F4] bg-white p-6 shadow-[0px_1px_2px_rgba(0,0,0,0.05)]">
+      <div className="flex flex-wrap items-center justify-between gap-4">
+        <div className="flex flex-col gap-2">
+          <div className="flex flex-wrap items-center gap-3">
+            <h2 className="flex items-center gap-2 font-heading text-[30px] leading-9 font-extrabold tracking-[-0.75px] text-[#0F172A]">
+              Order
+              <span className="rounded-lg border border-[#DBEAFE] bg-[#EFF6FF] px-2.5 py-0.5 text-[26px] leading-9 font-semibold tracking-[-0.75px] text-[#1D4ED8]">
+                #{orderId}
+              </span>
+            </h2>
 
-          <span
-            className={`rounded-full px-3 py-1 text-xs font-medium ${statusTone}`}
-          >
-            {status}
-          </span>
+            <span
+              className={`inline-flex items-center gap-1.5 rounded-full border px-3 py-1 text-xs leading-4 font-bold ${statusTone}`}
+            >
+              <span className="size-2 rounded-full bg-[#F59E0B]" />
+              {status}
+            </span>
 
-          <span
-            className={`rounded-full px-3 py-1 text-xs ${
-              balance > 0
-                ? "bg-rose-50 text-rose-700"
-                : "bg-emerald-50 text-emerald-700"
-            }`}
-          >
+            <span
+              className={`inline-flex items-center gap-1.5 rounded-full border px-3 py-1 text-xs leading-4 font-bold ${
+                balance > 0
+                  ? "border-[#FECDD3] bg-[#FFF1F2] text-[#BE123C]"
+                  : "border-emerald-200 bg-emerald-50 text-emerald-700"
+              }`}
+            >
+              <Info size={14} />
               {balance > 0
                 ? `${paymentStatus} · ₹${balance.toFixed(2)} at Counter`
                 : paymentStatus}
-          </span>
+            </span>
+          </div>
+
+          <div className="flex flex-wrap items-center gap-x-4 gap-y-1">
+            <div className="flex items-center gap-1">
+              <span className="size-3.5 rounded-full border-[1.17px] border-[#94A3B8]" />
+              <span className="text-xs leading-4 font-medium text-[#64748B]">
+                Placed on:
+              </span>
+              <span className="pl-0.5 text-xs leading-4 font-bold text-[#334155]">
+                {createdAt}
+              </span>
+            </div>
+          </div>
         </div>
 
         {canCancel && (
           <div className="flex gap-2">
-            <Button
+            <button
               type="button"
               onClick={() => setShowConfirm(true)}
-              variant="danger"
-              size="sm"
+              className="inline-flex h-[34px] items-center gap-1.5 rounded-lg border border-[#FECACA] bg-[#FEF2F2] px-3.5 py-2 text-xs leading-4 font-semibold text-[#DC2626] transition hover:bg-red-100"
             >
+              <X size={16} />
               Cancel Order
-            </Button>
+            </button>
           </div>
         )}
       </div>
 
-      <p className="mt-3 text-xs text-slate-500">
-        Placed on: {createdAt}
-      </p>
-
-      <div className="mt-4 rounded-lg border border-blue-100 bg-blue-50/70 p-3 text-sm text-slate-600">
-        <p className="font-semibold text-blue-900">{statusInfo.title}</p>
-        <p className="mt-1">{statusInfo.body}</p>
+      <div className="flex items-start gap-3 rounded-lg border border-[#BFDBFE]/80 bg-[#EFF6FF]/70 p-3.5">
+        <span className="mt-0.5 flex size-7 shrink-0 items-center justify-center rounded-full bg-[#2563EB] text-white">
+          <Info size={16} />
+        </span>
+        <div className="text-sm leading-5 text-[#0F172A]">
+          <p className="font-bold">{statusInfo.title}</p>
+          <p>{statusInfo.body}</p>
+        </div>
       </div>
 
       {showConfirm && (
@@ -172,10 +192,13 @@ export default function OrderStatusCard({
             tabIndex={-1}
             className="w-full max-w-sm rounded-xl bg-white p-5 shadow-xl outline-none"
           >
-            <h3 id="cancel-order-title" className="text-lg font-bold">
+            <h3
+              id="cancel-order-title"
+              className="font-heading text-lg font-bold text-[#0F172A]"
+            >
               Cancel this order?
             </h3>
-            <p className="mt-2 text-sm text-slate-600">
+            <p className="mt-2 text-sm text-[#444651]">
               Are you sure you want to cancel order #{orderId}?
             </p>
 
@@ -183,7 +206,7 @@ export default function OrderStatusCard({
               <button
                 type="button"
                 onClick={() => setShowConfirm(false)}
-                className="rounded-lg border px-4 py-2 text-sm"
+                className="rounded-lg border border-[#E2E8F0] px-4 py-2 text-sm text-[#334155] transition hover:bg-slate-50"
               >
                 Keep Order
               </button>
@@ -193,7 +216,7 @@ export default function OrderStatusCard({
                   setShowConfirm(false);
                   onCancel?.();
                 }}
-                className="rounded-lg bg-rose-600 px-4 py-2 text-sm text-white"
+                className="rounded-lg bg-rose-600 px-4 py-2 text-sm text-white transition hover:bg-rose-700"
               >
                 Confirm Cancel
               </button>

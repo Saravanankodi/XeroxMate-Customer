@@ -1,10 +1,4 @@
-
-import {
-  FileText,
-  Store,
-  Tag,
-  ShieldCheck,
-} from "lucide-react";
+import { FileText, Store, Tag } from "lucide-react";
 
 type PaymentSummaryProps = {
   shopName: string;
@@ -30,7 +24,6 @@ const formatINR = (amount: number) =>
 
 export default function PaymentSummary({
   shopName,
-  shopAddress,
   fileName,
   pageCount,
   printingCost,
@@ -75,11 +68,11 @@ export default function PaymentSummary({
   ];
 
   return (
-    <section className="w-full rounded-2xl border border-slate-200 bg-white p-5 shadow-sm sm:p-8">
+    <section className="flex w-full flex-col gap-6 rounded-xl bg-white p-6 shadow-[0px_4px_6px_-1px_rgba(0,0,0,0.1),0px_2px_4px_-2px_rgba(0,0,0,0.1)]">
       {/* Header */}
-      <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
+      <div className="flex flex-col gap-2 sm:flex-row sm:items-start sm:justify-between">
         <div>
-          <h2 className="font-heading text-lg font-semibold leading-6 tracking-normal text-[#131B2E]">
+          <h2 className="font-heading text-lg font-semibold leading-5.5 text-[#131B2E]">
             Review Your Order
           </h2>
           <p className="mt-1 text-sm leading-4 text-[#444651]">
@@ -93,7 +86,7 @@ export default function PaymentSummary({
       </div>
 
       {/* File-by-file quote */}
-      <div className="mt-6 rounded-xl bg-[#F2F3FF] p-4 shadow-sm">
+      <div className="rounded-xl bg-[#F2F3FF] p-4 shadow-sm">
         <div className="mb-2 flex flex-wrap items-center justify-between gap-2">
           <span className="text-xs font-medium uppercase leading-3.5 tracking-[0.55px] text-[#444651]">
             File-by-file quote
@@ -109,7 +102,7 @@ export default function PaymentSummary({
           </div>
 
           <div className="min-w-0 flex-1">
-            <p className="break-all text-sm font-semibold leading-5 text-[#131B2E]">
+            <p className="break-all font-heading text-sm font-semibold leading-5 text-[#131B2E]">
               {fileName}
             </p>
             <p className="mt-1 text-xs leading-4 text-[#444651]">
@@ -118,14 +111,14 @@ export default function PaymentSummary({
             </p>
           </div>
 
-          <p className="shrink-0 text-lg font-bold leading-5.5 text-[#00236F]">
+          <p className="shrink-0 font-body text-lg font-bold leading-5.5 text-[#00236F]">
             {formatINR(printingCost)}
           </p>
         </div>
       </div>
 
-      {/* Order details */}
-      <div className="mt-6 rounded-xl bg-[#F2F3FF] p-4">
+      {/* Specs breakdown */}
+      <div className="rounded-xl bg-[#F2F3FF] p-4">
         {details.map((item) => {
           const isStrong =
             item.label === "Shop Node" ||
@@ -134,7 +127,7 @@ export default function PaymentSummary({
           return (
             <div
               key={item.label}
-              className="flex items-center justify-between gap-4 py-1 text-xs"
+              className="flex items-center justify-between gap-4 py-1 text-xs leading-4"
             >
               <span className="text-[#444651]">
                 {item.label}
@@ -163,8 +156,8 @@ export default function PaymentSummary({
       </div>
 
       {/* Itemized charges */}
-      <div className="mt-6 text-xs">
-        <div className="flex items-center justify-between gap-4 py-1">
+      <div className="flex flex-col gap-1 text-xs leading-4">
+        <div className="flex items-center justify-between gap-4">
           <span className="text-[#444651]">
             Document Base Print Charges
           </span>
@@ -174,7 +167,7 @@ export default function PaymentSummary({
         </div>
 
         {subsidy > 0 && (
-          <div className="flex items-center justify-between gap-4 py-1">
+          <div className="flex items-center justify-between gap-4">
             <span className="flex items-center gap-1 text-[#00312C]">
               <Tag
                 size={13}
@@ -188,7 +181,7 @@ export default function PaymentSummary({
           </div>
         )}
 
-        <div className="flex items-center justify-between gap-4 py-1">
+        <div className="flex items-center justify-between gap-4">
           <span className="text-[#444651]">
             {fulfillmentMode === "Pickup At Shop"
               ? "Campus Pickup Fee"
@@ -202,7 +195,7 @@ export default function PaymentSummary({
         </div>
 
         {wrapperFee > 0 && (
-          <div className="flex items-center justify-between gap-4 py-1">
+          <div className="flex items-center justify-between gap-4">
             <span className="text-[#444651]">
               Protective Wrapper
             </span>
@@ -212,7 +205,7 @@ export default function PaymentSummary({
           </div>
         )}
 
-        <div className="flex items-center justify-between gap-4 py-1">
+        <div className="flex items-center justify-between gap-4">
           <span className="text-[#444651]">
             Platform Fee &amp; Integrated GST
           </span>
@@ -223,7 +216,7 @@ export default function PaymentSummary({
       </div>
 
       {/* Total */}
-      <div className="mt-6 flex flex-col justify-between gap-4 rounded-xl bg-[#E2E7FF] p-4 sm:flex-row sm:items-center">
+      <div className="flex min-h-20.5 flex-col justify-between gap-4 rounded-xl bg-[#E2E7FF] p-4 sm:flex-row sm:items-center">
         <div>
           <h3 className="font-heading text-lg font-bold leading-5.5 text-[#131B2E]">
             Total Amount
@@ -234,25 +227,13 @@ export default function PaymentSummary({
         </div>
 
         <div className="sm:text-right">
-          <p className="text-4xl font-bold tracking-tight text-[#00236F]">
+          <p className="font-body text-4xl font-bold leading-11 tracking-[-0.9px] text-[#00236F]">
             {formatINR(total)}
           </p>
           <p className="mt-1 text-xs font-semibold leading-3.5 text-[#757682]">
             Incl. all taxes
           </p>
         </div>
-      </div>
-
-      {/* Payment security */}
-      <div className="mt-5 flex items-start gap-2 text-xs leading-5 text-slate-500">
-        <ShieldCheck
-          size={17}
-          className="mt-0.5 shrink-0 text-emerald-600"
-        />
-        <p>
-          Your payment is handled through a trusted payment
-          provider. Never store raw card details in your application.
-        </p>
       </div>
     </section>
   );

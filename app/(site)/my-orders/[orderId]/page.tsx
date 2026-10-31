@@ -3,7 +3,7 @@
 import { Suspense, useState } from "react";
 import Link from "next/link";
 import { useParams } from "next/navigation";
-import { ArrowLeft, Plus } from "lucide-react";
+import { Plus, RefreshCw } from "lucide-react";
 
 import OrderStatusCard from "@/components/order-details/OrderStatusCard";
 import SpoolerTimeline from "@/components/order-details/SpoolerTimeline";
@@ -42,20 +42,44 @@ const labelByStatus: Record<string, string> = {
   cancelled: "Cancelled",
 };
 
-function formatDate(value?: string) {
-  if (!value) return "Not available";
+const IST_OFFSET = 5.5 * 60 * 60 * 1000;
+
+function toIstParts(value?: string) {
+  if (!value) return null;
 
   const date = new Date(value);
-  if (Number.isNaN(date.getTime())) return value;
+  if (Number.isNaN(date.getTime())) return null;
 
-  return date.toLocaleString("en-IN", {
-    day: "2-digit",
-    month: "short",
-    year: "numeric",
-    hour: "2-digit",
-    minute: "2-digit",
-    timeZone: "Asia/Kolkata",
-  });
+  const ist = new Date(date.getTime() + IST_OFFSET);
+
+  return {
+    day: String(ist.getUTCDate()).padStart(2, "0"),
+    month: String(ist.getUTCMonth() + 1).padStart(2, "0"),
+    year: ist.getUTCFullYear(),
+    minutes: String(ist.getUTCMinutes()).padStart(2, "0"),
+    seconds: String(ist.getUTCSeconds()).padStart(2, "0"),
+    hours24: ist.getUTCHours(),
+  };
+}
+
+function formatDate(value?: string) {
+  const parts = toIstParts(value);
+  if (!parts) return value ?? "Not available";
+
+  const period = parts.hours24 >= 12 ? "pm" : "am";
+  const hours = parts.hours24 % 12 || 12;
+
+  return `${parts.day}/${parts.month}/${parts.year}, ${hours}:${parts.minutes}:${parts.seconds} ${period}`;
+}
+
+function formatShortDate(value?: string) {
+  const parts = toIstParts(value);
+  if (!parts) return value ?? "Not available";
+
+  const period = parts.hours24 >= 12 ? "pm" : "am";
+  const hours = parts.hours24 % 12 || 12;
+
+  return `${parts.day}/${parts.month} ${hours}:${parts.minutes} ${period}`;
 }
 
 function OrderDetailsContent() {
@@ -163,35 +187,38 @@ function OrderDetailsContent() {
   }
 
   return (
-    <div className="flex flex-1 flex-col bg-[#f8f8fd] text-slate-800">
-      <main className="mx-auto w-full max-w-screen flex-1 space-y-5 px-4 py-6 sm:px-6 lg:px-8">
-        <section className="flex flex-col justify-between gap-4 sm:flex-row sm:items-end">
-          <div>
-            <Link
-              href="/my-orders"
-              className="inline-flex items-center gap-1.5 text-sm font-semibold text-blue-700 hover:text-blue-900"
-            >
-              <ArrowLeft size={15} />
-              Back to My Orders
-            </Link>
-
-            <h1 className="mt-2 font-heading text-3xl font-bold tracking-tight text-[#00236F]">
+    <div className="flex flex-1 flex-col bg-[#FAF8FF] text-slate-800">
+      <main className="mx-auto w-full max-w-screen flex-1 space-y-3 px-4 py-6 sm:px-6 lg:px-8">
+        <section className="flex flex-col justify-between gap-4 px-5 md:flex-row md:items-center">
+          <div className="max-w-2xl">
+            <h1 className="mt-1 font-heading text-[32px] leading-11 font-bold tracking-[-0.9px] text-[#00236F]">
               Order Details
             </h1>
 
-            <p className="mt-2 max-w-2xl text-sm leading-5 text-[#444651]">
+            <p className="mt-1 max-w-2xl text-sm leading-5 text-[#444651]">
               Track spooling, printing progress and your counter pickup token
               in real time.
             </p>
           </div>
 
-          <Link
-            href="/order"
-            className="inline-flex min-h-11 shrink-0 items-center justify-center gap-2 rounded-lg bg-[#0072E4] px-4 text-sm font-semibold text-white shadow-md transition hover:bg-blue-700"
-          >
-            <Plus size={15} />
-            New Print Order
-          </Link>
+          <div className="flex shrink-0 items-center gap-2">
+            <button
+              type="button"
+              onClick={() => window.location.reload()}
+              className="inline-flex h-9 items-center gap-2 rounded-lg bg-[#F2F3FF] px-3.5 py-2.5 text-sm font-medium text-[#131B2E] shadow-sm transition hover:bg-[#E2E7FF]"
+            >
+              <RefreshCw size={12} className="text-[#005AB6]" />
+              Refresh Queue
+            </button>
+
+            <Link
+              href="/order"
+              className="inline-flex h-9 shrink-0 items-center justify-center gap-2 rounded-lg bg-[#0072E4] px-4 py-2.5 text-sm font-semibold text-white! shadow-md transition hover:brightness-105"
+            >
+              <Plus size={12} className="text-white" />
+              New Print Order
+            </Link>
+          </div>
         </section>
 
         <OrderStatusCard
@@ -203,11 +230,11 @@ function OrderDetailsContent() {
           onCancel={handleCancel}
         />
 
-        <div className="grid grid-cols-1 items-start gap-5 lg:grid-cols-12">
+        <div className="grid grid-cols-1 items-start gap-6 lg:grid-cols-12">
           <div className="min-w-0 space-y-4 lg:col-span-8">
             <SpoolerTimeline
               currentStage={currentStage}
-              updatedAt={formatDate(sampleOrder?.submittedAt)}
+              updatedAt={formatShortDate(sampleOrder?.submittedAt)}
               queuePosition={queuePosition}
             />
 
@@ -277,7 +304,7 @@ export default function OrderDetailsPage() {
   return (
     <Suspense
       fallback={
-        <main className="min-h-[60vh] bg-[#f8f8fd] p-6">
+        <main className="min-h-[60vh] bg-[#FAF8FF] p-6">
           <div className="mx-auto max-w-7xl animate-pulse">
             <div className="h-8 w-48 rounded bg-slate-200" />
             <div className="mt-6 h-32 rounded-xl bg-white" />

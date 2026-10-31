@@ -1,7 +1,6 @@
 
 import Link from "next/link";
 import { Plus, RefreshCw } from "lucide-react";
-import { Button } from "../ui";
 
 interface PageHeadingProps {
   onRefresh?: () => void;
@@ -12,12 +11,12 @@ export default function PageHeading({
 }: PageHeadingProps) {
   return (
     <section className="flex flex-col justify-between gap-4 md:flex-row md:items-center">
-      <div className="max-w-2xl">
-        <h1 className="font-heading text-3xl font-bold tracking-tight text-[#00236F]">
+      <div className="max-w-[672px]">
+        <h1 className="font-heading text-[32px] leading-[44px] font-bold tracking-[-0.9px] text-[#00236F]">
           My Orders
         </h1>
 
-        <p className="mt-2 max-w-2xl text-sm leading-5 text-[#444651]">
+        <p className="mt-1 max-w-[672px] text-sm leading-5 text-[#444651]">
           Real-time telemetry and counter pickup verification
           across campus print hubs. Track spooling, Ricoh laser
           progress, and fetch your kiosk OTP.
@@ -25,24 +24,20 @@ export default function PageHeading({
       </div>
 
       <div className="flex shrink-0 items-center gap-2">
-        <Button
+        <button
           type="button"
-          variant="outline"
-          size="sm"
           onClick={onRefresh}
+          className="inline-flex h-9 items-center gap-2 rounded-lg bg-[#F2F3FF] px-3.5 py-2.5 text-sm font-medium text-black! shadow-sm transition hover:bg-[#E2E7FF]"
         >
-          <RefreshCw
-            size={13}
-            className="text-[#005AB6]"
-          />
+          <RefreshCw size={12} className="text-primary" />
           Refresh Queue
-        </Button>
+        </button>
 
         <Link
           href="/order"
-          className="inline-flex items-center gap-2 rounded-lg bg-[#0072E4] px-3 py-2 text-xs font-semibold text-white shadow-md transition hover:bg-blue-700"
+          className="inline-flex h-9 items-center gap-2 rounded-lg bg-primary px-4 py-2.5 text-sm font-semibold text-white! shadow-md transition hover:brightness-105"
         >
-          <Plus size={14} />
+          <Plus size={12} className="text-white!" />
           New Print Order
         </Link>
       </div>

@@ -31,22 +31,22 @@ export default function OrderStepper({
           >
             <div
               aria-current={active ? "step" : undefined}
-              className={`flex items-center gap-1 rounded-full px-2 py-1 text-[11px] sm:px-3 sm:text-sm font-bold ${
+              className={`flex items-center gap-1.5 rounded-full px-3 py-1 text-xs font-semibold leading-4 ${
                 completed
-                  ? "bg-emerald-100 text-emerald-700"
+                  ? "border border-[rgba(186,230,253,0.8)] bg-[rgba(167,243,208,0.6)] text-[#059669] shadow-[0_0_0_2px_#E0F2FE]"
                   : active
-                    ? "border border-sky-200 bg-sky-50 font-semibold text-sky-700"
-                    : "text-slate-400"
+                    ? "bg-[#F0F9FF] text-[#0369A1]"
+                    : "text-[#94A3B8]"
               }`}
             >
-              {completed && <Check size={11} />}
+              {completed && <Check size={12} strokeWidth={3} />}
               {!completed && `${number}.`}
               {step}
             </div>
 
             {index < steps.length - 1 && (
-              <span className="text-slate-300">
-                <MoveRight className="w-6 h-6"/>
+              <span className="text-[#CBD5E1]">
+                <MoveRight className="size-4" />
               </span>
             )}
           </div>

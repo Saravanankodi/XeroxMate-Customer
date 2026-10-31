@@ -137,7 +137,7 @@ export default function SpecificationsPage() {
     <div className="flex flex-1 flex-col bg-[#f8f8fd] text-slate-800">
       <main className="mx-auto w-full max-w-screen flex-1 px-4 py-5 sm:px-6 lg:px-8">
         {/* Page title and progress */}
-        <section className="mb-6 flex flex-col justify-between gap-4 border-b border-slate-200 bg-white px-5 py-4 md:flex-row md:items-center">
+        <section className="mb-6 flex flex-col justify-between gap-4 border-b border-slate-200 bg-white px-5 py-3 md:flex-row md:items-center">
           <div>
             <h1 className="text-2xl font-bold tracking-tight">
               Configure Document Customization

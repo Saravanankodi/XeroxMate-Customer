@@ -2,6 +2,7 @@
 "use client";
 
 import { useMemo, useState } from "react";
+import { Lock, Ticket } from "lucide-react";
 
 import PageHeading from "@/components/my-orders/PageHeading";
 import { OrderTab, PrintOrder, sampleOrders } from "@/types/order";
@@ -147,19 +148,22 @@ export default function MyOrdersPage() {
           onSortChange={setSortOrder}
         />
 
-        <section className="grid grid-cols-1 items-start gap-5 lg:grid-cols-12">
-          <div className="min-w-0 lg:col-span-8">
-            <div className="mb-4 flex items-center justify-between px-2">
-              <h2 className="font-heading text-lg font-bold text-[#00236F]">
-                {activeJobsHeading}
-              </h2>
+        <section className="grid grid-cols-1 items-start gap-5">
+          <div className="min-w-0">
+            <div className="mb-4 flex items-center justify-between gap-4 px-3">
+              <div className="flex items-center gap-2">
+                <span className="size-2.5 rounded-full bg-[#0072E4]" />
+                <h2 className="font-heading text-lg leading-6 font-bold text-[#00236F]">
+                  {activeJobsHeading}
+                </h2>
+              </div>
 
-              <span className="text-xs text-slate-600">
-                {filteredOrders.length} shown
+              <span className="text-xs leading-3.5 font-semibold text-[#444651]">
+                Auto-syncing every 5s
               </span>
             </div>
 
-            <div className="space-y-5">
+            <div className="space-y-4 w-full grid grid-cols-1 md:grid-cols-2 2xl:grid-cols-3 gap-x-5 gap-y-2">
                 {filteredOrders.length ? (
                     filteredOrders.map((order) => (
                     <OrderCard
@@ -170,7 +174,7 @@ export default function MyOrdersPage() {
                     />
                     ))
                 ) : (
-                    <div className="rounded-2xl border border-slate-100 bg-white p-10 text-center shadow-sm">
+                    <div className="rounded-2xl bg-white p-10 text-center shadow-sm">
                     <p className="font-semibold text-slate-800">
                         No orders found
                     </p>
@@ -182,37 +186,77 @@ export default function MyOrdersPage() {
             </div>
           </div>
 
-          <aside className="lg:col-span-4">
-            <div className="rounded-2xl bg-white p-5 shadow-sm">
-              <h2 className="font-heading text-lg font-bold text-[#00236F]">
-                PickUp Express Pass
-              </h2>
+          {/* <aside className="lg:col-span-4">
+            <div className="flex flex-col gap-4 rounded-2xl bg-white p-6 shadow-[0px_4px_6px_-1px_rgba(0,0,0,0.1),0px_2px_4px_-2px_rgba(0,0,0,0.1)]">
+              <div className="flex items-center justify-between gap-4">
+                <div className="flex items-center gap-2">
+                  <Ticket size={18.33} className="shrink-0 text-[#005AB6]" />
+                  <h2 className="font-heading text-base leading-5.5 font-bold text-[#00236F]">
+                    PickUp Express Pass
+                  </h2>
+                </div>
 
-              <p className="mt-3 text-sm leading-5 text-slate-600">
+                <span className="rounded-full bg-[#D7E3FF] px-2 py-0.5 text-xs leading-3.5 font-semibold text-[#001B3F]">
+                  Active
+                </span>
+              </div>
+
+              <p className="text-xs leading-5 text-[#444651]">
                 {featuredOrder
-                  ? `Flash this pass at ${featuredOrder.shopName} to bypass queues and claim your print job.`
+                  ? `Flash this pass at ${featuredOrder.shopName} to bypass queues and claim spool without repeating file names.`
                   : "Upload a document to generate your pickup pass."}
               </p>
 
-              <div className="mt-5 rounded-xl bg-[#F2F3FF] p-5 text-center">
-                <p className="text-xs font-semibold tracking-wider text-slate-600">
-                  ONE-TIME PICKUP PIN
+              <div className="flex flex-col items-center gap-2 rounded-xl bg-[#F2F3FF] p-4 text-center">
+                <p className="text-xs leading-3.5 font-semibold tracking-[0.55px] text-[#444651] uppercase">
+                  One-Time Pickup PIN
                 </p>
 
-                <p className="mt-3 inline-block rounded-lg bg-white px-5 py-2 font-mono text-3xl font-bold tracking-[0.3em] text-[#00236F]">
-                  {featuredOrder?.pickupPin ?? "----"}
-                </p>
+                <div className="flex items-center gap-2 rounded-lg bg-white px-6 py-2 shadow-[inset_0px_2px_4px_rgba(0,0,0,0.05)]">
+                  {(featuredOrder?.pickupPin ?? "----").split("").map((digit, index) => (
+                    <span
+                      key={`${digit}-${index}`}
+                      className="font-heading text-4xl leading-11 font-bold tracking-[3.6px] text-[#00236F]"
+                    >
+                      {digit}
+                    </span>
+                  ))}
+                </div>
 
-                <p className="mt-3 text-xs text-slate-600">
+                <div className="mt-1 flex items-center gap-0.75 opacity-[0.85]">
+                  {[4, 8, 2, 6, 4, 12, 2, 4, 8, 2, 6, 8, 4, 12, 4].map(
+                    (width, index) => (
+                      <span
+                        key={index}
+                        style={{ width }}
+                        className="h-8 bg-[#00236F]"
+                      />
+                    ),
+                  )}
+                </div>
+
+                <p className="text-sm leading-4 text-[#444651]">
                   TOKEN: {featuredOrder?.pickupToken ?? "N/A"}
                 </p>
               </div>
 
-              <p className="mt-4 text-xs text-slate-500">
-                🔒 Shopkeeper verified only
-              </p>
+              <div className="flex items-center justify-between gap-4">
+                <div className="flex items-center gap-1">
+                  <Lock size={10.67} className="shrink-0 text-[#00312C]" />
+                  <p className="text-xs leading-4 text-[#444651]">
+                    Shopkeeper verified only
+                  </p>
+                </div>
+
+                <button
+                  type="button"
+                  className="inline-flex items-center text-xs leading-4 font-semibold text-[#005AB6] transition hover:underline"
+                >
+                  Save to Apple Wallet
+                </button>
+              </div>
             </div>
-          </aside>
+          </aside> */}
         </section>
       </main>
     </div>

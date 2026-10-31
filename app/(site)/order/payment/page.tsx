@@ -3,7 +3,7 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
-import { ArrowLeft } from "lucide-react";
+import { ArrowLeft, ArrowRight, CreditCard } from "lucide-react";
 
 import OrderStepper from "@/components/layout/OrderStepper";
 import PaymentMethod, {
@@ -23,7 +23,7 @@ const PLATFORM_FEE = 0;
 function getPaymentLabel(paymentType: PaymentType) {
   switch (paymentType) {
     case "payAtShop":
-      return "Pay at Shop";
+      return "Pickup Pay";
     case "CashOnDelivery":
       return "Cash on Delivery";
     case "payAdvance":
@@ -117,24 +117,30 @@ export default function PaymentPage() {
   }
 
   return (
-    <div className="flex flex-1 flex-col bg-[#f8f8fd] text-slate-800">
-      <main className="mx-auto w-full max-w-7xl flex-1 px-4 py-5 sm:px-6 lg:px-8">
+    <div className="flex flex-1 flex-col bg-[#FAF8FF] text-[#131B2E]">
+      <main className="mx-auto w-full max-w-[1280px] flex-1 px-4 py-5 sm:px-6 lg:px-8">
         {!submitted && (
           <>
-            <section className="mb-5 flex flex-col justify-between gap-4 rounded-xl border-b border-slate-200 bg-white px-5 py-4 md:flex-row md:items-center">
-              <div>
-                <h1 className="text-lg font-bold">
-                  Payment &amp; Order Confirmation
-                </h1>
-                <p className="mt-1 text-[11px] text-slate-500">
-                  Review your print order and choose a payment method.
-                </p>
+            <section className="mb-5 flex flex-col justify-between gap-4 rounded-xl border-b border-[rgba(226,232,240,0.8)] bg-white px-5 py-4 shadow-[0px_1px_2px_rgba(0,0,0,0.05)] md:flex-row md:items-center">
+              <div className="flex items-center gap-3">
+                <div className="flex size-10 shrink-0 items-center justify-center rounded-lg bg-[#1E3A8A] text-[#90A8FF]">
+                  <CreditCard size={20} strokeWidth={2} />
+                </div>
+
+                <div>
+                  <h1 className="font-heading text-2xl font-bold leading-7 tracking-[-0.45px] text-[#0F172A]">
+                    Review &amp; Instant Pay
+                  </h1>
+                  <p className="mt-1 text-xs leading-4 text-[#444651]">
+                    Order ID: #{orderId}
+                  </p>
+                </div>
               </div>
 
               <OrderStepper currentStep={4} />
             </section>
 
-            <div className="grid items-start gap-5 lg:grid-cols-[1.1fr_0.9fr]">
+            <div className="grid items-start gap-6 lg:grid-cols-[7fr_5fr]">
               <div className="space-y-4">
                 <PaymentMethod
                   value={paymentType}
@@ -157,15 +163,6 @@ export default function PaymentPage() {
                   address={shopAddress}
                   openingHours="9:00 AM – 11:00 PM"
                 />
-
-                <button
-                  type="button"
-                  onClick={() => router.push("/order/store")}
-                  className="inline-flex h-10 items-center gap-2 rounded-lg border border-slate-200 bg-white px-4 text-xs font-semibold text-slate-600 transition hover:bg-slate-50"
-                >
-                  <ArrowLeft size={14} />
-                  Back to Store Selection
-                </button>
               </div>
 
               <div className="space-y-4 lg:sticky lg:top-5">
@@ -191,25 +188,26 @@ export default function PaymentPage() {
                   platformFee={PLATFORM_FEE}
                 />
 
-                <button
-                  type="button"
-                  onClick={placeOrder}
-                  disabled={submitted}
-                  className="flex h-12 w-full items-center justify-center rounded-xl bg-linear-to-r from-blue-900 to-blue-600 px-4 text-sm font-bold text-white shadow-sm transition hover:brightness-110 disabled:cursor-not-allowed disabled:opacity-60"
-                >
-                  {paymentType === "payAtShop"
-                    ? "Place Order · Pay at Shop"
-                    : paymentType === "CashOnDelivery"
-                      ? "Place Order · Cash on Delivery"
-                      : paymentType === "payAdvance"
-                        ? "Continue with 50% Advance"
-                        : "Continue to Secure Payment"}
-                </button>
+                <div className="flex gap-3">
+                  <button
+                    type="button"
+                    onClick={() => router.push("/order/store")}
+                    className="inline-flex items-center justify-center gap-2 rounded-xl bg-[#F2F3FF] px-4 py-2 text-base font-bold leading-5 text-[#131B2E] transition hover:bg-[#E5E8FF]"
+                  >
+                    <ArrowLeft size={16} strokeWidth={2.2} />
+                    Back
+                  </button>
 
-                <p className="text-center text-xs leading-5 text-slate-500">
-                  Demo checkout only. No online payment is processed
-                  by this page.
-                </p>
+                  <button
+                    type="button"
+                    onClick={placeOrder}
+                    disabled={submitted}
+                    className="inline-flex flex-1 items-center justify-center gap-2 rounded-xl bg-[#00236F] px-6 py-2 font-heading text-base font-semibold leading-4 text-white shadow-[0px_4px_6px_rgba(0,35,111,0.2)] transition hover:brightness-110 disabled:cursor-not-allowed disabled:opacity-60"
+                  >
+                    Confirm &amp; Place Order
+                    <ArrowRight size={16} strokeWidth={2.2} />
+                  </button>
+                </div>
               </div>
             </div>
           </>

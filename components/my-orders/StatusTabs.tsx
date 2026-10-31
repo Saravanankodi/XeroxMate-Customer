@@ -27,7 +27,7 @@ export default function StatusTabs({
     <div
       role="group"
       aria-label="Filter orders by status"
-      className="flex w-fit max-w-full gap-1 overflow-x-auto rounded-lg bg-[#F2F3FF] p-1"
+      className="flex w-fit max-w-full gap-1.5 overflow-x-auto rounded-lg bg-[#F2F3FF] p-1"
     >
       {tabs.map((tab) => {
         const selected = activeTab === tab.id;
@@ -38,7 +38,7 @@ export default function StatusTabs({
             type="button"
             aria-pressed={selected}
             onClick={() => onChange(tab.id)}
-            className={`inline-flex shrink-0 items-center gap-2 rounded-md px-3 py-1.5 text-xs transition ${
+            className={`inline-flex shrink-0 items-center gap-2 rounded-md px-3 py-1.5 text-xs leading-4 transition ${
               selected
                 ? "bg-white font-bold text-[#00236F] shadow-sm"
                 : "font-medium text-[#444651] hover:bg-white/60"
@@ -47,9 +47,9 @@ export default function StatusTabs({
             {tab.label}
 
             <span
-              className={`rounded-full px-1.5 py-0.5 text-xs font-semibold ${
+              className={`inline-flex items-center rounded-full px-1.5 py-0.5 text-xs leading-[14px] font-semibold ${
                 selected
-                  ? "bg-[#0072E4] text-white"
+                  ? "bg-[#0072E4] text-[#FEFCFF]"
                   : "bg-[#E2E7FF] text-[#444651]"
               }`}
             >
