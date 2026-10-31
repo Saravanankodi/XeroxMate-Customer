@@ -112,9 +112,9 @@ export default function OrderStatusCard({
       <div className="flex flex-wrap items-center justify-between gap-4">
         <div className="flex flex-col gap-2">
           <div className="flex flex-wrap items-center gap-3">
-            <h2 className="flex items-center gap-2 font-heading text-[30px] leading-9 font-extrabold tracking-[-0.75px] text-[#0F172A]">
+            <h2 className="flex items-center gap-2 font-heading text-3xl leading-9 font-extrabold tracking-[-0.75px] text-[#0F172A]">
               Order
-              <span className="rounded-lg border border-[#DBEAFE] bg-[#EFF6FF] px-2.5 py-0.5 text-[26px] leading-9 font-semibold tracking-[-0.75px] text-[#1D4ED8]">
+              <span className="rounded-lg border border-[#DBEAFE] bg-[#EFF6FF] px-2 sm:px-2.5 py-0.5 text-base sm:text-[26px] sm:leading-9 font-semibold tracking-[-0.75px] text-[#1D4ED8]">
                 #{orderId}
               </span>
             </h2>
@@ -127,7 +127,7 @@ export default function OrderStatusCard({
             </span>
 
             <span
-              className={`inline-flex items-center gap-1.5 rounded-full border px-3 py-1 text-xs leading-4 font-bold ${
+              className={`hidden sm:inline-flex items-center gap-1.5 rounded-full border px-3 py-1 text-xs leading-4 font-bold ${
                 balance > 0
                   ? "border-[#FECDD3] bg-[#FFF1F2] text-[#BE123C]"
                   : "border-emerald-200 bg-emerald-50 text-emerald-700"
@@ -167,7 +167,7 @@ export default function OrderStatusCard({
         )}
       </div>
 
-      <div className="flex items-start gap-3 rounded-lg border border-[#BFDBFE]/80 bg-[#EFF6FF]/70 p-3.5">
+      <div className="hidden sm:flex items-start gap-3 rounded-lg border border-[#BFDBFE]/80 bg-[#EFF6FF]/70 p-3.5">
         <span className="mt-0.5 flex size-7 shrink-0 items-center justify-center rounded-full bg-[#2563EB] text-white">
           <Info size={16} />
         </span>

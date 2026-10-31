@@ -29,7 +29,7 @@ export default function ReviewPanel({
           Review Tamil Printers
         </h3>
 
-        <span className="inline-flex items-center gap-1 rounded bg-[#F1F5F9] px-2 py-0.5 text-xs leading-[15px] font-semibold text-[#64748B]">
+        <span className="inline-flex items-center gap-1 rounded bg-[#F1F5F9] px-2 py-0.5 text-xs leading-3.75 font-semibold text-[#64748B]">
           <Lock size={12} />
           {unlocked ? "Open" : "Locked"}
         </span>
@@ -92,7 +92,7 @@ export default function ReviewPanel({
             placeholder="Share your feedback..."
             rows={2}
             maxLength={1000}
-            className="h-[50px] w-full resize-y rounded-lg border border-[#E2E8F0] bg-[#F1F5F9]/60 px-3 py-2 text-xs leading-4 text-[#334155] outline-none placeholder:text-[#6B7280] focus:border-[#2563EB]"
+            className="h-12.5 w-full resize-y rounded-lg border border-[#E2E8F0] bg-[#F1F5F9]/60 px-3 py-2 text-xs leading-4 text-[#334155] outline-none placeholder:text-[#6B7280] focus:border-[#2563EB]"
           />
         </div>
 

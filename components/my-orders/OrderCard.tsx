@@ -112,7 +112,7 @@ export default function OrderCard({
           </div>
         </div>
 
-        <div className="flex min-w-0 items-center gap-2.5 rounded-xl bg-[#F2F3FF] px-3 py-2 sm:max-w-52">
+        <div className="hidden sm:flex min-w-0 items-center gap-2.5 rounded-xl bg-[#F2F3FF] px-3 py-2 sm:max-w-52">
           <div className="flex size-8 shrink-0 items-center justify-center rounded-lg bg-[#1E3A8A] text-base leading-6 font-bold text-[#90A8FF]">
             {shopInitials}
           </div>
