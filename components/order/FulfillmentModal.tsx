@@ -161,12 +161,17 @@ export default function FulfillmentModal({
             <Store size={17} />
           </div>
           <div className="min-w-0 flex-1">
-            <p className="truncate text-xs font-bold">{shop.name}</p>
+            <div className="flex items-center justify-between">
+              <p className="truncate text-sm sm:text-xs font-bold">{shop.name}</p>
+              <span className="sm:hidden shrink-0 rounded bg-emerald-50 px-1.5 py-1 text-[11px] font-semibold text-emerald-700">
+                ★ {shop.rating.toFixed(1)}
+              </span>
+            </div>
             <p className="mt-1 text-xs text-secondary">
               {shop.address}
             </p>
           </div>
-          <span className="shrink-0 rounded bg-emerald-50 px-1.5 py-1 text-[11px] font-semibold text-emerald-700">
+          <span className="hidden sm:block shrink-0 rounded bg-emerald-50 px-1.5 py-1 text-[11px] font-semibold text-emerald-700">
             ★ {shop.rating.toFixed(1)}
           </span>
         </div>
@@ -189,11 +194,11 @@ export default function FulfillmentModal({
             <span className="min-w-0 flex-1">
               <span className="flex flex-wrap items-center gap-2 text-base font-bold">
                 Pickup at shop
-                <span className="rounded bg-emerald-100 px-1.5 py-0.5 text-[10px] font-semibold text-emerald-700">
+                <span className="rounded hidden sm:block bg-emerald-100 px-1.5 py-0.5 text-[10px] font-semibold text-emerald-700">
                   RECOMMENDED
                 </span>
               </span>
-              <span className="mt-1 block text-xs text-slate-500">
+              <span className="mt-1 hidden sm:block text-xs text-slate-500">
                 {shop.open
                   ? "Shop currently open"
                   : "Confirm pickup time with the shop"}
@@ -233,9 +238,9 @@ export default function FulfillmentModal({
 
               <span className="min-w-0 flex-1">
                 <span className="block text-base font-bold">
-                  Campus & Hostel delivery
+                  Home delivery
                 </span>
-                <span className="mt-1 block text-xs text-slate-500">
+                <span className="mt-1 hidden sm:block text-xs text-slate-500">
                   2 to 4 hours estimated delivery window
                 </span>
                 {!canDeliver && (
@@ -352,7 +357,7 @@ export default function FulfillmentModal({
             onClick={confirmSelection}
             className="flex h-10 w-max items-center justify-center gap-2 rounded-lg bg-primary px-3 text-xs font-semibold text-white shadow-sm transition hover:bg-blue-800 disabled:cursor-not-allowed disabled:opacity-50"
           >
-            Confirm & Proceed to Pay
+            Confirm & Pay
             <span className="rounded bg-white/15 px-1.5 py-0.5">
               ₹{total.toFixed(2)}
             </span>

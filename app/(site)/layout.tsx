@@ -14,7 +14,7 @@ function HeaderFallback() {
         width={155}
         height={52}
         priority
-        className="h-auto w-28 object-contain sm:w-32"
+        className="h-auto w-32 object-contain sm:w-32"
       />
     </header>
   );

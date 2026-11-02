@@ -153,17 +153,17 @@ export default function MyOrdersPage() {
             <div className="mb-4 flex items-center justify-between gap-4 px-3">
               <div className="flex items-center gap-2">
                 <span className="size-2.5 rounded-full bg-[#0072E4]" />
-                <h2 className="font-heading text-lg leading-6 font-bold text-[#00236F]">
+                <h2 className="font-heading text-sm sm:text-lg sm:leading-6 font-bold text-[#00236F]">
                   {activeJobsHeading}
                 </h2>
               </div>
 
-              <span className="text-xs leading-3.5 font-semibold text-[#444651]">
+              <span className="text-[10px] sm:text-xs sm:leading-3.5 font-semibold text-[#444651]">
                 Auto-syncing every 5s
               </span>
             </div>
 
-            <div className="space-y-4 w-full grid grid-cols-1 md:grid-cols-2 2xl:grid-cols-3 gap-x-5 gap-y-2">
+            <div className="space-y-2 sm:space-y-4 w-full grid grid-cols-1 md:grid-cols-2 2xl:grid-cols-3 gap-x-5 gap-y-2">
                 {filteredOrders.length ? (
                     filteredOrders.map((order) => (
                     <OrderCard
@@ -175,12 +175,12 @@ export default function MyOrdersPage() {
                     ))
                 ) : (
                     <div className="rounded-2xl bg-white p-10 text-center shadow-sm">
-                    <p className="font-semibold text-slate-800">
-                        No orders found
-                    </p>
-                    <p className="mt-1 text-sm text-slate-500">
-                        Try another status or search term.
-                    </p>
+                      <p className="font-semibold text-slate-800">
+                          No orders found
+                      </p>
+                      <p className="mt-1 text-sm text-slate-500">
+                          Try another status or search term.
+                      </p>
                     </div>
                 )}
             </div>

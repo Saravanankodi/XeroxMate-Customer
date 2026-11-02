@@ -83,15 +83,15 @@ export default function DocumentUploadPanel({
 
   return (
     <section className="overflow-hidden rounded-xl border border-slate-200 border-t-[3px] border-t-blue-500 bg-white shadow-[0_3px_12px_rgba(15,23,42,0.04)]">
-      <div className="p-5">
+      <div className="p-4 sm:p-5">
         {/* Header */}
         <div className="mb-5 flex items-center justify-between gap-3">
-          <h2 className="text-sm font-semibold uppercase tracking-wide text-slate-400">
+          <h2 className="sm:text-sm text-xs font-semibold uppercase tracking-wide text-slate-400">
             Uploaded Source
           </h2>
 
           <span
-            className={`inline-flex items-center gap-1 rounded-full px-2.5 py-1 text-xs font-medium ${
+            className={`inline-flex items-center gap-1 rounded-full px-2.5 py-1 text-[10px] sm:text-xs font-medium ${
               file
                 ? "bg-emerald-50 text-emerald-700"
                 : "bg-slate-100 text-slate-500"
@@ -117,7 +117,7 @@ export default function DocumentUploadPanel({
           </div>
 
           <h3 className="break-all text-lg font-bold text-slate-800">
-            {file ? file.name : "Upload your document"}
+            {file ? 'Document 1' : "Upload your document"}
           </h3>
 
           <p className="mt-1.5 text-sm text-slate-500">
@@ -141,7 +141,7 @@ export default function DocumentUploadPanel({
               <button
                 type="button"
                 onClick={removeFile}
-                className="inline-flex h-9 items-center justify-center gap-2 rounded-lg border border-rose-100 bg-rose-50 px-4 text-xs font-medium text-rose-600 transition hover:bg-rose-100"
+                className="inline-flex h-9 items-center justify-center gap-2 rounded-lg border border-rose-100 bg-rose-50 px-2 sm:px-4 text-xs font-medium text-rose-600 transition hover:bg-rose-100"
               >
                 <Trash2 size={13} />
                 Remove
@@ -184,7 +184,7 @@ export default function DocumentUploadPanel({
               {format}
             </span>
           ))}
-          <span className="ml-auto text-xs text-slate-400">
+          <span className="ml-auto hidden sm:block text-xs text-slate-400">
             Max {maxSizeMB} MB
           </span>
         </div>

@@ -26,7 +26,7 @@ export default function DocumentInspection({
           </p>
         </div>
 
-        <span className="inline-flex items-center gap-1.5 rounded border border-[#A7F3D0] bg-[#ECFDF5] px-2.5 py-1 text-sm leading-4 font-semibold text-[#047857]">
+        <span className="hidden sm:inline-flex items-center gap-1.5 rounded border border-[#A7F3D0] bg-[#ECFDF5] px-2.5 py-1 text-sm leading-4 font-semibold text-[#047857]">
           <ShieldCheck size={14} className="shrink-0 text-[#10B981]" />
           SHA-256 Validated
         </span>
@@ -36,7 +36,7 @@ export default function DocumentInspection({
         <div className="flex min-w-0 items-center gap-3.5">
           <div className="flex size-12 shrink-0 flex-col items-center justify-center gap-0.5 rounded-lg border border-[#FECACA] bg-[#FEE2E2]">
             <FileText size={20} className="text-[#DC2626]" />
-            <span className="text-[9px] leading-[14px] font-extrabold tracking-[0.45px] text-[#DC2626] uppercase">
+            <span className="text-[9px] leading-3.5 font-extrabold tracking-[0.45px] text-[#DC2626] uppercase">
               PDF
             </span>
           </div>
@@ -63,7 +63,7 @@ export default function DocumentInspection({
               href={fileUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex h-[34px] items-center gap-1.5 rounded-lg border border-[#E2E8F0] bg-white px-3 py-2 text-xs leading-4 font-semibold text-[#334155] transition hover:bg-slate-50"
+              className="inline-flex h-8.5 items-center gap-1.5 rounded-lg border border-[#E2E8F0] bg-white px-3 py-2 text-xs leading-4 font-semibold text-[#334155] transition hover:bg-slate-50"
             >
               <Eye size={14} className="text-[#64748B]" />
               Preview Pages
@@ -72,7 +72,7 @@ export default function DocumentInspection({
             <a
               href={fileUrl}
               download={fileName}
-              className="inline-flex size-[34px] items-center justify-center rounded-lg border border-[#BFDBFE] bg-[#EFF6FF] text-[#2563EB] transition hover:bg-blue-100"
+              className="inline-flex size-8.5 items-center justify-center rounded-lg border border-[#BFDBFE] bg-[#EFF6FF] text-[#2563EB] transition hover:bg-blue-100"
               aria-label="Download document"
             >
               <Download size={16} />

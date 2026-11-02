@@ -27,13 +27,13 @@ export default function SpoolerTimeline({
   );
 
   return (
-    <section className="flex flex-col gap-6 rounded-xl border border-[#E2E7F4] bg-white p-6 shadow-[0px_1px_2px_rgba(0,0,0,0.05)]">
+    <section className="flex flex-col gap-6 rounded-xl border border-[#E2E7F4] bg-white p-4 sm:p-6 shadow-[0px_1px_2px_rgba(0,0,0,0.05)]">
       <div className="flex flex-wrap items-center justify-between gap-3">
         <div className="flex flex-col gap-0.5">
           <div className="flex items-center gap-2">
             <Activity size={16} className="shrink-0 text-[#2563EB]" />
             <h3 className="font-heading text-lg leading-5 font-bold tracking-[0.7px] text-[#0F172A] uppercase">
-              Live Spooler Timeline (6 Stages)
+              Live Order Timeline (6 Stages)
             </h3>
           </div>
           <p className="text-xs leading-4 text-[#64748B]">
@@ -49,9 +49,9 @@ export default function SpoolerTimeline({
       </div>
 
       <div className="relative flex flex-col gap-4 sm:grid sm:grid-cols-6 sm:gap-4 sm:pt-1">
-        <div className="absolute left-[8%] right-[8%] top-[21px] hidden h-[3px] bg-[#E2E8F0] sm:block" />
+        <div className="absolute left-[8%] right-[8%] top-5.25 hidden h-0.75 bg-[#E2E8F0] sm:block" />
         <div
-          className="absolute left-[8%] top-[21px] hidden h-[3px] bg-[#2563EB] transition-all sm:block"
+          className="absolute left-[8%] top-5.25 hidden h-0.75 bg-[#2563EB] transition-all sm:block"
           style={{
             width: `${(activeIndex / (stages.length - 1)) * 84}%`,
           }}

@@ -154,7 +154,7 @@ export default function StoreSelectionPage() {
               )}
             </div>
 
-            <div className="mt-4 flex items-start gap-2 rounded-lg border border-sky-100 bg-sky-50 p-3">
+            <div className="hidden mt-4 sm:flex items-start gap-2 rounded-lg border border-sky-100 bg-sky-50 p-3">
               <Info
                 size={14}
                 className="mt-0.5 shrink-0 text-sky-700"

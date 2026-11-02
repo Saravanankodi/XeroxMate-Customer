@@ -189,7 +189,7 @@ function OrderDetailsContent() {
   return (
     <div className="flex flex-1 flex-col bg-[#FAF8FF] text-slate-800">
       <main className="mx-auto w-full max-w-screen flex-1 space-y-3 px-4 py-6 sm:px-6 lg:px-8">
-        <section className="flex flex-col justify-between gap-4 px-5 md:flex-row md:items-center">
+        <section className="flex flex-col justify-between gap-4 px-2 sm:px-5 md:flex-row md:items-center">
           <div className="max-w-2xl">
             <h1 className="mt-1 font-heading text-[32px] leading-11 font-bold tracking-[-0.9px] text-[#00236F]">
               Order Details

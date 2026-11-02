@@ -45,8 +45,8 @@ export default function BottomNav() {
               }`}
             >
               <Icon
-                size={29}
-                strokeWidth={2.4}
+                size={26}
+                strokeWidth={1.2}
                 aria-hidden="true"
               />
 

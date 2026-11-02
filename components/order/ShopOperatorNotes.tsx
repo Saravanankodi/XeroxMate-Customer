@@ -40,7 +40,7 @@ export default function ShopOperatorNotes({
   }
 
   return (
-    <section className="rounded-xl bg-white p-6 shadow-[0px_1px_2px_rgba(0,0,0,0.05)]">
+    <section className="rounded-xl bg-white p-4 sm:p-6 shadow-[0px_1px_2px_rgba(0,0,0,0.05)]">
       <div className="flex items-center justify-between gap-3">
         <div className="flex items-center gap-2">
           <MessageSquareText
@@ -48,12 +48,12 @@ export default function ShopOperatorNotes({
             strokeWidth={2}
             className="shrink-0 text-[#005AB6]"
           />
-          <h2 className="font-heading text-lg font-semibold leading-5.5 text-[#131B2E]">
+          <h2 className="font-heading text-sm sm:text-lg font-semibold sm:leading-5.5 text-[#131B2E]">
             Notes for the Shop Operator
           </h2>
         </div>
 
-        <span className="shrink-0 text-xs font-semibold leading-3.5 text-[#444651]">
+        <span className="shrink-0 text-[10px] sm:text-xs font-semibold leading-3.5 text-[#444651]">
           Optional
         </span>
       </div>
@@ -63,21 +63,21 @@ export default function ShopOperatorNotes({
         onChange={(e) => updateNotes(e.target.value)}
         placeholder="e.g. Print the cover page in colour, staple top-left corner, keep in dry plastic pouch..."
         rows={3}
-        className="mt-4 min-h-24 w-full resize-y rounded-lg bg-[#F2F3FF] p-4 text-sm leading-5 text-[#131B2E] shadow-[inset_0px_2px_4px_rgba(0,0,0,0.05)] outline-none transition placeholder:text-[#9CA3AF] focus:ring-2 focus:ring-[#005AB6]/20"
+        className="mt-2 sm:mt-4 sm:min-h-24 w-full resize-y rounded-lg bg-[#F2F3FF] p-2 sm:p-4 text-xs sm:text-sm leading-5 text-[#131B2E] shadow-[inset_0px_2px_4px_rgba(0,0,0,0.05)] outline-none transition placeholder:text-[#9CA3AF] focus:ring-2 focus:ring-[#005AB6]/20"
       />
 
-      <div className="mt-5">
+      <div className="mt-3 sm:mt-5">
         <p className="font-heading text-xs font-medium leading-3.5 text-[#444651]">
           Quick presets for operator:
         </p>
 
-        <div className="mt-2 flex flex-wrap gap-2">
+        <div className="mt-1.5 sm:mt-2 flex flex-wrap gap-2">
           {presets.map((preset) => (
             <button
               key={preset}
               type="button"
               onClick={() => addPreset(preset)}
-              className="inline-flex items-center gap-1 rounded-full bg-[#F2F3FF] px-2 py-1 text-xs font-medium leading-3.5 text-[#131B2E] shadow-sm transition hover:bg-[#E5E8FF] active:scale-[0.98]"
+              className="inline-flex items-center gap-1 rounded-full bg-[#F2F3FF] px-2 py-1 text-xs font-medium sm:leading-3.5 text-[#131B2E] shadow-sm transition hover:bg-[#E5E8FF] active:scale-[0.98]"
             >
               <Plus
                 size={10}

@@ -137,9 +137,9 @@ export default function SpecificationsPage() {
     <div className="flex flex-1 flex-col bg-[#f8f8fd] text-slate-800">
       <main className="mx-auto w-full max-w-screen flex-1 px-4 py-5 sm:px-6 lg:px-8">
         {/* Page title and progress */}
-        <section className="mb-6 hidden sm:flex flex-col justify-between gap-4 border-b border-slate-200 bg-white px-5 py-3 md:flex-row md:items-center">
-          <div>
-            <h1 className="text-2xl font-bold tracking-tight">
+        <section className="sm:mb-6 mb-4 sm:flex flex-col justify-between gap-4 sm:border-b border-slate-200 sm:bg-white sm:px-5 sm:py-3 md:flex-row md:items-center">
+          <div className="mb-2 sm:mb-0">
+            <h1 className="sm:text-2xl text-xl font-bold sm:tracking-tight">
               Configure Document Customization
             </h1>
 
@@ -167,7 +167,7 @@ export default function SpecificationsPage() {
                 Loaded in Session
               </p>
 
-              <div className="flex items-center gap-3 rounded-xl border border-slate-200 bg-white p-3 shadow-sm mt-3">
+              <div className="flex items-center gap-3 rounded-xl border border-slate-200 bg-white p-2 sm:p-3 shadow-sm mt-3">
                 <div className="shrink-0 rounded-lg bg-rose-50 p-2.5 text-rose-500">
                   <FileText size={18} />
                 </div>
@@ -188,7 +188,7 @@ export default function SpecificationsPage() {
                 </div>
 
                 {loadedFileName && (
-                  <div className="flex shrink-0 items-center gap-2">
+                  <div className="hidden sm:flex shrink-0 items-center gap-2">
                     <button
                       type="button"
                       title="Preview document"
@@ -212,7 +212,7 @@ export default function SpecificationsPage() {
           {/* RIGHT: Print configuration */}
           <section className="rounded-xl border border-slate-200 bg-white p-4 shadow-sm sm:p-5">
             {/* Selected document header */}
-            <div className="mb-5 flex items-center justify-between gap-3 border-b border-slate-100">
+            <div className="mb-5 pb-1 flex items-center justify-between gap-3 border-b border-slate-100">
               <div className="min-w-0">
                 <p className="truncate text-xs sm:text-sm font-medium text-slate-700">
                   Applied to: {loadedFileName || "Select a document"}
@@ -241,10 +241,9 @@ export default function SpecificationsPage() {
                 value={settings.paper}
                 onChange={(value) => updateSetting("paper", value)}
                 options={[
-                  "A4 Paper (Standard 75 GSM Laser)",
-                  "A4 Paper (Premium 100 GSM)",
-                  "A3 Paper (Standard 75 GSM)",
-                  "A5 Paper (Standard 75 GSM)",
+                  "A4 Paper",
+                  "A3 Paper",
+                  "A5 Paper",
                 ]}
               />
 
@@ -270,7 +269,7 @@ export default function SpecificationsPage() {
                     <Minus size={12} />
                   </button>
 
-                  <span className="flex-1 text-center text-sm font-medium">
+                  <span className="flex-1 text-center text-xs sm:text-sm font-medium">
                     {settings.quantity}
                   </span>
 
@@ -297,9 +296,8 @@ export default function SpecificationsPage() {
                 value={settings.color}
                 onChange={(value) => updateSetting("color", value)}
                 options={[
-                  "Black & White (Monochrome Crisp)",
-                  "Colour (Standard)",
-                  "Colour (High Quality)",
+                  "Black & White",
+                  "Colour",
                 ]}
               />
 
@@ -309,8 +307,8 @@ export default function SpecificationsPage() {
                 value={settings.sides}
                 onChange={(value) => updateSetting("sides", value)}
                 options={[
-                  "Front only (Single Sided)",
-                  "Front and back (Duplex)",
+                  "Front only",
+                  "Front and back",
                 ]}
               />
 
@@ -320,7 +318,7 @@ export default function SpecificationsPage() {
                 value={settings.binding}
                 onChange={(value) => updateSetting("binding", value)}
                 options={[
-                  "No binding (Loose Sheets)",
+                  "No binding",
                   "Staple binding",
                   "Spiral binding",
                   "Comb binding",
@@ -333,7 +331,7 @@ export default function SpecificationsPage() {
                 value={settings.layout}
                 onChange={(value) => updateSetting("layout", value)}
                 options={[
-                  "1 Page / Sheet (Standard 100%)",
+                  "1 Page / Sheet",
                   "2 Pages / Sheet",
                   "4 Pages / Sheet",
                 ]}
@@ -359,8 +357,8 @@ export default function SpecificationsPage() {
                   updateSetting("orientation", value)
                 }
                 options={[
-                  "Portrait (Standard Vertical)",
-                  "Landscape (Horizontal)",
+                  "Portrait",
+                  "Landscape",
                 ]}
               />
 
@@ -401,7 +399,7 @@ export default function SpecificationsPage() {
         </div>
 
         {/* Bottom action bar */}
-        <section className="sticky bottom-0 z-20 mt-6 flex flex-col justify-between gap-3 border-t border-slate-200 bg-white/95 px-4 py-3 shadow-[0_-5px_20px_rgba(15,23,42,0.04)] backdrop-blur sm:flex-row sm:items-center">
+        <section className="sm:sticky bottom-0 z-20 mt-2 sm:mt-6 flex flex-col justify-between gap-3 border-t border-slate-200 bg-white/95 px-4 py-3 shadow-[0_-5px_20px_rgba(15,23,42,0.04)] backdrop-blur sm:flex-row sm:items-center">
           <div>
             <p className="text-sm font-semibold text-slate-800">
               {loadedFileName ? "1 Document Configured" : "No document uploaded"}
@@ -418,11 +416,11 @@ export default function SpecificationsPage() {
             )}
           </div>
 
-          <div className="flex gap-2">
+          <div className="flex max-sm:justify-between gap-2">
             <button
               type="button"
               onClick={() => router.back()}
-              className="inline-flex h-11 items-center justify-center gap-1.5 rounded-lg border border-slate-200 px-4 text-sm font-semibold text-slate-600 transition hover:bg-slate-50"
+              className="inline-flex h-9 sm:h-11 items-center justify-center gap-1.5 rounded-lg border border-slate-200 px-4 text-sm font-semibold text-slate-600 transition hover:bg-slate-50"
             >
               <ChevronLeft size={16} />
               Back
@@ -431,7 +429,7 @@ export default function SpecificationsPage() {
             <button
               type="button"
               onClick={continueToStore}
-              className="inline-flex h-11 items-center justify-center gap-2 rounded-lg bg-linear-to-r from-sky-700 to-blue-600 px-4 text-sm font-semibold text-white shadow-sm transition hover:brightness-110"
+              className="inline-flex h-9 sm:h-11 items-center justify-center gap-2 rounded-lg bg-linear-to-r from-sky-700 to-blue-600 px-4 text-sm font-semibold text-white shadow-sm transition hover:brightness-110"
             >
               Continue
               <ChevronRight size={14} />

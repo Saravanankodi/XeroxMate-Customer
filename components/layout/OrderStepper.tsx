@@ -4,7 +4,6 @@
 import { Check, MoveRight } from "lucide-react";
 
 const steps = [
-  "Upload",
   "Specifications",
   "Select Store",
   "Payment",

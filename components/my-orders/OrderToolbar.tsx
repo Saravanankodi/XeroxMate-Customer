@@ -48,11 +48,11 @@ export default function OrderToolbar({
             value={search}
             onChange={(event) => onSearchChange(event.target.value)}
             placeholder="Search by Order ID (e.g. OMX-3547), document or shop..."
-            className="h-[33px] w-full rounded-lg bg-[#F2F3FF] py-[9px] pl-9 pr-3 text-[11px] leading-[14px] text-[#444651] outline-none ring-blue-500 placeholder:text-[#444651]/60 focus:ring-2"
+            className="h-8.25 w-full rounded-lg bg-[#F2F3FF] py-2.25 pl-9 pr-3 text-[11px] leading-3.5 text-[#444651] outline-none ring-blue-500 placeholder:text-[#444651]/60 focus:ring-2"
           />
         </label>
 
-        <label className="flex h-8 shrink-0 items-center gap-2 rounded-lg bg-[#F2F3FF] px-3 text-xs leading-4 font-medium text-[#131B2E]">
+        <label className="hidden sm:flex h-8 shrink-0 items-center gap-2 rounded-lg bg-[#F2F3FF] px-3 text-xs leading-4 font-medium text-[#131B2E]">
           <CalendarDays size={12} className="text-[#444651]" />
           <select
             value={dateRange}
@@ -67,7 +67,7 @@ export default function OrderToolbar({
           </select>
         </label>
 
-        <label className="flex h-8 shrink-0 items-center gap-2 rounded-lg bg-[#F2F3FF] px-3 text-xs leading-4 font-medium text-[#131B2E]">
+        <label className="hidden sm:flex h-8 shrink-0 items-center gap-2 rounded-lg bg-[#F2F3FF] px-3 text-xs leading-4 font-medium text-[#131B2E]">
           <SlidersHorizontal size={12} className="text-[#444651]" />
           <select
             value={sortOrder}

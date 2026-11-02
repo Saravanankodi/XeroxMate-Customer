@@ -74,8 +74,8 @@ export default function OrderCard({
   const balanceDue = order.balanceDue ?? 0;
 
   return (
-    <article className="overflow-hidden rounded-2xl bg-white shadow-[0px_4px_6px_-1px_rgba(0,0,0,0.1),0px_2px_4px_-2px_rgba(0,0,0,0.1)]">
-      <div className="h-1.5 bg-linear-to-r from-[#005AB6] via-[#0072E4] to-[#6BD8CB]" />
+    <article className="overflow-hidden rounded-lg sm:rounded-2xl bg-white shadow-[0px_4px_6px_-1px_rgba(0,0,0,0.1),0px_2px_4px_-2px_rgba(0,0,0,0.1)]">
+      <div className="h-0.5 sm:h-1.5 bg-linear-to-r from-[#005AB6] via-[#0072E4] to-[#6BD8CB]" />
 
       <div className="flex flex-col gap-4 p-5 sm:p-6 lg:flex-row lg:items-center lg:justify-between">
         <div className="min-w-0 flex-1 space-y-1">
@@ -134,10 +134,10 @@ export default function OrderCard({
         </div>
       </div>
 
-      <div className="mx-4 mb-4 rounded-xl bg-[#F2F3FF]/60 px-4 pt-2 pb-4 sm:mx-6 sm:mb-6">
-        <div className="flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
+      <div className="mx-2 mb-2 rounded-xl bg-[#F2F3FF]/60 px-3 py-2 sm:px-4 sm:pt-2 sm:pb-4 sm:mx-6 sm:mb-6">
+        <div className="flex gap-4 lg:flex-row lg:items-center justify-between">
           <div className="flex min-w-0 flex-wrap items-center gap-3">
-            <div className="flex size-10 shrink-0 items-center justify-center rounded-xl bg-[#FEF3C7] text-xl font-bold text-[#78350F]">
+            <div className="hidden sm:flex size-10 shrink-0 items-center justify-center rounded-xl bg-[#FEF3C7] text-xl font-bold text-[#78350F]">
               ₹
             </div>
 
@@ -166,11 +166,20 @@ export default function OrderCard({
 
             <Link
               href={`/my-orders/${order.id}`}
-              className="inline-flex h-8 items-center gap-2 rounded-lg bg-primary px-4 py-2 font-heading text-xs leading-4 font-semibold text-white! shadow-[0px_4px_6px_-1px_rgba(0,0,0,0.1),0px_2px_4px_-2px_rgba(0,0,0,0.1)] transition hover:brightness-110"
+              className="hidden sm:inline-flex h-8 items-center gap-2 rounded-lg bg-primary px-4 py-2 font-heading text-xs leading-4 font-semibold text-white! shadow-[0px_4px_6px_-1px_rgba(0,0,0,0.1),0px_2px_4px_-2px_rgba(0,0,0,0.1)] transition hover:brightness-110"
             >
               <Ticket size={13.5} className="text-white" />
               {order.pickupPin
                 ? `Show Pickup Pass (#${order.pickupPin})`
+                : "View Details"}
+            </Link>
+            <Link
+              href={`/my-orders/${order.id}`}
+              className="sm:hidden inline-flex h-8 items-center gap-2 rounded-lg bg-primary px-4 py-2 font-heading text-xs leading-4 font-semibold text-white! shadow-[0px_4px_6px_-1px_rgba(0,0,0,0.1),0px_2px_4px_-2px_rgba(0,0,0,0.1)] transition hover:brightness-110"
+            >
+              <Ticket size={13.5} className="text-white" />
+              {order.pickupPin
+                ? `Order Pass`
                 : "View Details"}
             </Link>
           </div>

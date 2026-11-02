@@ -100,19 +100,25 @@ export default function SupportTicketForm() {
 
   return (
     <section className="rounded-2xl border border-white bg-white p-5 shadow-sm sm:p-6">
-      <div className="flex items-start gap-3 border-b border-slate-100 pb-4">
-        <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-blue-100 text-blue-900">
+      <div className="sm:flex items-start gap-3 border-b border-slate-100 pb-4">
+        <span className="hidden sm:flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-blue-100 text-blue-900">
           <Ticket size={20} />
         </span>
 
-        <div>
-          <h2 className="font-heading text-[22px] font-bold text-blue-950">
+        <div className="flex items-center gap-3 sm:block">
+          <span className="flex sm:hidden h-6 w-6 shrink-0 items-center justify-center rounded-md bg-blue-100 text-blue-900">
+            <Ticket size={16} />
+          </span>
+          <h2 className="font-heading text-base sm:text-[22px] font-bold text-blue-950">
             Raise a Support Ticket
           </h2>
-          <p className="mt-1 text-sm text-slate-500">
+          <p className="mt-1 hidden sm:block text-sm text-slate-500">
             We usually reply within a few hours (or minutes during exam windows).
           </p>
         </div>
+        <p className="mt-1 sm:hidden block text-xs text-slate-500">
+          We usually reply within a few hours (or minutes during exam windows).
+        </p>
       </div>
 
       <form onSubmit={submitTicket} className="mt-5 space-y-5">

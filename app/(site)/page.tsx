@@ -56,23 +56,23 @@ const CARDS_STEPS = [
 export default function Home() {
   return (
     <div className="flex w-full flex-1 flex-col font-sans">
-      <section className="mx-auto flex w-full max-w-screen flex-col items-center justify-center gap-8 px-5 py-6 lg:flex-row lg:items-center lg:gap-6 lg:px-8">
-        <main className="flex w-full min-w-0 flex-col gap-2 sm:gap-5 lg:flex-1">
+      <section className="mx-auto flex w-full max-w-screen flex-col items-center justify-center gap-8 px-5 py-4 lg:flex-row lg:items-center lg:gap-6 lg:px-8">
+        <main className="flex w-full min-w-0 flex-col max-sm:items-center max-sm:justify-center gap-2 sm:gap-5 lg:flex-1">
           <Label dot dotColor="bg-success">
             Tamil Nadu&apos;s #1 Digital Printing Network
           </Label>
-          <h1 className="font-heading text-3xl font-extrabold leading-tight sm:text-5xl lg:text-[64px] lg:leading-18">
+          <h1 className="font-heading text-[26px] font-extrabold leading-tight sm:text-5xl lg:text-[64px] lg:leading-18">
             Your Smart Printing
             <span className="block text-primary">Partner &amp; Network.</span>
           </h1>
-          <p className="max-w-2xl text-base sm:text-lg text-secondary">
+          <p className="max-w-2xl text-sm max-sm:text-justify sm:text-lg text-secondary">
             Say goodbye to print shop queues and USB pendrives. Upload
             digitally, customize paper weights &amp; bindings, compare nearby
             print hubs, and pickup with zero wait time or get doorstep
             delivery.
           </p>
 
-          <aside className="mt-3 flex w-full flex-col items-start gap-3 sm:flex-row sm:flex-wrap sm:items-center sm:gap-4">
+          <aside className="mt-3 hidden sm:flex w-full flex-col items-start gap-3 sm:flex-row sm:flex-wrap sm:items-center sm:gap-4">
             {LABELS_LIST.map((label) => (
               <div
                 className="flex items-center justify-center gap-2"

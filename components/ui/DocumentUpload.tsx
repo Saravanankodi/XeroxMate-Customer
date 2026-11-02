@@ -38,7 +38,7 @@ export default function DocumentUpload({
   );
 
   return (
-    <section className="w-full max-w-140 rounded-2xl border border-slate-200 bg-white p-3 text-slate-900 shadow-lg shadow-slate-200/50 sm:p-5 md:rounded-3xl">
+    <section className="w-full max-h-screen max-w-140 rounded-2xl border border-slate-200 bg-white p-3 text-slate-900 shadow-lg shadow-slate-200/50 sm:p-5 md:rounded-3xl">
       <input
         ref={inputRef}
         type="file"
@@ -71,14 +71,14 @@ export default function DocumentUpload({
           setIsDragging(false);
           handleFiles(event.dataTransfer.files);
         }}
-        className={`flex min-h-80 cursor-pointer flex-col items-center justify-center rounded-2xl border-2 border-dashed px-4 py-6 text-center transition-colors duration-200 sm:min-h-100 sm:px-8 md:rounded-3xl ${
+        className={`flex cursor-pointer flex-col items-center justify-center rounded-2xl border-2 border-dashed px-3 py-4 text-center transition-colors duration-200 sm:min-h-100 sm:px-8 md:rounded-3xl ${
           isDragging
             ? "border-blue-500 bg-blue-50"
             : "border-slate-300 bg-slate-50/50 hover:border-blue-400 hover:bg-blue-50/40"
         }`}
       >
         {/* Upload icon */}
-        <div className="mb-4 flex h-16 w-16 items-center justify-center rounded-full border border-blue-200 bg-blue-50">
+        <div className="mb-2 sm:mb-4 flex h-12 w-12 sm:h-16 sm:w-16 items-center justify-center rounded-full border border-blue-200 bg-blue-50">
           <Upload className=""/>
         </div>
 
@@ -86,17 +86,17 @@ export default function DocumentUpload({
           {isDragging ? "Drop your files here" : "Upload your document"}
         </h2>
 
-        <p className="mt-4 max-w-125 text-xs leading-6 text-slate-500 sm:text-sm">
+        <p className="sm:mt-4 mt-2 max-w-125 text-xs sm:leading-6 text-slate-500 sm:text-sm">
           Drag &amp; drop files here or browse from your device.
         </p>
 
-        <div className="mt-4 rounded-full border border-slate-200 bg-white px-5 py-3 text-xs font-semibold uppercase tracking-wide text-slate-600 sm:px-7 sm:text-sm">
+        <div className="mt-2 sm:mt-4 rounded-full border border-slate-200 bg-white px-3 py-2 text-xs font-semibold uppercase tracking-wide text-slate-600 sm:px-7 sm:text-sm">
           PDF, Word, PowerPoint, Excel, text and image files
         </div>
 
         <Button
           variant="primary"
-          className="mt-4"
+          className="mt-2 sm:mt-4"
           onClick={(event) => {
             event.stopPropagation();
             inputRef.current?.click();
@@ -108,7 +108,7 @@ export default function DocumentUpload({
       </div>
 
       {/* Helper text */}
-      <div className="mt-6 flex items-center justify-center gap-3 px-1 text-left sm:mt-7">
+      <div className="mt-4 flex items-center justify-center gap-3 px-1 text-left sm:mt-7">
         <svg
           viewBox="0 0 24 24"
           fill="none"
@@ -130,7 +130,7 @@ export default function DocumentUpload({
           />
         </svg>
 
-        <p className="text-xs leading-5 text-slate-600 sm:text-sm">
+        <p className="text-xs sm:leading-5 text-slate-600 sm:text-sm">
           After uploading, choose a shop and customize every file.
         </p>
       </div>
