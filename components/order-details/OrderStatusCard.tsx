@@ -108,12 +108,12 @@ export default function OrderStatusCard({
   }, [showConfirm]);
 
   return (
-    <section className="flex flex-col gap-5 rounded-xl border border-[#E2E7F4] bg-white p-4 sm:p-6 shadow-[0px_1px_2px_rgba(0,0,0,0.05)]">
-      <div className="flex flex-wrap items-center justify-between gap-4">
+    <section className="flex flex-col sm:gap-5 rounded-xl border border-[#E2E7F4] bg-white p-3 sm:p-6 shadow-[0px_1px_2px_rgba(0,0,0,0.05)]">
+      <div className="flex justify-end flex-wrap items-center sm:justify-between gap-4">
         <div className="flex flex-col gap-2">
           <div className="flex flex-wrap items-center gap-3">
             <h2 className="hidden sm:flex items-center gap-2 font-heading text-3xl leading-9 font-extrabold tracking-[-0.75px] text-[#0F172A]">
-              Order
+              Order :
               <span className="rounded-lg border border-[#DBEAFE] bg-[#EFF6FF] px-2 sm:px-2.5 py-0.5 text-base sm:text-[26px] sm:leading-9 font-semibold tracking-[-0.75px] text-[#1D4ED8]">
                 #{orderId}
               </span>

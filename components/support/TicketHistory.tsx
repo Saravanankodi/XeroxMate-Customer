@@ -19,10 +19,10 @@ export default function TicketHistory() {
   const [selectedTicket, setSelectedTicket] = useState<string | null>(null);
 
   return (
-    <section className="rounded-2xl border border-white bg-white p-4 shadow-sm sm:p-5">
-      <div className="mb-4 flex flex-wrap items-center justify-between gap-2">
-        <h2 className="flex items-center gap-2 font-heading text-base font-bold text-blue-950">
-          <History size={17} className="text-blue-700" />
+    <section className="sm:rounded-2xl rounded-lg border border-white bg-white p-3 shadow-sm sm:p-5">
+      <div className="sm:mb-4 flex flex-wrap items-center justify-between gap-2">
+        <h2 className="flex items-center gap-2 font-heading text-sm sm:text-base font-bold text-blue-950">
+          <History className="h-5 w-5 text-blue-700" />
           Your Ticket History (Last 30 Days)
         </h2>
 
@@ -34,10 +34,10 @@ export default function TicketHistory() {
       {tickets.map((ticket) => (
         <div
           key={ticket.id}
-          className="flex flex-col justify-between gap-3 rounded-xl bg-indigo-50/80 p-3 sm:flex-row sm:items-center"
+          className="flex flex-col justify-between gap-3 rounded-xl bg-indigo-50/80 max-sm:mt-1 p-3 sm:flex-row sm:items-center"
         >
           <div className="flex min-w-0 items-start gap-3">
-            <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-teal-200 text-teal-900">
+            <span className="hidden sm:flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-teal-200 text-teal-900">
               <CheckCheck size={17} />
             </span>
 
@@ -47,7 +47,7 @@ export default function TicketHistory() {
                   {ticket.id} - {ticket.title}
                 </span>
 
-                <span className="rounded-full bg-teal-100 px-2 py-0.5 text-xs font-semibold text-teal-800">
+                <span className="rounded-full hidden sm:block  bg-teal-100 px-2 py-0.5 text-xs font-semibold text-teal-800">
                   {ticket.status}
                 </span>
               </div>
@@ -77,7 +77,7 @@ export default function TicketHistory() {
                 current === ticket.id ? null : ticket.id
               )
             }
-            className="self-start rounded-lg border border-slate-200 bg-white px-3 py-2 text-xs font-bold text-blue-800 hover:bg-blue-50 sm:self-center"
+            className="self-end rounded-lg border border-slate-200 bg-white px-3 py-2 text-xs font-bold text-blue-800 hover:bg-blue-50 sm:self-center"
           >
             {selectedTicket === ticket.id ? "Hide Log" : "View Log"}
           </button>

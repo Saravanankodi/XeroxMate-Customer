@@ -19,7 +19,7 @@ export const metadata = {
 export default function SupportPage() {
   return (
     <div className="flex flex-1 flex-col bg-[#f8f8fd]">
-      <main className="mx-auto w-full max-w-screen flex-1 px-5 pb-6 pt-4 lg:px-8">
+      <main className="mx-auto w-full max-w-screen flex-1 px-4 pb-6 pt-4 lg:px-6">
         <div className="space-y-5">
           <SupportHero />
 

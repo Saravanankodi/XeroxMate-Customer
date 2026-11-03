@@ -68,25 +68,25 @@ export default function PaymentSummary({
   ];
 
   return (
-    <section className="flex w-full flex-col gap-6 rounded-xl bg-white p-6 shadow-[0px_4px_6px_-1px_rgba(0,0,0,0.1),0px_2px_4px_-2px_rgba(0,0,0,0.1)]">
+    <section className="flex w-full flex-col gap-3 sm:gap-6 rounded-xl bg-white p-3 sm:p-6 shadow-[0px_4px_6px_-1px_rgba(0,0,0,0.1),0px_2px_4px_-2px_rgba(0,0,0,0.1)]">
       {/* Header */}
-      <div className="flex flex-col gap-2 sm:flex-row sm:items-start sm:justify-between">
+      <div className="flex max-sm:justify-between gap-2 sm:flex-row sm:items-start sm:justify-between">
         <div>
-          <h2 className="font-heading text-lg font-semibold leading-5.5 text-[#131B2E]">
+          <h2 className="font-heading text-base sm:text-lg font-semibold sm:leading-5.5 text-[#131B2E]">
             Review Your Order
           </h2>
-          <p className="mt-1 text-sm leading-4 text-[#444651]">
+          <p className="mt-1 hidden sm:block text-sm leading-4 text-[#444651]">
             Verify file parameters before sending to printer spooler
           </p>
         </div>
 
-        <span className="w-fit shrink-0 rounded-full bg-[#D7E3FF] px-2 py-0.5 text-xs font-medium leading-3.5 text-[#001B3F]">
+        <span className="w-fit shrink-0 rounded-full bg-[#D7E3FF] px-2 py-0.5 text-xs font-medium sm:leading-3.5 text-[#001B3F]">
           Ready to Print
         </span>
       </div>
 
       {/* File-by-file quote */}
-      <div className="rounded-xl bg-[#F2F3FF] p-4 shadow-sm">
+      <div className="sm:rounded-xl rounded-sm bg-[#F2F3FF] p-2 sm:p-4 shadow-sm">
         <div className="mb-2 flex flex-wrap items-center justify-between gap-2">
           <span className="text-xs font-medium uppercase leading-3.5 tracking-[0.55px] text-[#444651]">
             File-by-file quote
@@ -96,8 +96,8 @@ export default function PaymentSummary({
           </span>
         </div>
 
-        <div className="flex flex-col gap-4 rounded-lg bg-white p-4 shadow-sm sm:flex-row sm:items-start">
-          <div className="flex size-10 shrink-0 items-center justify-center rounded-lg bg-[#1E3A8A] text-[#90A8FF]">
+        <div className="flex flex-col gap-4 rounded-lg bg-white p-2 sm:p-4 shadow-sm sm:flex-row sm:items-start">
+          <div className="hidden sm:flex size-10 shrink-0 items-center justify-center rounded-lg bg-[#1E3A8A] text-[#90A8FF]">
             <FileText size={18} strokeWidth={1.8} />
           </div>
 
@@ -134,7 +134,7 @@ export default function PaymentSummary({
               </span>
 
               <span
-                className={`max-w-[60%] wrap-break-words text-right ${
+                className={`max-w-[60%] flex items-center wrap-break-words text-right ${
                   item.label === "Fulfillment Mode"
                     ? "font-semibold text-[#005AB6]"
                     : isStrong
@@ -216,7 +216,7 @@ export default function PaymentSummary({
       </div>
 
       {/* Total */}
-      <div className="flex min-h-20.5 flex-col justify-between gap-4 rounded-xl bg-[#E2E7FF] p-4 sm:flex-row sm:items-center">
+      <div className="flex min-h-20.5 justify-between sm:gap-4 rounded-xl bg-[#E2E7FF] p-2 sm:p-4 sm:flex-row items-center">
         <div>
           <h3 className="font-heading text-lg font-bold leading-5.5 text-[#131B2E]">
             Total Amount

@@ -36,10 +36,10 @@ export default function OrderSummary({
   const total = Math.max(0, printCost - subsidy + tax);
 
   return (
-    <aside className="rounded-2xl border border-slate-200 bg-white p-4 shadow-sm sm:p-5">
-      <div className="mb-4 flex items-start justify-between gap-3">
+    <aside className="sm:rounded-2xl rounded-lg border border-slate-200 bg-white p-3 shadow-sm sm:p-5">
+      <div className="sm:mb-4 mb-2 flex items-start justify-between gap-3">
         <div>
-          <p className="flex items-center gap-1.5 text-xs font-semibold text-emerald-700">
+          <p className="mb-2 flex items-center gap-1.5 text-xs font-semibold text-emerald-700">
             <BadgeCheck size={13} />
             XeroxMate Certified Partner Hub
           </p>
@@ -70,7 +70,7 @@ export default function OrderSummary({
         </div>
 
         <div className="flex items-center gap-2.5">
-          <div className="shrink-0 rounded-lg bg-blue-950 p-2.5 text-white">
+          <div className="hidden sm:block shrink-0 rounded-lg bg-blue-950 p-2.5 text-white">
             <FileText size={17} />
           </div>
 
@@ -121,7 +121,7 @@ export default function OrderSummary({
         </p>
       </div>
 
-      <div className="mt-3 flex items-start gap-2 rounded-lg bg-indigo-50/70 p-3">
+      <div className="mt-3 hidden sm:flex items-start gap-2 rounded-lg bg-indigo-50/70 p-3">
         <LockKeyhole
           size={13}
           className="mt-0.5 shrink-0 text-emerald-700"

@@ -4,6 +4,7 @@
 import { CalendarDays, Search, SlidersHorizontal } from "lucide-react";
 import StatusTabs from "./StatusTabs";
 import { OrderTab } from "@/types/order";
+import { Select } from "@/components/ui";
 
 
 interface OrderToolbarProps {
@@ -52,35 +53,39 @@ export default function OrderToolbar({
           />
         </label>
 
-        <label className="hidden sm:flex h-8 shrink-0 items-center gap-2 rounded-lg bg-[#F2F3FF] px-3 text-xs leading-4 font-medium text-[#131B2E]">
+        <div className="hidden sm:flex items-center gap-2">
           <CalendarDays size={12} className="text-[#444651]" />
-          <select
+          <Select
             value={dateRange}
             onChange={(event) => onDateRangeChange(event.target.value)}
             aria-label="Date range"
-            className="max-w-32 bg-transparent outline-none"
-          >
-            <option value="30">Last 30 Days</option>
-            <option value="7">Last 7 Days</option>
-            <option value="90">Last 90 Days</option>
-            <option value="all">All Time</option>
-          </select>
-        </label>
+            containerClassName="w-auto"
+            className="h-8 text-xs font-medium text-[#131B2E] bg-[#F2F3FF] !px-0"
+            options={[
+              { label: "Last 30 Days", value: "30" },
+              { label: "Last 7 Days", value: "7" },
+              { label: "Last 90 Days", value: "90" },
+              { label: "All Time", value: "all" },
+            ]}
+          />
+        </div>
 
-        <label className="hidden sm:flex h-8 shrink-0 items-center gap-2 rounded-lg bg-[#F2F3FF] px-3 text-xs leading-4 font-medium text-[#131B2E]">
+        <div className="hidden sm:flex items-center gap-2">
           <SlidersHorizontal size={12} className="text-[#444651]" />
-          <select
+          <Select
             value={sortOrder}
             onChange={(event) => onSortChange(event.target.value)}
             aria-label="Sort orders"
-            className="bg-transparent outline-none"
-          >
-            <option value="newest">Newest</option>
-            <option value="oldest">Oldest</option>
-            <option value="amount-high">Amount: High to Low</option>
-            <option value="amount-low">Amount: Low to High</option>
-          </select>
-        </label>
+            containerClassName="w-auto"
+            className="h-8 text-xs font-medium text-[#131B2E] bg-[#F2F3FF] !px-0"
+            options={[
+              { label: "Newest", value: "newest" },
+              { label: "Oldest", value: "oldest" },
+              { label: "Amount: High to Low", value: "amount-high" },
+              { label: "Amount: Low to High", value: "amount-low" },
+            ]}
+          />
+        </div>
       </div>
     </section>
   );

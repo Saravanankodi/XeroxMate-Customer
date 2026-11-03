@@ -30,7 +30,7 @@ export default function PrintShopCard({
     <section className="w-full rounded-md sm:rounded-xl bg-white p-4 sm:p-6 shadow-[0px_1px_2px_rgba(0,0,0,0.05)]">
       <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
         <div className="flex min-w-0 items-center gap-4">
-          <div className="flex size-10 sm:size-12 shrink-0 items-center justify-center rounded-lg sm:rounded-xl bg-[#00236F] text-white shadow-sm">
+          <div className="hidden sm:flex size-10 sm:size-12 shrink-0 items-center justify-center rounded-lg sm:rounded-xl bg-[#00236F] text-white shadow-sm">
             <Printer size={22} strokeWidth={2.2} />
           </div>
 

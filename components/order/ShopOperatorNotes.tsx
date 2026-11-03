@@ -66,7 +66,7 @@ export default function ShopOperatorNotes({
         className="mt-2 sm:mt-4 sm:min-h-24 w-full resize-y rounded-lg bg-[#F2F3FF] p-2 sm:p-4 text-xs sm:text-sm leading-5 text-[#131B2E] shadow-[inset_0px_2px_4px_rgba(0,0,0,0.05)] outline-none transition placeholder:text-[#9CA3AF] focus:ring-2 focus:ring-[#005AB6]/20"
       />
 
-      <div className="mt-3 sm:mt-5">
+      <div className="mt-3 hidden sm:block sm:mt-5">
         <p className="font-heading text-xs font-medium leading-3.5 text-[#444651]">
           Quick presets for operator:
         </p>

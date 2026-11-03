@@ -99,7 +99,7 @@ export default function PayoutMethod() {
           )}
         </div>
 
-        <label className={`flex cursor-pointer items-center gap-2.5 rounded-xl border p-3 transition ${
+        {/* <label className={`flex cursor-pointer items-center gap-2.5 rounded-xl border p-3 transition ${
           method === "wallet"
             ? "border-blue-900 bg-blue-50/40"
             : "border-slate-200 hover:border-blue-200"
@@ -126,7 +126,7 @@ export default function PayoutMethod() {
             </span>
           </span>
           <CreditCard size={15} className="text-slate-400" />
-        </label>
+        </label> */}
 
         {message && (
           <p role="status" className="rounded-lg bg-blue-50 p-2.5 text-xs text-blue-800">

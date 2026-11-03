@@ -49,13 +49,13 @@ export default function FAQSection() {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
 
   return (
-    <section className="rounded-2xl border border-white bg-white p-4 shadow-sm sm:p-5">
-      <div className="mb-4 flex items-center justify-between gap-2">
+    <section className="sm:rounded-2xl rounded-lg border border-white bg-white p-3 shadow-sm sm:p-5">
+      <div className="sm:mb-4 mb-2 flex items-center justify-between gap-2">
         <div className="flex items-center gap-2">
-          <span className="flex h-9 w-9 items-center justify-center rounded-xl bg-indigo-100 text-blue-900">
+          <span className="hidden sm:flex h-9 w-9 items-center justify-center rounded-xl bg-indigo-100 text-blue-900">
             <FileCheck size={18} />
           </span>
-          <h2 className="font-heading text-lg font-bold text-blue-950">
+          <h2 className="font-heading text-base sm:text-lg font-bold text-blue-950">
             Frequently asked
           </h2>
         </div>
@@ -72,7 +72,7 @@ export default function FAQSection() {
           const answerId = `faq-answer-${index}`;
 
           return (
-            <div key={faq.question} className="overflow-hidden rounded-xl bg-indigo-50/80">
+            <div key={faq.question} className="overflow-hidden rounded-md sm:rounded-xl bg-indigo-50/80">
               <button
                 type="button"
                 aria-expanded={isOpen}
@@ -97,7 +97,7 @@ export default function FAQSection() {
               {isOpen && (
                 <div
                   id={answerId}
-                  className="px-3 pb-4 pl-9 text-sm leading-5 text-slate-600"
+                  className="sm:px-3 sm:pb-4 px-3 sm:pl-9 text-xs sm:text-sm sm:leading-5 text-slate-600"
                 >
                   {faq.answer}
                 </div>

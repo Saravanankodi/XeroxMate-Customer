@@ -52,7 +52,7 @@ export default function PaymentMethod({
   onChange,
 }: PaymentMethodProps) {
   return (
-    <section className="rounded-xl bg-white p-4 sm:p-6 shadow-[0px_1px_2px_rgba(0,0,0,0.05)]">
+    <section className="rounded-xl bg-white p-3 sm:p-6 shadow-[0px_1px_2px_rgba(0,0,0,0.05)]">
       <div className="flex items-center gap-2">
         <Wallet size={20} strokeWidth={2} className="shrink-0 text-[#005AB6]" />
         <h2 className="font-heading text-lg sm:text-2xl font-semibold leading-5.5 text-[#131B2E]">
@@ -60,7 +60,7 @@ export default function PaymentMethod({
         </h2>
       </div>
 
-      <p className="mt-1 text-xs sm:text-sm sm:leading-4 text-[#444651]">
+      <p className="mt-1 hidden sm:block text-xs sm:text-sm sm:leading-4 text-[#444651]">
         Choose how you would like to pay for your print order.
       </p>
 
@@ -75,7 +75,7 @@ export default function PaymentMethod({
               key={method.id}
               onClick={() => onChange(method.id)}
               aria-pressed={selected}
-              className={`flex w-full items-center gap-1.5 sm:gap-3 rounded-md sm:rounded-xl sm:p-4 px-2 py-1 text-left shadow-sm transition ${
+              className={`flex w-full items-center gap-1.5 sm:gap-3 rounded-md sm:rounded-xl sm:p-4 px-2.5 py-3 text-left shadow-sm transition ${
                 selected
                   ? "bg-[#F2F3FF]"
                   : "bg-white hover:bg-[#FAF8FF]"
@@ -92,11 +92,11 @@ export default function PaymentMethod({
               </span>
 
               <span className="min-w-0 flex-1">
-                <span className="block font-heading text-xs sm:text-base font-semibold sm:leading-5 text-[#131B2E]">
+                <span className="block font-heading text-[15px] sm:text-base font-semibold sm:leading-5 text-[#131B2E]">
                   {method.title}
                 </span>
 
-                <span className="sm:mt-1 block text-[10px] sm:text-sm sm:leading-4 text-[#444651]">
+                <span className="sm:mt-1 hidden sm:block text-[10px] sm:text-sm sm:leading-4 text-[#444651]">
                   {method.description}
                 </span>
               </span>

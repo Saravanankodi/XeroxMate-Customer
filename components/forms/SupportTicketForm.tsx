@@ -8,6 +8,7 @@ import {
   Send,
   Ticket,
 } from "lucide-react";
+import { Select } from "@/components/ui";
 
 const quickFill = [
   {
@@ -40,6 +41,17 @@ const categories = [
   "Account / Login Issue",
   "Other",
 ];
+
+const orderOptions = [
+  { label: "OMX-3547 – Tamil Printers (₹11.50) - Current", value: "OMX-3547" },
+  { label: "OMX-3210 – Cauvery Copy Point", value: "OMX-3210" },
+  { label: "Other / No related order", value: "other" },
+];
+
+const categoryOptions = categories.map((item) => ({
+  label: item,
+  value: item,
+}));
 
 export default function SupportTicketForm() {
   const fileInput = useRef<HTMLInputElement>(null);
@@ -99,7 +111,7 @@ export default function SupportTicketForm() {
   }
 
   return (
-    <section className="rounded-2xl border border-white bg-white p-5 shadow-sm sm:p-6">
+    <section className="sm:rounded-2xl rounded-lg border border-white bg-white p-3 shadow-sm sm:p-6">
       <div className="sm:flex items-start gap-3 border-b border-slate-100 pb-4">
         <span className="hidden sm:flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-blue-100 text-blue-900">
           <Ticket size={20} />
@@ -137,11 +149,11 @@ export default function SupportTicketForm() {
             value={subject}
             onChange={(e) => setSubject(e.target.value)}
             placeholder="Short summary of the issue (e.g. Print alignment off on OMX-3547)"
-            className="w-full rounded-xl border border-slate-200 px-3 py-3 text-sm outline-none transition placeholder:text-slate-400 focus:border-blue-500 focus:ring-2 focus:ring-blue-100"
+            className="w-full rounded-md sm:rounded-xl border border-slate-200 p-2 sm:px-3 sm:py-3 text-xs sm:text-sm outline-none transition placeholder:text-slate-400 focus:border-blue-500 focus:ring-2 focus:ring-blue-100"
           />
 
-          <div className="mt-3 flex flex-wrap items-center gap-2">
-            <span className="text-xs font-semibold text-slate-500">Quick Fill:</span>
+          <div className="sm:mt-3 mt-2 flex flex-wrap items-center gap-2">
+            <span className="hidden sm:block text-xs font-semibold text-slate-500">Quick Fill:</span>
             {quickFill.map((item) => (
               <button
                 key={item.label}
@@ -151,7 +163,7 @@ export default function SupportTicketForm() {
                   setCategory(item.category);
                   setStatus("");
                 }}
-                className="rounded-md bg-slate-100 px-2.5 py-1.5 text-xs font-semibold text-slate-600 transition hover:bg-blue-100 hover:text-blue-900"
+                className="rounded-md bg-slate-100 sm:px-2.5 sm:py-1.5 px-2 py-1 text-[10px] sm:text-xs font-semibold text-slate-600 transition hover:bg-blue-100 hover:text-blue-900"
               >
                 {item.label}
               </button>
@@ -159,42 +171,26 @@ export default function SupportTicketForm() {
           </div>
         </div>
 
-        <div className="grid gap-4 sm:grid-cols-2">
-          <div>
-            <label htmlFor="related-order" className="mb-2 block text-sm font-bold text-slate-800">
-              Related Order
-            </label>
-            <select
-              id="related-order"
-              value={order}
-              onChange={(e) => setOrder(e.target.value)}
-              className="w-full rounded-xl border border-slate-200 bg-white px-3 py-3 text-sm text-slate-700 outline-none focus:border-blue-500"
-            >
-              <option value="OMX-3547">OMX-3547 • Tamil Printers (₹1.50) - Current</option>
-              <option value="OMX-3210">OMX-3210 • Cauvery Copy Point</option>
-              <option value="other">Other / No related order</option>
-            </select>
-          </div>
+        <div className="w-full grid gap-4 sm:grid-cols-2 isolate">
+          <Select
+            label="Related Order"
+            name="related-order"
+            options={orderOptions}
+            value={order}
+            onChange={(e) => setOrder(e.target.value)}
+          />
 
-          <div>
-            <label htmlFor="ticket-category" className="mb-2 block text-sm font-bold text-slate-800">
-              Category <span className="text-red-500">*</span>
-            </label>
-            <select
-              id="ticket-category"
-              required
-              value={category}
-              onChange={(e) => setCategory(e.target.value)}
-              className="w-full rounded-xl border border-slate-200 bg-white px-3 py-3 text-sm text-slate-700 outline-none focus:border-blue-500"
-            >
-              {categories.map((item) => (
-                <option key={item} value={item}>{item}</option>
-              ))}
-            </select>
-          </div>
+          <Select
+            label="Category"
+            name="ticket-category"
+            options={categoryOptions}
+            value={category}
+            onChange={(e) => setCategory(e.target.value)}
+            required
+          />
         </div>
 
-        <fieldset>
+        {/* <fieldset>
           <legend className="mb-3 text-sm font-bold text-slate-800">
             Priority Urgency
           </legend>
@@ -249,14 +245,14 @@ export default function SupportTicketForm() {
               </span>
             </label>
           </div>
-        </fieldset>
+        </fieldset> */}
 
         <div>
           <div className="mb-2 flex justify-between gap-2">
             <label htmlFor="ticket-description" className="text-sm font-bold text-slate-800">
               Description <span className="text-red-500">*</span>
             </label>
-            <span className="text-xs font-semibold text-slate-500">Min. 20 chars</span>
+            {/* <span className="text-xs font-semibold text-slate-500">Min. 20 chars</span> */}
           </div>
 
           <textarea
@@ -267,7 +263,7 @@ export default function SupportTicketForm() {
             value={description}
             onChange={(e) => setDescription(e.target.value)}
             placeholder="Tell us what happened in detail. If this is a print defect, please mention paper weight, missing page numbers, ink smudging, or spiral binding status..."
-            className="w-full resize-y rounded-xl border border-slate-200 px-3 py-3 text-sm leading-5 outline-none placeholder:text-slate-400 focus:border-blue-500 focus:ring-2 focus:ring-blue-100"
+            className="w-full resize-y rounded-xl border border-slate-200 px-3 py-3 text-xs sm:text-sm sm:leading-5 outline-none placeholder:text-slate-400 focus:border-blue-500 focus:ring-2 focus:ring-blue-100"
           />
         </div>
 
@@ -339,7 +335,7 @@ export default function SupportTicketForm() {
             Ticket updates will be sent to your registered email &amp; SMS.
           </p>
 
-          <div className="flex shrink-0 gap-2">
+          <div className="flex max-sm:justify-between shrink-0 gap-2">
             <button
               type="button"
               onClick={clearForm}
@@ -361,3 +357,4 @@ export default function SupportTicketForm() {
     </section>
   );
 }
+

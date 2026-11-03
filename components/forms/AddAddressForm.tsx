@@ -81,7 +81,7 @@ export default function AddAddressForm({
   }
 
   const inputClass =
-    "mt-1.5 w-full rounded-xl border border-slate-200 bg-white px-3 py-2.5 text-sm font-semibold text-slate-800 outline-none placeholder:text-slate-400 focus:border-blue-500 focus:ring-2 focus:ring-blue-100";
+    "mt-1.5 w-full rounded-lg sm:rounded-xl border border-slate-200 bg-white p-2 sm:px-3 sm:py-2.5 text-xs  sm:text-sm font-semibold text-slate-800 outline-none placeholder:text-slate-400 focus:border-blue-500 focus:ring-2 focus:ring-blue-100";
 
   const labels = [
     { value: "Home", icon: "⌂" },
@@ -95,16 +95,16 @@ export default function AddAddressForm({
       id="add-address"
       className="rounded-2xl border border-slate-200/70 bg-white p-4 shadow-sm sm:p-5"
     >
-      <div className="flex items-center gap-3 border-b border-slate-100 pb-4">
-        <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-blue-50 text-blue-900">
-          <Plus size={20} />
+      <div className="flex items-center gap-3 border-b border-slate-100 pb-2 sm:pb-4">
+        <span className="flex sm:h-10 sm:w-10 h-8 w-8 items-center justify-center rounded-sm sm:rounded-xl bg-blue-50 text-blue-900">
+          <Plus className="w-4 h-4 sm:h-5 sm:w-5" />
         </span>
 
         <div>
           <h2 className="font-heading text-base font-bold text-slate-900">
             {editingAddress ? "Edit Address" : "Add a New Address"}
           </h2>
-          <p className="mt-0.5 text-[13px] leading-4 text-slate-500">
+          <p className="mt-0.5 hidden sm:block text-[13px] leading-4 text-slate-500">
             Provide complete details to ensure accurate desk and room delivery.
           </p>
         </div>
@@ -168,7 +168,7 @@ export default function AddAddressForm({
 
         <div>
           <label htmlFor="address-building" className="text-xs font-bold uppercase tracking-[0.6px] text-slate-600">
-            House / Flat / Building / Department Name *
+            House / Flat / Building  *
           </label>
           <input
             id="address-building"
@@ -257,15 +257,7 @@ export default function AddAddressForm({
           </p>
         )}
 
-        <div className="flex flex-wrap gap-2">
-          <button
-            type="submit"
-            className="flex items-center gap-2 rounded-xl bg-blue-900 px-4 py-2.5 text-sm font-bold text-white transition hover:bg-blue-800"
-          >
-            <Check size={14} />
-            {editingAddress ? "Update Address" : "Save Address"}
-          </button>
-
+        <div className="flex justify-between gap-2">
           <button
             type="button"
             onClick={() => {
@@ -277,6 +269,13 @@ export default function AddAddressForm({
           >
             <RotateCcw size={12} />
             {editingAddress ? "Cancel" : "Clear"}
+          </button>
+          <button
+            type="submit"
+            className="flex items-center gap-2 rounded-xl bg-blue-900 px-4 py-2.5 text-sm font-bold text-white transition hover:bg-blue-800"
+          >
+            <Check size={14} />
+            {editingAddress ? "Update " : "Save "}
           </button>
         </div>
       </form>

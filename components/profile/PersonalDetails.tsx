@@ -33,16 +33,16 @@ export default function PersonalDetails() {
     "mt-1.5 w-full rounded-xl border border-slate-200 bg-white px-3 py-2.5 text-sm font-semibold text-black outline-none transition placeholder:text-slate-400 focus:border-blue-500 focus:ring-2 focus:ring-blue-100";
 
   return (
-    <section className="rounded-2xl border border-slate-200/70 bg-white p-4 shadow-sm sm:p-5">
-      <div className="flex items-center gap-3 border-b border-slate-100 pb-4">
-        <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-blue-50 text-black">
-          <UserRound size={19} />
+    <section className="sm:rounded-2xl rounded-lg border border-slate-200/70 bg-white p-2 shadow-sm sm:p-5">
+      <div className="flex items-center gap-3 border-b border-slate-100 pb-2 sm:pb-4">
+        <span className="flex sm:h-10 sm:w-10 h-8 w-8 items-center justify-center rounded-sm sm:rounded-xl bg-blue-50 text-black">
+          <UserRound className="w-4 h-4 sm:h-5 sm:w-5" />
         </span>
         <div>
           <h2 className="font-heading text-base font-bold text-black">
             Personal Details
           </h2>
-          <p className="mt-0.5 text-xs text-slate-500">
+          <p className="mt-0.5 hidden sm:block text-xs text-slate-500">
             Used for print pickup OTPs and delivery notifications.
           </p>
         </div>

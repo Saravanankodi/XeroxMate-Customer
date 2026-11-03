@@ -139,11 +139,11 @@ export default function SpecificationsPage() {
         {/* Page title and progress */}
         <section className="sm:mb-6 mb-4 sm:flex flex-col justify-between gap-4 sm:border-b border-slate-200 sm:bg-white sm:px-5 sm:py-3 md:flex-row md:items-center">
           <div className="mb-2 sm:mb-0">
-            <h1 className="sm:text-2xl text-xl font-bold sm:tracking-tight">
+            <h1 className="sm:text-2xl text-lg font-bold sm:tracking-tight">
               Configure Document Customization
             </h1>
 
-            <p className="mt-1 text-sm text-slate-500">
+            <p className="mt-1 hidden sm:block text-sm text-slate-500">
               Fine-tune print paper stock, binding, duplex options, and
               volume specifications.
             </p>
@@ -153,7 +153,7 @@ export default function SpecificationsPage() {
         </section>
 
         {/* Main two-column layout */}
-        <div className="grid items-start gap-6 lg:grid-cols-[0.82fr_1.18fr]">
+        <div className="grid items-start sm:gap-6 lg:grid-cols-[0.82fr_1.18fr]">
           {/* LEFT: Document upload and session file */}
           <section className="space-y-5">
             <DocumentUploadPanel
@@ -162,7 +162,7 @@ export default function SpecificationsPage() {
             />
 
             {/* Loaded in session */}
-            <div>
+            <div className="hidden sm:block">
               <p className="text-sm font-semibold uppercase tracking-wide text-slate-400">
                 Loaded in Session
               </p>
@@ -214,7 +214,7 @@ export default function SpecificationsPage() {
             {/* Selected document header */}
             <div className="mb-5 pb-1 flex items-center justify-between gap-3 border-b border-slate-100">
               <div className="min-w-0">
-                <p className="truncate text-xs sm:text-sm font-medium text-slate-700">
+                <p className="truncate max-w-50 text-xs sm:text-sm font-medium text-slate-700">
                   Applied to: {loadedFileName || "Select a document"}
                 </p>
 

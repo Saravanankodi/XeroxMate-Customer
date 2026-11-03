@@ -121,9 +121,9 @@ export default function PaymentPage() {
       <main className="mx-auto w-full max-w-screen flex-1 px-4 py-5 sm:px-6 lg:px-8">
         {!submitted && (
           <>
-            <section className="mb-5 flex flex-col justify-between gap-4 rounded-xl sm:border-b border-[rgba(226,232,240,0.8)] sm:bg-white px-3 py-2 sm:px-5 sm:py-4 sm:shadow-[0px_1px_2px_rgba(0,0,0,0.05)] md:flex-row md:items-center">
+            <section className="sm:mb-5 mb-2 flex flex-col justify-between gap-2 sm:gap-4 rounded-xl sm:border-b border-[rgba(226,232,240,0.8)] sm:bg-white px-3 py-2 sm:px-5 sm:py-4 sm:shadow-[0px_1px_2px_rgba(0,0,0,0.05)] md:flex-row md:items-center">
               <div className="flex items-center gap-3">
-                <div className="flex size-10 shrink-0 items-center justify-center rounded-lg bg-[#1E3A8A] text-[#90A8FF]">
+                <div className="hidden sm:flex size-10 shrink-0 items-center justify-center rounded-lg bg-[#1E3A8A] text-[#90A8FF]">
                   <CreditCard size={20} strokeWidth={2} />
                 </div>
 
@@ -131,9 +131,9 @@ export default function PaymentPage() {
                   <h1 className="font-heading text-xl sm:text-2xl font-bold sm:leading-7 tracking-[-0.45px] text-[#0F172A]">
                     Review &amp; Instant Pay
                   </h1>
-                  <p className="sm:mt-1 text-xs sm:leading-4 text-[#444651]">
+                  {/* <p className="sm:mt-1 text-xs sm:leading-4 text-[#444651]">
                     Order ID: #{orderId}
-                  </p>
+                  </p> */}
                 </div>
               </div>
 

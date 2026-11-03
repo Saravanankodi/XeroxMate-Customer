@@ -12,11 +12,11 @@ export default function PageHeading({
   return (
     <section className="flex flex-col justify-between gap-4 md:flex-row md:items-center">
       <div className="max-w-2xl">
-        <h1 className="font-heading text-2xl sm:text-[32px] sm:leading-11 font-bold tracking-[-0.9px] text-[#00236F]">
+        <h1 className="font-heading text-xl sm:text-[32px] sm:leading-11 font-bold tracking-[-0.9px] text-[#00236F]">
           My Orders
         </h1>
 
-        <p className="sm:mt-1 max-w-2xl text-xs sm:text-sm sm:leading-5 text-[#444651]">
+        <p className="hidden sm:block sm:mt-1 max-w-2xl text-xs sm:text-sm sm:leading-5 text-[#444651]">
           Real-time telemetry and counter pickup verification
           across campus print hubs. Track spooling, Ricoh laser
           progress, and fetch your kiosk OTP.

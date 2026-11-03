@@ -27,7 +27,7 @@ export default function StatusTabs({
     <div
       role="group"
       aria-label="Filter orders by status"
-      className="flex w-fit max-w-full gap-1.5 overflow-x-auto rounded-lg bg-[#F2F3FF] p-1"
+      className="flex w-fit max-w-full gap-1.5 no-scrollbar overflow-x-auto rounded-lg bg-[#F2F3FF] p-1"
     >
       {tabs.map((tab) => {
         const selected = activeTab === tab.id;

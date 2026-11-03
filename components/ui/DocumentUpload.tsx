@@ -90,7 +90,7 @@ export default function DocumentUpload({
           Drag &amp; drop files here or browse from your device.
         </p>
 
-        <div className="mt-2 sm:mt-4 rounded-full border border-slate-200 bg-white px-3 py-2 text-xs font-semibold uppercase tracking-wide text-slate-600 sm:px-7 sm:text-sm">
+        <div className="mt-2 sm:mt-4 rounded-full border border-slate-200 bg-white px-2 py-1.5 text-[10px] font-semibold uppercase tracking-wide text-slate-600 sm:px-7 sm:text-sm">
           PDF, Word, PowerPoint, Excel, text and image files
         </div>
 

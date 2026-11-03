@@ -20,7 +20,7 @@ export function Header() {
     href === "/" ? pathname === "/" : pathname.startsWith(href);
 
   return (
-    <header className="relative z-10 mx-auto flex w-full max-w-screen items-center justify-between gap-4 px-4 py-3 lg:px-8 bg-white">
+    <header className="relative z-10 mx-auto flex w-full max-w-screen items-center justify-between gap-4 px-4 sm:py-3 lg:px-8 bg-white">
       <Link
         href="/"
         className="shrink-0"
@@ -65,7 +65,7 @@ export function Header() {
           aria-label="Notifications"
           className="relative rounded-lg p-2 text-slate-700 hover:bg-slate-200/70"
         >
-          <Bell className="w-4 h-4 sm:w-6 sm:h-6" />
+          <Bell className="w-5 h-5 sm:w-4 sm:h-4" />
           <span className="absolute right-1.5 top-1.5 h-2 w-2 rounded-full bg-sky-500" />
         </button>
 
@@ -73,7 +73,7 @@ export function Header() {
           type="button"
           className="flex items-center gap-1.5 text-xs text-slate-700 hover:text-sky-600 sm:flex"
         >
-          <LogOut className="w-4 h-4 sm:w-6 sm:h-6" />
+          <LogOut className="w-5 h-5 sm:w-4 sm:h-4" />
           <span className="hidden sm:block">
             Sign out
           </span>

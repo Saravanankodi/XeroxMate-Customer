@@ -25,7 +25,7 @@ export default function BottomNav() {
   return (
     <nav
       aria-label="Mobile navigation"
-      className="fixed inset-x-0 bottom-0 z-40 border-t border-slate-200 bg-white px-1 pt-2 pb-[max(8px,env(safe-area-inset-bottom))] shadow-[0_-4px_20px_rgba(15,23,42,0.08)] md:hidden"
+      className="fixed inset-x-0 bottom-0 z-40 border-t border-slate-200 bg-white p-1 pb-[max(8px,env(safe-area-inset-bottom))] shadow-[0_-4px_20px_rgba(15,23,42,0.08)] md:hidden"
     >
       <div className="mx-auto grid max-w-lg grid-cols-5">
         {navItems.map(({ label, href, icon: Icon }) => {
@@ -45,7 +45,7 @@ export default function BottomNav() {
               }`}
             >
               <Icon
-                size={26}
+                size={24}
                 strokeWidth={1.2}
                 aria-hidden="true"
               />

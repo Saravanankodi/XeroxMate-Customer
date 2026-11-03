@@ -79,8 +79,8 @@ export default function OrderCard({
 
       <div className="flex flex-col gap-4 p-5 sm:p-6 lg:flex-row lg:items-center lg:justify-between">
         <div className="min-w-0 flex-1 space-y-1">
-          <div className="flex items-center gap-2">
-            <h3 className="font-heading text-[22px] leading-7 font-bold tracking-[-0.55px] text-[#00236F]">
+          <div className="flex items-center max-sm:justify-between gap-2">
+            <h3 className="font-heading sm:text-[22px] text-lg sm:leading-7 font-bold tracking-[-0.55px] text-[#00236F]">
               <Link
                 href={`/my-orders/${order.id}`}
                 className="hover:text-blue-700 hover:underline"
@@ -90,7 +90,7 @@ export default function OrderCard({
             </h3>
 
             <span
-              className={`inline-flex items-center gap-1.5 rounded-full px-2.5 py-0.5 font-footer text-xs leading-4 font-bold capitalize ${statusTone}`}
+              className={`inline-flex items-center gap-1.5 rounded-full px-2.5 py-0.5 font-footer text-[10px] sm:text-xs sm:leading-4 font-bold capitalize ${statusTone}`}
             >
               <span className={`size-2 rounded-full ${statusDot}`} />
               {order.status.replaceAll("_", " ")}
@@ -105,8 +105,8 @@ export default function OrderCard({
           </div>
 
           <div className="flex items-center gap-2">
-            <span className="size-3.5 rounded-full border-[1.34px] border-[#005AB6]" />
-            <p className="text-sm leading-4 text-[#444651]">
+            <span className="size-3 sm:size-3.5 rounded-full border-[1.34px] border-[#005AB6]" />
+            <p className="text-xs sm:text-sm sm:leading-4 text-[#444651]">
               Submitted {formatSubmittedAt(order.submittedAt)}
             </p>
           </div>
@@ -179,7 +179,7 @@ export default function OrderCard({
             >
               <Ticket size={13.5} className="text-white" />
               {order.pickupPin
-                ? `Order Pass`
+                ? `#${order.pickupPin}`
                 : "View Details"}
             </Link>
           </div>

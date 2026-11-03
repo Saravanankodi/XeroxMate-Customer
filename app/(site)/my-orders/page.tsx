@@ -150,7 +150,7 @@ export default function MyOrdersPage() {
 
         <section className="grid grid-cols-1 items-start gap-5">
           <div className="min-w-0">
-            <div className="mb-4 flex items-center justify-between gap-4 px-3">
+            <div className="mb-4 hidden sm:flex items-center justify-between gap-4 px-3">
               <div className="flex items-center gap-2">
                 <span className="size-2.5 rounded-full bg-[#0072E4]" />
                 <h2 className="font-heading text-sm sm:text-lg sm:leading-6 font-bold text-[#00236F]">

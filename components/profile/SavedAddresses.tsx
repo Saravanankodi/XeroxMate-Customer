@@ -105,17 +105,17 @@ export default function SavedAddresses({
   }
 
   return (
-    <section className="rounded-2xl border border-slate-200/70 bg-white p-4 shadow-sm sm:p-5">
-      <div className="flex flex-wrap items-center justify-between gap-3 border-b border-slate-100 pb-4">
+    <section className="sm:rounded-2xl rounded-lg border border-slate-200/70 bg-white p-3 shadow-sm sm:p-5">
+      <div className="flex flex-wrap items-center justify-between gap-3 border-b border-slate-100 pb-2 sm:pb-4">
         <div className="flex items-center gap-3">
-          <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-cyan-50 text-cyan-800">
-            <Building2 size={19} />
+          <span className="flex sm:h-10 sm:w-10 w-8 h-8 items-center justify-center rounded-sm sm:rounded-xl bg-cyan-50 text-cyan-800">
+            <Building2 className="w-4 h-4 sm:h-5 sm:w-5" />
           </span>
           <div>
             <h2 className="font-heading text-base font-bold text-slate-900">
               Saved Addresses &amp; Hubs
             </h2>
-            <p className="mt-0.5 text-xs text-slate-500">
+            <p className="mt-0.5 hidden sm:block text-xs text-slate-500">
               Pick where your printed files, reports, and bound theses get delivered.
             </p>
           </div>
@@ -138,7 +138,7 @@ export default function SavedAddresses({
           return (
             <article
               key={address.id}
-              className={`rounded-xl border p-3 transition ${
+              className={`rounded-xl border p-2 sm:p-3 transition ${
                 address.isDefault
                   ? "border-blue-900 bg-blue-50/20 ring-1 ring-blue-900/20"
                   : "border-slate-200 bg-white"
@@ -175,8 +175,10 @@ export default function SavedAddresses({
                     onClick={() => onEditAddress(address)}
                     className="flex items-center gap-1 font-medium text-slate-600 hover:text-blue-800"
                   >
-                    <Pencil size={12} />
-                    Edit
+                    <Pencil className="w-4 h-4 sm:h-3 sm:w-3" />
+                    <span className="hidden sm:block">
+                      Edit
+                    </span>
                   </button>
 
                   {confirmingId === address.id ? (
@@ -202,8 +204,10 @@ export default function SavedAddresses({
                       onClick={() => setConfirmingId(address.id)}
                       className="flex items-center gap-1 font-semibold text-rose-600 hover:text-rose-800"
                     >
-                      <Trash2 size={12} />
-                      Delete
+                      <Trash2 className="sm:w-3 sm:h-3 h-4 w-4" />
+                      <span className="hidden sm:block">
+                        Delete
+                      </span>
                     </button>
                   )}
                 </div>

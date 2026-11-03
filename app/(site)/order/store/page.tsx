@@ -3,7 +3,7 @@
 
 import { useMemo, useState } from "react";
 import { useRouter } from "next/navigation";
-import { MapPin, Store, Info } from "lucide-react";
+import { MapPin, Store, Info, X, ReceiptText } from "lucide-react";
 
 
 import OrderStepper from "@/components/layout/OrderStepper";
@@ -28,6 +28,7 @@ export default function StoreSelectionPage() {
   const [search, setSearch] = useState("");
   const [manualShopId, setManualShopId] = useState<string | null>(null);
   const [modalOpen, setModalOpen] = useState(false);
+  const [summaryOpen, setSummaryOpen] = useState(false);
 
   const selectedShop =
     sampleShops.find(
@@ -84,13 +85,13 @@ export default function StoreSelectionPage() {
     <div className="flex flex-1 flex-col bg-[#f8f8fd] text-slate-800">
       <main className="mx-auto w-full max-w-screen flex-1 px-4 py-5 sm:px-6 lg:px-8">
         {/* Heading */}
-        <section className="mb-4 hidden sm:flex flex-col justify-between gap-3 border-b border-slate-200 bg-white px-4 py-3 md:flex-row md:items-center">
+        <section className="mb-2 sm:mb-4 flex flex-col justify-between gap-3 sm:border-b border-slate-200 sm:bg-white sm:px-4 sm:py-3 md:flex-row md:items-center">
           <div>
             <h1 className="text-2xl font-bold tracking-tight">
               Select Nearby Print Shop
             </h1>
 
-            <p className="mt-1 max-w-2xl text-sm leading-4 text-slate-500">
+            <p className="mt-1 hidden sm:block max-w-2xl text-sm leading-4 text-slate-500">
               Showing verified XeroxMate stations equipped with duplex
               laser hardware. Estimated subtotal is calculated using
               sample vendor pricing.
@@ -112,13 +113,13 @@ export default function StoreSelectionPage() {
                 {filteredShops.length === 1 ? "shop" : "shops"} found
               </p>
 
-              <span className="flex items-center gap-1 text-xs text-slate-500">
+              <span className="hidden sm:flex items-center gap-1 text-xs text-slate-500">
                 <MapPin size={12} className="text-blue-600" />
                 Sample nearby results
               </span>
             </div>
 
-            <div className="space-y-3">
+            <div className="space-y-3 pb-20 lg:pb-0">
               {filteredShops.map((shop) => (
                 <StoreCard
                   key={shop.id}
@@ -169,7 +170,7 @@ export default function StoreSelectionPage() {
           </section>
 
           {/* Right: selected shop and order summary */}
-          <div className="lg:sticky lg:top-5">
+          <div className="hidden lg:block lg:sticky lg:top-5">
             <OrderSummary
               shop={selectedShop}
               fileName={draft.fileName ?? "Document.pdf"}
@@ -181,6 +182,60 @@ export default function StoreSelectionPage() {
           </div>
         </div>
       </main>
+
+      {/* Mobile Order Summary Button */}
+      <div className="lg:hidden fixed bottom-0 left-0 right-0 bg-white border-t border-slate-200 p-3 shadow-[0_-4px_20px_rgba(0,0,0,0.05)] z-[60]">
+        <button
+          type="button"
+          onClick={() => setSummaryOpen(true)}
+          className="flex h-11 w-full items-center justify-between rounded-lg bg-linear-to-r from-blue-900 to-blue-600 px-4 text-white font-semibold shadow-sm"
+        >
+          <span className="flex items-center gap-2">
+            <ReceiptText size={18} />
+            View Order Summary
+          </span>
+          <span className="text-lg font-bold">
+            ₹{Math.max(0, selectedShop.printCost * draft.pageCount * (draft.settings?.quantity ?? 1)).toFixed(2)}
+          </span>
+        </button>
+      </div>
+
+      {/* Mobile Order Summary Popup */}
+      {summaryOpen && (
+        <div className="lg:hidden fixed inset-0 z-[70] flex items-end justify-center">
+          <div
+            className="absolute inset-0 bg-black/40"
+            onClick={() => setSummaryOpen(false)}
+          />
+          <div className="relative w-full max-h-[90vh] overflow-y-auto rounded-t-2xl bg-white shadow-xl animate-in slide-in-from-bottom">
+            <div className="sticky top-0 flex items-center justify-between border-b border-slate-100 bg-white px-4 py-3 rounded-t-2xl">
+              <h3 className="text-base font-bold text-slate-900">Order Summary</h3>
+              <button
+                type="button"
+                onClick={() => setSummaryOpen(false)}
+                className="rounded-lg p-1.5 hover:bg-slate-100"
+              >
+                <X size={18} />
+              </button>
+            </div>
+            <div className="p-4">
+              <OrderSummary
+                shop={selectedShop}
+                fileName={draft.fileName ?? "Document.pdf"}
+                pageCount={draft.pageCount}
+                quantity={draft.settings?.quantity ?? 1}
+                onContinue={() => {
+                  setSummaryOpen(false);
+                  setModalOpen(true);
+                }}
+                onBack={() => {
+                  setSummaryOpen(false);
+                }}
+              />
+            </div>
+          </div>
+        </div>
+      )}
 
       {/* Pickup / delivery modal */}
       <FulfillmentModal

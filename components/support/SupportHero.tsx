@@ -13,7 +13,7 @@ export default function SupportHero() {
           Help &amp; Customer Support
         </h1>
 
-        <p className="mt-2 max-w-xl text-sm sm:text-base sm:leading-6 text-slate-600">
+        <p className="mt-2 max-w-xl text-xs sm:text-base sm:leading-6 text-slate-600">
           Have questions about your print job, pickup PIN, billing, or print
           quality? We are here to help students and faculty across campus hubs.
         </p>

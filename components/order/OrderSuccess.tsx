@@ -66,7 +66,7 @@ export default function OrderSuccess({
   return (
     <div className="mx-auto w-full max-w-140 space-y-3 text-slate-800">
       {/* Success banner */}
-      <section className="flex flex-col items-start gap-4 rounded-xl border border-slate-100 bg-linear-to-r from-white to-blue-50 p-5 shadow-sm sm:flex-row sm:items-center">
+      <section className="flex items-center sm:gap-4 rounded-xl border border-slate-100 bg-linear-to-r from-white to-blue-50 p-2 sm:p-5 shadow-sm sm:flex-row sm:items-center">
         <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-full bg-emerald-50">
           <CheckCircle2
             size={38}
@@ -80,11 +80,11 @@ export default function OrderSuccess({
             Order ID: {orderId}
           </p>
 
-          <h1 className="mt-1 text-xl font-extrabold tracking-tight text-blue-950 sm:text-2xl">
+          <h1 className="mt-1 text-lg font-extrabold tracking-tight text-blue-950 sm:text-2xl">
             Order Placed Successfully!
           </h1>
 
-          <p className="mt-1 max-w-xl text-xs leading-5 text-slate-500">
+          <p className="mt-1 hidden sm:block max-w-xl text-xs leading-5 text-slate-500">
             {shopName} has received your order details.
             Check your order status for acceptance and real-time
             printing updates.
@@ -93,7 +93,7 @@ export default function OrderSuccess({
       </section>
 
       {/* Receipt */}
-      <section className="rounded-xl border border-slate-100 bg-white p-5 shadow-sm sm:p-6">
+      <section className="sm:rounded-xl rounded-lg border border-slate-100 bg-white p-4 shadow-sm sm:p-6">
         <div className="flex items-center justify-between gap-3 border-b border-slate-100 pb-4">
           <div>
             <p className="text-xs font-semibold uppercase tracking-wide text-slate-500">
@@ -120,12 +120,12 @@ export default function OrderSuccess({
 
         {/* Document */}
         <div className="mt-4 flex items-start gap-3 rounded-xl bg-indigo-50 p-3">
-          <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-indigo-100 text-blue-700">
+          <div className="hidden sm:flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-indigo-100 text-blue-700">
             <FileText size={22} />
           </div>
 
           <div className="min-w-0 flex-1">
-            <p className="break-words text-xs font-bold text-blue-950">
+            <p className="wrap-break-words text-xs font-bold text-blue-950">
               {fileName}
             </p>
 
@@ -134,7 +134,7 @@ export default function OrderSuccess({
                 (item) => (
                   <span
                     key={item}
-                    className="rounded bg-white px-2 py-0.5 text-xs font-medium text-slate-600"
+                    className="rounded bg-white px-2 py-0.5 text-[10px] sm:text-xs font-medium text-slate-600"
                   >
                     {item}
                   </span>
@@ -142,12 +142,12 @@ export default function OrderSuccess({
               )}
             </div>
 
-            <p className="mt-2 flex items-center gap-1.5 text-xs text-slate-500">
+            {/* <p className="mt-2 flex items-center gap-1.5 text-xs text-slate-500">
               <Printer size={12} />
               {printType.includes("Duplex")
                 ? "Double-sided printing"
                 : "Printing service"}
-            </p>
+            </p> */}
           </div>
 
           <p className="shrink-0 text-xs font-bold text-slate-900">
@@ -234,7 +234,7 @@ export default function OrderSuccess({
             </div>
           </div>
 
-          <div className="mt-3 flex items-start gap-2 text-xs leading-4 text-slate-500">
+          <div className="mt-3 hidden sm:flex items-start gap-2 text-xs leading-4 text-slate-500">
             <Wallet size={13} className="mt-0.5 shrink-0" />
             <p>
               {paymentLabel}

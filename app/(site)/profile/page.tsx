@@ -71,7 +71,7 @@ export default function ProfilePage() {
 
   return (
     <div className="flex flex-1 flex-col bg-[#f8f8fd]">
-      <main className="mx-auto w-full max-w-330 flex-1 px-5 pb-6 pt-3 lg:px-8">
+      <main className="mx-auto w-full max-w-screen flex-1 p-4 sm:px-5 sm:pb-6 sm:pt-3 lg:px-8">
         <div className="space-y-5">
           <ProfileHeader addressCount={addresses.length} />
 
